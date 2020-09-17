@@ -1,0 +1,19 @@
+<resources>
+    <string name="app_name">VirusGame</string>
+    <string name="btn_start_name">게임시작</string>
+    <string name="btn_how_name">게임방법</string>
+    <string name="how_text">- 마구 섞여 있는 알파벳들을 올바르게\n조합해서 단어를 찾아내어 입력한다.
+        \n\n- 정답을 맞추면 바이러스가 죽고,
+        \n틀렸을 시에는 바이러스가 번식!
+
+        \n\n- 게임 플레이 시간은 100초이며,
+        \n시간이 다 되면 GAME OVER!
+
+        \n\n- 번식한 바이러스의 수가 10개가 되어도 GAME OVER!
+
+        \n\n- 정해진 시간 안에 빠르게 문제를 맞혀서
+        \n최대한 많은 바이러스들을 죽이자!
+
+
+        \n\n* 힌트는 게임당 2번 제공!</string>
+</resources>
