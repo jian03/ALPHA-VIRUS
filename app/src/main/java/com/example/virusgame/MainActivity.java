@@ -38,10 +38,12 @@ public class MainActivity extends AppCompatActivity {
                 //동작 설정
                 switch (v.getId()) {
                     case R.id.button1:
+                        Intent intent = new Intent(getApplicationContext(), GameActivity.class);
+                        startActivity(intent);
                         break;
                     case R.id.button2:
-                        Intent intent = new Intent(getApplicationContext(), HowActivity.class);
-                        startActivity(intent);
+                        Intent intent2 = new Intent(getApplicationContext(), HowActivity.class);
+                        startActivity(intent2);
                         break;
                 }
             }
