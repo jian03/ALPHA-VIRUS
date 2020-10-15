@@ -27,7 +27,7 @@
         android:layout_weight="1"
         android:background="#00FFFFFF"
         android:scaleType="fitCenter"
-        android:src="@drawable/start"
+        android:src="@drawable/startbtn"
         tools:ignore="MissingConstraints" />
 
     <ImageButton
@@ -37,7 +37,7 @@
         android:layout_weight="1"
         android:background="#00FFFFFF"
         android:scaleType="fitCenter"
-        android:src="@drawable/how"
+        android:src="@drawable/howbtn"
         tools:ignore="MissingConstraints" />
 
 

@@ -6,6 +6,8 @@ import android.content.Intent;
 import android.content.pm.ActivityInfo;
 import android.graphics.Color;
 import android.graphics.Typeface;
+import android.media.AudioManager;
+import android.media.SoundPool;
 import android.os.Bundle;
 import android.text.Spannable;
 import android.text.SpannableString;
@@ -20,7 +22,8 @@ import android.widget.ImageButton;
 import android.widget.TextView;
 
 public class MainActivity extends AppCompatActivity {
-
+    SoundPool soundPool;
+    int soundID;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -32,14 +35,19 @@ public class MainActivity extends AppCompatActivity {
 
         ImageButton button1 = (ImageButton) findViewById(R.id.button1);
         ImageButton button2 = (ImageButton) findViewById(R.id.button2);
+
+        soundPool = new SoundPool(1, AudioManager.STREAM_MUSIC, 0);
+        soundID = soundPool.load(this,R.raw.count_sound, 1);
+
         View.OnClickListener listener = new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 //동작 설정
                 switch (v.getId()) {
                     case R.id.button1:
-                        Intent intent = new Intent(getApplicationContext(), GameActivity.class);
-                        startActivity(intent);
+                        Intent intent1 = new Intent(getApplicationContext(), Count3Activity.class);
+                        startActivity(intent1);
+                        soundPool.play(soundID,1f, 1f, 0, 0, 1f);
                         break;
                     case R.id.button2:
                         Intent intent2 = new Intent(getApplicationContext(), HowActivity.class);
