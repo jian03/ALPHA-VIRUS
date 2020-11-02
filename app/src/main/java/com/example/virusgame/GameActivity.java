@@ -2,66 +2,77 @@ package com.example.virusgame;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import android.content.Context;
 import android.content.Intent;
-import android.content.pm.ActivityInfo;
-import android.graphics.Canvas;
-import android.graphics.Paint;
+import android.media.AudioManager;
+import android.media.SoundPool;
 import android.os.Bundle;
 import android.os.CountDownTimer;
-import android.view.View;
+import android.os.Handler;
 import android.view.WindowManager;
+import android.widget.Chronometer;
 import android.widget.TextView;
 
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.List;
+import java.util.Locale;
 
 public class GameActivity extends AppCompatActivity {
-
-    List<String> word = new ArrayList<String>() {{
-        add("apple"); add("like"); add("yellow");
-        add("blue"); add("pen"); add("orange");
-        add("dance"); add("cup"); add("test");
-    }};
-    CountDownTimer countDownTimer;
-    TextView textView;
-
+    TextView count;
+    String conversionTime = "0140";
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_game);
-        setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_SENSOR_PORTRAIT);
+
+        count = findViewById(R.id.timer);
 
         getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
         getSupportActionBar().hide(); //상단바 숨기기
+        countDown(conversionTime);
+    }
+    public void countDown(String time) {
+        long conversionTime = 100000;
+        String getMin = time.substring(0, 2);
+        String getSecond = time.substring(2, 4);
 
-        Collections.shuffle(word);
+        if (getMin.substring(0, 1) == "0") {
+            getMin = getMin.substring(1, 2);
+        }
 
-        new CountDownTimer(100*1000, 1000) {
+        if (getSecond.substring(0, 1) == "0") {
+            getSecond = getSecond.substring(1, 2);
+        }
 
-            @Override
+        // 변환시간
+        conversionTime = Long.valueOf(getMin) * 60 * 1000 + Long.valueOf(getSecond) * 1000;
+
+        // 첫번쨰 인자 : 원하는 시간 (예를들어 30초면 30 x 1000(주기))
+        // 두번쨰 인자 : 주기( 1000 = 1초)
+        new CountDownTimer(conversionTime, 1000) {
+
+            // 특정 시간마다 뷰 변경
             public void onTick(long millisUntilFinished) {
-                textView.setText(""+ millisUntilFinished/1000);
+
+                // 분단위
+                long getMin = millisUntilFinished - (millisUntilFinished / (60 * 60 * 1000)) ;
+                String min = String.valueOf(getMin / (60 * 1000));
+
+                // 초단위
+                String second = String.valueOf((getMin % (60 * 1000)) / 1000);
+
+                if (min.length() == 1) {
+                    min = "0" + min;
+                }
+                if (second.length() == 1) {
+                    second = "0" + second;
+                }
+
+                count.setText(min + ":" + second);
             }
 
-            @Override
+            // 제한시간 종료시
             public void onFinish() {
-                Intent intent = new Intent(GameActivity.this, MainActivity.class);
+                count.setText("TimOver!");
             }
         }.start();
-    }
-
-    class GameView extends View {
-        public GameView(Context context) {
-            super(context);
-        }
-
-        public void onDraw(Canvas canvas) { // 그림을 그려주는 부분
-            int w = getWidth();
-            int h = getHeight();
-            Paint paint = new Paint();
-        }
 
     }
 }

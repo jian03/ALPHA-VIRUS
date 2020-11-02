@@ -10,7 +10,6 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".GameActivity"></activity>
         <activity android:name=".HowActivity" />
         <activity
             android:name=".SplashActivity"
@@ -24,10 +23,8 @@
         </activity>
 
         <activity android:name=".MainActivity" />
-        <activity android:name=".Count3Activity" />
-        <activity android:name=".Count2Activity" />
-        <activity android:name=".Count1Activity" />
-        <activity android:name=".CountStartActivity" />
+        <activity android:name=".CountActivity"/>
+        <activity android:name=".GameActivity"/>
 
     </application>
 
