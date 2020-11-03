@@ -62,6 +62,7 @@ public class HowActivity extends AppCompatActivity {
                     case R.id.redbtn:
                         Intent intent = new Intent(getApplicationContext(), MainActivity.class);
                         startActivity(intent);
+                        overridePendingTransition(0, 0);
                         break;
                 }
             }

@@ -73,10 +73,12 @@ public class MainActivity extends AppCompatActivity {
                 case R.id.button1:
                     Intent intent1 = new Intent(getApplicationContext(), CountActivity.class);
                     startActivity(intent1);
+                    overridePendingTransition(0, 0);
                     break;
                 case R.id.button2:
                     Intent intent2 = new Intent(getApplicationContext(), HowActivity.class);
                     startActivity(intent2);
+                    overridePendingTransition(0, 0);
                     break;
             }
         }
