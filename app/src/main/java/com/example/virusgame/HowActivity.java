@@ -51,7 +51,7 @@ public class HowActivity extends AppCompatActivity {
         getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
         getSupportActionBar().hide(); //상단바 숨기기
 
-        ImageButton redbtn1 = (ImageButton) findViewById(R.id.redbtn);
+        ImageButton playbtn1 = (ImageButton) findViewById(R.id.playbtn);
         View.OnClickListener listener = new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -59,14 +59,14 @@ public class HowActivity extends AppCompatActivity {
                 switch (v.getId()) {
                     case R.id.button1:
                         break;
-                    case R.id.redbtn:
-                        Intent intent = new Intent(getApplicationContext(), MainActivity.class);
+                    case R.id.playbtn:
+                        Intent intent = new Intent(getApplicationContext(), CountActivity.class);
                         startActivity(intent);
                         overridePendingTransition(0, 0);
                         break;
                 }
             }
         };
-        redbtn1.setOnClickListener(listener);
+        playbtn1.setOnClickListener(listener);
     }
 }

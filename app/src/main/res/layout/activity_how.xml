@@ -30,9 +30,8 @@
         android:layout_marginHorizontal="42dp"
         android:lineSpacingExtra="3dp"/>
 
-
     <ImageButton
-        android:id="@+id/redbtn"
+        android:id="@+id/playbtn"
         android:layout_width="wrap_content"
         android:layout_height="0dp"
         android:layout_gravity="bottom|right"
@@ -42,7 +41,7 @@
         android:adjustViewBounds="true"
         android:background="#00FFFFFF"
         android:scaleType="centerInside"
-        app:srcCompat="@drawable/red"
+        app:srcCompat="@drawable/playbtn"
         tools:ignore="MissingConstraints" />
 
 </LinearLayout>
