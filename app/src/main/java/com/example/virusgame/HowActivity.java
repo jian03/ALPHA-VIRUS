@@ -60,7 +60,7 @@ public class HowActivity extends AppCompatActivity {
                     case R.id.button1:
                         break;
                     case R.id.playbtn:
-                        Intent intent = new Intent(getApplicationContext(), CountActivity.class);
+                        Intent intent = new Intent(getApplicationContext(), GameActivity.class);
                         startActivity(intent);
                         overridePendingTransition(0, 0);
                         break;

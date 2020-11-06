@@ -1,3 +1,4 @@
+/*
 package com.example.virusgame;
 
 import androidx.annotation.NonNull;
@@ -49,4 +50,4 @@ public class CountActivity extends AppCompatActivity {
             }
         }
     };
-}
+}*/
