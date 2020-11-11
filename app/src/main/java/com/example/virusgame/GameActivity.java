@@ -12,10 +12,15 @@ import android.os.Handler;
 import android.os.Looper;
 import android.os.Message;
 import android.view.LayoutInflater;
+import android.view.MotionEvent;
 import android.view.View;
+import android.view.ViewGroup;
 import android.view.WindowManager;
+import android.widget.Button;
+import android.widget.FrameLayout;
 import android.widget.ImageButton;
 import android.widget.LinearLayout;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import org.jetbrains.annotations.NotNull;
@@ -23,11 +28,10 @@ import org.jetbrains.annotations.NotNull;
 public class GameActivity extends AppCompatActivity {
     TextView count;
     TextView startcountdown;
-    private int btncount = 0;
-    private int btncount2 = 0;
+    private int btncount = 0, btncount2 = 0;
     private int media_pos;
     private static MediaPlayer mp;
-    ImageButton btnpause, btnsoundon;
+    ImageButton btnpause, btnsoundon, btnclose, btngo, btnrefresh, btnhome;
     TimerThread thread;
     MyThread thread2;
 
@@ -43,20 +47,76 @@ public class GameActivity extends AppCompatActivity {
 
         LayoutInflater inflater = (LayoutInflater)getSystemService(Context.LAYOUT_INFLATER_SERVICE);
         final LinearLayout linear = (LinearLayout)inflater.inflate(R.layout.activity_countdown, null);
-        LinearLayout.LayoutParams paramlinear = new LinearLayout.LayoutParams(
+        final LinearLayout.LayoutParams paramlinear = new LinearLayout.LayoutParams(
                 LinearLayout.LayoutParams.MATCH_PARENT,
                 LinearLayout.LayoutParams.MATCH_PARENT
         );
+        final FrameLayout.LayoutParams paramframe = new FrameLayout.LayoutParams(
+                FrameLayout.LayoutParams.MATCH_PARENT,
+                FrameLayout.LayoutParams.MATCH_PARENT
+        );
         linear.setBackgroundColor(Color.parseColor("#99000000")); // 배경 불투명도 설정
         addContentView(linear, paramlinear);
+        View view = (View)getLayoutInflater().inflate(R.layout.activity_pause, null);
+        final FrameLayout frame = view.findViewById(R.id.frame);
+        frame.setBackgroundColor(Color.parseColor("#99000000"));
 
         count = findViewById(R.id.timer);
         btnpause = findViewById(R.id.btn_pause);
+        btnclose = view.findViewById(R.id.btn_close);
+        btngo = view.findViewById(R.id.btn_go);
+        btnhome = view.findViewById(R.id.btn_home);
+        btnrefresh = view.findViewById(R.id.btn_refresh);
         btnsoundon = findViewById(R.id.btn_soundon);
         startcountdown = (TextView) findViewById(R.id.count3);
 
-        btnpause.setOnClickListener(btnListener);
+        addContentView(frame, paramframe);
+        frame.setVisibility(View.INVISIBLE);
+        btnpause.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                frame.setVisibility(View.VISIBLE);
+                isRun = false;
+                isFirst = false;
+            }
+        });
+        btnclose.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                frame.setVisibility(View.GONE);
+                isRun = true;
+                isFirst = true;
+            }
+        });
+        btngo.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                frame.setVisibility(View.GONE);
+                isRun = true;
+                isFirst = true;
+            }
+        });
+        btnhome.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getApplicationContext(), MainActivity.class);
+                startActivity(intent);
+            }
+        });
+        btnrefresh.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getApplicationContext(), GameActivity.class);
+                startActivity(intent);
+            }
+        });
         btnsoundon.setOnClickListener(btnListener);
+        frame.setOnTouchListener(new View.OnTouchListener() {
+            @Override
+            public boolean onTouch(View v, MotionEvent event) {
+                return true;
+            }
+        });
 
         getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
         getSupportActionBar().hide(); //상단바 숨기기
@@ -64,7 +124,7 @@ public class GameActivity extends AppCompatActivity {
         mp = MediaPlayer.create(this, R.raw.backmusic);
         mp.setLooping(true);
 
-        Thread mThread = new Thread(); // 3 2 1 카운트다운 스레드
+        Thread mThread = new Thread(); // 321
         new Handler().post(new Runnable() {
             @Override
             public void run() {
@@ -73,13 +133,14 @@ public class GameActivity extends AppCompatActivity {
             }
         });
 
-        Thread mThread2 = new Thread(); // 100초 카운트 스레드
+        Thread mThread2 = new Thread(); // 100
         new Handler().postDelayed(new Runnable() {
             @Override
             public void run() {
                 linear.setVisibility(View.GONE);
                 thread2 = new MyThread();
                 thread2.start();
+                mp.start();
             }
         }, 4000); // 4초 뒤에 카운트다운 시작
     }
@@ -88,7 +149,7 @@ public class GameActivity extends AppCompatActivity {
         @Override
         public void onClick(View v) {
             switch (v.getId()) {
-                case R.id.btn_pause:
+                /*case R.id.btn_pause:
                     if(btncount % 2 == 0) { // 일시정지
                         isFirst = false;
                         isRun = false;
@@ -97,6 +158,24 @@ public class GameActivity extends AppCompatActivity {
                     }
                     btncount++;
                     break;
+                case R.id.btn_close:
+                    frame.setVisibility(View.GONE);
+                    isRun = true;
+                    isFirst = true;
+                    break;
+                case R.id.btn_go:
+                    frame.setVisibility(View.GONE);
+                    isRun = true;
+                    isFirst = true;
+                    break;
+                case R.id.btn_home:
+                    Intent intent1 = new Intent(getApplicationContext(), MainActivity.class);
+                    startActivity(intent1);
+                    break;
+                case R.id.btn_refresh:
+                    Intent intent2 = new Intent(getApplicationContext(), GameActivity.class);
+                    startActivity(intent2);
+                    break;*/
                 case R.id.btn_soundon:
                     if(btncount2 % 2 == 0) { // 음소거
                         btnsoundon.setImageResource(R.drawable.soundoff);
@@ -117,7 +196,7 @@ public class GameActivity extends AppCompatActivity {
         @Override
         public void handleMessage(Message msg){
             if(msg.what == 1){
-                count.setText(String.valueOf(msg.arg1));
+                count.setText("Time : "+String.valueOf(msg.arg1));
             }else if (msg.what == 2){
                 count.setText(String.valueOf(msg.obj));
             }
@@ -153,7 +232,6 @@ public class GameActivity extends AppCompatActivity {
 
                             //theread 종료되게 설정
                             loopFlag = false;
-                            mp.start();
                         }
                         Thread.sleep(1000);
                     }

@@ -3,6 +3,7 @@
     package="com.example.virusgame">
 
     <application
+        android:usesCleartextTraffic="true"
         android:allowBackup="true"
         android:background="@drawable/background"
         android:icon="@mipmap/ic_launcher"
@@ -23,7 +24,6 @@
         </activity>
 
         <activity android:name=".MainActivity" />
-        <activity android:name=".CountActivity"/>
         <activity android:name=".GameActivity"/>
 
     </application>
