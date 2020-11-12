@@ -24,7 +24,10 @@
         </activity>
 
         <activity android:name=".MainActivity" />
-        <activity android:name=".GameActivity"/>
+        <activity android:name=".GameActivity"
+            android:windowSoftInputMode="adjustResize">
+
+        </activity>
 
     </application>
 
