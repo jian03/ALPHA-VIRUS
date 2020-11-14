@@ -44,136 +44,725 @@
         android:layout_marginTop="20dp"
         android:gravity="center">
         <ImageView
+            android:id="@+id/v1"
             android:layout_width="60dp"
             android:layout_height="60dp"
             android:src="@drawable/red"
             android:layout_marginRight="15dp"
-            android:visibility="visible"/>
+            android:visibility="invisible"/>
         <ImageView
+            android:id="@+id/v2"
             android:layout_width="60dp"
             android:layout_height="60dp"
             android:src="@drawable/blue"
             android:layout_marginRight="15dp"
-            android:visibility="visible"/>
+            android:visibility="invisible"/>
         <ImageView
+            android:id="@+id/v3"
             android:layout_width="60dp"
             android:layout_height="60dp"
             android:src="@drawable/gray"
             android:layout_marginRight="15dp"
-            android:visibility="visible"/>
+            android:visibility="invisible"/>
         <ImageView
+            android:id="@+id/v4"
             android:layout_width="60dp"
             android:layout_height="60dp"
             android:src="@drawable/red"
             android:layout_marginRight="15dp"
-            android:visibility="visible"/>
+            android:visibility="invisible"/>
         <ImageView
+            android:id="@+id/v5"
             android:layout_width="60dp"
             android:layout_height="60dp"
             android:src="@drawable/purple"
-            android:visibility="visible"/>
+            android:visibility="invisible"/>
     </LinearLayout>
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="85dp"
         android:gravity="center">
         <ImageView
+            android:id="@+id/v6"
             android:layout_width="60dp"
             android:layout_height="60dp"
             android:layout_marginRight="15dp"
             android:src="@drawable/gray"
-            android:visibility="visible"/>
+            android:visibility="invisible"/>
         <ImageView
+            android:id="@+id/v7"
             android:layout_width="60dp"
             android:layout_height="60dp"
             android:layout_marginRight="15dp"
             android:src="@drawable/green"
-            android:visibility="visible"/>
+            android:visibility="invisible"/>
         <ImageView
+            android:id="@+id/v8"
             android:layout_width="60dp"
             android:layout_height="60dp"
             android:layout_marginRight="15dp"
             android:src="@drawable/purple"
-            android:visibility="visible"/>
+            android:visibility="invisible"/>
         <ImageView
+            android:id="@+id/v9"
             android:layout_width="60dp"
             android:layout_height="60dp"
             android:layout_marginRight="15dp"
             android:src="@drawable/blue"
-            android:visibility="visible"/>
+            android:visibility="invisible"/>
         <ImageView
+            android:id="@+id/v10"
             android:layout_width="60dp"
             android:layout_height="60dp"
             android:src="@drawable/yellow"
-            android:visibility="visible"/>
+            android:visibility="invisible"/>
     </LinearLayout>
-    <LinearLayout
+    <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="100dp"
-        android:orientation="horizontal"
-        android:gravity="center">
-        <EditText
-            android:layout_width="274dp"
-            android:layout_height="50dp"
-            android:paddingLeft="20dp"
-            android:paddingBottom="5dp"
-            android:background="@drawable/inputfield"
-            android:hint="정답을 입력해 주세요." />
-        <Button
-            android:id="@+id/answer_btn"
-            android:layout_width="50dp"
-            android:layout_height="50dp"
-            android:background="@drawable/btninput"
-            android:layout_marginLeft="-10dp" />
-    </LinearLayout>
-    <LinearLayout
-        android:id="@+id/q1"
+        android:layout_height="100dp">
+        <LinearLayout
+            android:id="@+id/a1"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="horizontal"
+            android:gravity="center">
+            <EditText
+                android:id="@+id/ae1"
+                android:layout_width="274dp"
+                android:layout_height="50dp"
+                android:paddingLeft="20dp"
+                android:paddingBottom="5dp"
+                android:background="@drawable/inputfield"
+                android:hint="정답을 입력해 주세요." />
+            <Button
+                android:id="@+id/ab1"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:background="@drawable/btninput"
+                android:layout_marginLeft="-10dp" />
+        </LinearLayout>
+        <LinearLayout
+            android:id="@+id/a2"
+            android:visibility="invisible"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="horizontal"
+            android:gravity="center">
+            <EditText
+                android:id="@+id/ae2"
+                android:layout_width="274dp"
+                android:layout_height="50dp"
+                android:paddingLeft="20dp"
+                android:paddingBottom="5dp"
+                android:background="@drawable/inputfield"
+                android:hint="정답을 입력해 주세요." />
+            <Button
+                android:id="@+id/ab2"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:background="@drawable/btninput"
+                android:layout_marginLeft="-10dp" />
+        </LinearLayout>
+        <LinearLayout
+            android:id="@+id/a3"
+            android:visibility="invisible"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="horizontal"
+            android:gravity="center">
+            <EditText
+                android:id="@+id/ae3"
+                android:layout_width="274dp"
+                android:layout_height="50dp"
+                android:paddingLeft="20dp"
+                android:paddingBottom="5dp"
+                android:background="@drawable/inputfield"
+                android:hint="정답을 입력해 주세요." />
+            <Button
+                android:id="@+id/ab3"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:background="@drawable/btninput"
+                android:layout_marginLeft="-10dp" />
+        </LinearLayout>
+        <LinearLayout
+            android:id="@+id/a4"
+            android:visibility="invisible"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="horizontal"
+            android:gravity="center">
+            <EditText
+                android:id="@+id/ae4"
+                android:layout_width="274dp"
+                android:layout_height="50dp"
+                android:paddingLeft="20dp"
+                android:paddingBottom="5dp"
+                android:background="@drawable/inputfield"
+                android:hint="정답을 입력해 주세요." />
+            <Button
+                android:id="@+id/ab4"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:background="@drawable/btninput"
+                android:layout_marginLeft="-10dp" />
+        </LinearLayout>
+        <LinearLayout
+            android:id="@+id/a5"
+            android:visibility="invisible"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="horizontal"
+            android:gravity="center">
+            <EditText
+                android:id="@+id/ae5"
+                android:layout_width="274dp"
+                android:layout_height="50dp"
+                android:paddingLeft="20dp"
+                android:paddingBottom="5dp"
+                android:background="@drawable/inputfield"
+                android:hint="정답을 입력해 주세요." />
+            <Button
+                android:id="@+id/ab5"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:background="@drawable/btninput"
+                android:layout_marginLeft="-10dp" />
+        </LinearLayout>
+        <LinearLayout
+            android:id="@+id/a6"
+            android:visibility="invisible"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="horizontal"
+            android:gravity="center">
+            <EditText
+                android:id="@+id/ae6"
+                android:layout_width="274dp"
+                android:layout_height="50dp"
+                android:paddingLeft="20dp"
+                android:paddingBottom="5dp"
+                android:background="@drawable/inputfield"
+                android:hint="정답을 입력해 주세요." />
+            <Button
+                android:id="@+id/ab6"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:background="@drawable/btninput"
+                android:layout_marginLeft="-10dp" />
+        </LinearLayout>
+        <LinearLayout
+            android:id="@+id/a7"
+            android:visibility="invisible"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="horizontal"
+            android:gravity="center">
+            <EditText
+                android:id="@+id/ae7"
+                android:layout_width="274dp"
+                android:layout_height="50dp"
+                android:paddingLeft="20dp"
+                android:paddingBottom="5dp"
+                android:background="@drawable/inputfield"
+                android:hint="정답을 입력해 주세요." />
+            <Button
+                android:id="@+id/ab7"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:background="@drawable/btninput"
+                android:layout_marginLeft="-10dp" />
+        </LinearLayout>
+        <LinearLayout
+            android:id="@+id/a8"
+            android:visibility="invisible"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="horizontal"
+            android:gravity="center">
+            <EditText
+                android:id="@+id/ae8"
+                android:layout_width="274dp"
+                android:layout_height="50dp"
+                android:paddingLeft="20dp"
+                android:paddingBottom="5dp"
+                android:background="@drawable/inputfield"
+                android:hint="정답을 입력해 주세요." />
+            <Button
+                android:id="@+id/ab8"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:background="@drawable/btninput"
+                android:layout_marginLeft="-10dp" />
+        </LinearLayout>
+        <LinearLayout
+            android:id="@+id/a9"
+            android:visibility="invisible"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="horizontal"
+            android:gravity="center">
+            <EditText
+                android:id="@+id/ae9"
+                android:layout_width="274dp"
+                android:layout_height="50dp"
+                android:paddingLeft="20dp"
+                android:paddingBottom="5dp"
+                android:background="@drawable/inputfield"
+                android:hint="정답을 입력해 주세요." />
+            <Button
+                android:id="@+id/ab9"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:background="@drawable/btninput"
+                android:layout_marginLeft="-10dp" />
+        </LinearLayout>
+        <LinearLayout
+            android:id="@+id/a10"
+            android:visibility="invisible"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="horizontal"
+            android:gravity="center">
+            <EditText
+                android:id="@+id/ae10"
+                android:layout_width="274dp"
+                android:layout_height="50dp"
+                android:paddingLeft="20dp"
+                android:paddingBottom="5dp"
+                android:background="@drawable/inputfield"
+                android:hint="정답을 입력해 주세요." />
+            <Button
+                android:id="@+id/ab10"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:background="@drawable/btninput"
+                android:layout_marginLeft="-10dp" />
+        </LinearLayout>
+    </RelativeLayout>
+    <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_marginTop="20dp"
-        android:visibility="visible" >
-        <ImageView
-            android:layout_width="110dp"
-            android:layout_height="110dp"
-            android:src="@drawable/o_ui"
-            android:layout_marginLeft="20dp"
-            android:visibility="visible" />
-        <ImageView
-            android:layout_width="110dp"
-            android:layout_height="110dp"
-            android:layout_marginTop="120dp"
-            android:layout_marginLeft="-90dp"
-            android:src="@drawable/e_ui"
-            android:visibility="visible" />
-        <ImageView
-            android:layout_width="110dp"
-            android:layout_height="110dp"
-            android:src="@drawable/b_ui"
-            android:layout_marginLeft="20dp"
-            android:layout_marginTop="120dp"
-            android:visibility="visible" />
-        <ImageView
-            android:layout_width="110dp"
-            android:layout_height="110dp"
-            android:layout_marginLeft="-130dp"
-            android:layout_marginTop="-20dp"
-            android:src="@drawable/t_ui"
-            android:visibility="visible" />
-        <ImageView
-            android:layout_width="110dp"
-            android:layout_height="110dp"
-            android:src="@drawable/c_ui"
-            android:layout_marginTop="25dp"
-            android:visibility="visible" />
-        <ImageView
-            android:layout_width="110dp"
-            android:layout_height="110dp"
-            android:layout_marginTop="150dp"
-            android:layout_marginLeft="-80dp"
-            android:src="@drawable/j_ui"
-            android:visibility="visible" />
-
-
-    </LinearLayout>
+        android:layout_height="match_parent">
+        <LinearLayout
+            android:id="@+id/q1"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginTop="20dp"
+            android:visibility="visible" >
+            <ImageView
+                android:layout_width="110dp"
+                android:layout_height="110dp"
+                android:src="@drawable/o_ui"
+                android:layout_marginLeft="20dp"
+                android:visibility="visible" />
+            <ImageView
+                android:layout_width="110dp"
+                android:layout_height="110dp"
+                android:layout_marginTop="120dp"
+                android:layout_marginLeft="-90dp"
+                android:src="@drawable/e_ui"
+                android:visibility="visible" />
+            <ImageView
+                android:layout_width="110dp"
+                android:layout_height="110dp"
+                android:src="@drawable/b_ui"
+                android:layout_marginLeft="20dp"
+                android:layout_marginTop="120dp"
+                android:visibility="visible" />
+            <ImageView
+                android:layout_width="110dp"
+                android:layout_height="110dp"
+                android:layout_marginLeft="-130dp"
+                android:layout_marginTop="-20dp"
+                android:src="@drawable/t_ui"
+                android:visibility="visible" />
+            <ImageView
+                android:layout_width="110dp"
+                android:layout_height="110dp"
+                android:src="@drawable/c_ui"
+                android:layout_marginTop="25dp"
+                android:visibility="visible" />
+            <ImageView
+                android:layout_width="110dp"
+                android:layout_height="110dp"
+                android:layout_marginTop="150dp"
+                android:layout_marginLeft="-80dp"
+                android:src="@drawable/j_ui"
+                android:visibility="visible" />
+        </LinearLayout>
+        <LinearLayout
+            android:id="@+id/q2"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginTop="20dp"
+            android:visibility="invisible" >
+            <ImageView
+                android:layout_width="110dp"
+                android:layout_height="110dp"
+                android:src="@drawable/a_ui"
+                android:layout_marginLeft="0dp"
+                android:visibility="visible" />
+            <ImageView
+                android:layout_width="110dp"
+                android:layout_height="110dp"
+                android:layout_marginTop="100dp"
+                android:layout_marginLeft="-50dp"
+                android:src="@drawable/e_ui"
+                android:visibility="visible" />
+            <ImageView
+                android:layout_width="110dp"
+                android:layout_height="110dp"
+                android:src="@drawable/r_ui"
+                android:layout_marginLeft="20dp"
+                android:layout_marginTop="120dp"
+                android:visibility="visible" />
+            <ImageView
+                android:layout_width="110dp"
+                android:layout_height="110dp"
+                android:layout_marginLeft="-130dp"
+                android:layout_marginTop="-20dp"
+                android:src="@drawable/t_ui"
+                android:visibility="visible" />
+            <ImageView
+                android:layout_width="110dp"
+                android:layout_height="110dp"
+                android:src="@drawable/h_ui"
+                android:layout_marginTop="25dp"
+                android:visibility="visible" />
+        </LinearLayout>
+        <LinearLayout
+            android:id="@+id/q3"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginTop="20dp"
+            android:visibility="invisible" >
+            <ImageView
+                android:layout_width="110dp"
+                android:layout_height="110dp"
+                android:src="@drawable/a_ui"
+                android:layout_marginLeft="0dp"
+                android:visibility="visible" />
+            <ImageView
+                android:layout_width="110dp"
+                android:layout_height="110dp"
+                android:layout_marginTop="100dp"
+                android:layout_marginLeft="-50dp"
+                android:src="@drawable/n_ui"
+                android:visibility="visible" />
+            <ImageView
+                android:layout_width="110dp"
+                android:layout_height="110dp"
+                android:src="@drawable/o_ui"
+                android:layout_marginLeft="20dp"
+                android:layout_marginTop="120dp"
+                android:visibility="visible" />
+            <ImageView
+                android:layout_width="110dp"
+                android:layout_height="110dp"
+                android:layout_marginLeft="-130dp"
+                android:layout_marginTop="-20dp"
+                android:src="@drawable/c_ui"
+                android:visibility="visible" />
+            <ImageView
+                android:layout_width="110dp"
+                android:layout_height="110dp"
+                android:src="@drawable/e_ui"
+                android:layout_marginTop="25dp"
+                android:visibility="visible" />
+        </LinearLayout>
+        <LinearLayout
+            android:id="@+id/q4"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginTop="20dp"
+            android:visibility="invisible" >
+            <ImageView
+                android:layout_width="110dp"
+                android:layout_height="110dp"
+                android:src="@drawable/t_ui"
+                android:layout_marginLeft="0dp"
+                android:visibility="visible" />
+            <ImageView
+                android:layout_width="110dp"
+                android:layout_height="110dp"
+                android:layout_marginTop="100dp"
+                android:layout_marginLeft="-90dp"
+                android:src="@drawable/c_ui"
+                android:visibility="visible" />
+            <ImageView
+                android:layout_width="110dp"
+                android:layout_height="110dp"
+                android:src="@drawable/e_ui"
+                android:layout_marginLeft="20dp"
+                android:layout_marginTop="120dp"
+                android:visibility="visible" />
+            <ImageView
+                android:layout_width="110dp"
+                android:layout_height="110dp"
+                android:layout_marginLeft="-140dp"
+                android:layout_marginTop="-20dp"
+                android:src="@drawable/r_ui"
+                android:visibility="visible" />
+            <ImageView
+                android:layout_width="110dp"
+                android:layout_height="110dp"
+                android:src="@drawable/n_ui"
+                android:layout_marginLeft="-30dp"
+                android:layout_marginTop="25dp"
+                android:visibility="visible" />
+            <ImageView
+                android:layout_width="110dp"
+                android:layout_height="110dp"
+                android:src="@drawable/e_ui"
+                android:layout_marginTop="0dp"
+                android:visibility="visible" />
+        </LinearLayout>
+        <LinearLayout
+            android:id="@+id/q5"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginTop="20dp"
+            android:visibility="invisible" >
+            <ImageView
+                android:layout_width="110dp"
+                android:layout_height="110dp"
+                android:src="@drawable/u_ui"
+                android:layout_marginLeft="10dp"
+                android:visibility="visible" />
+            <ImageView
+                android:layout_width="110dp"
+                android:layout_height="110dp"
+                android:layout_marginTop="100dp"
+                android:layout_marginLeft="0dp"
+                android:src="@drawable/n_ui"
+                android:visibility="visible" />
+            <ImageView
+                android:layout_width="110dp"
+                android:layout_height="110dp"
+                android:src="@drawable/e_ui"
+                android:layout_marginLeft="0dp"
+                android:layout_marginTop="120dp"
+                android:visibility="visible" />
+            <ImageView
+                android:layout_width="110dp"
+                android:layout_height="110dp"
+                android:layout_marginLeft="-250dp"
+                android:layout_marginTop="-20dp"
+                android:src="@drawable/t_ui"
+                android:visibility="visible" />
+            <ImageView
+                android:layout_width="110dp"
+                android:layout_height="110dp"
+                android:src="@drawable/r_ui"
+                android:layout_marginTop="25dp"
+                android:visibility="visible" />
+            <ImageView
+                android:layout_width="110dp"
+                android:layout_height="110dp"
+                android:src="@drawable/h_ui"
+                android:layout_marginTop="10dp"
+                android:visibility="visible" />
+        </LinearLayout>
+        <LinearLayout
+            android:id="@+id/q6"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginTop="20dp"
+            android:visibility="invisible" >
+            <ImageView
+                android:layout_width="110dp"
+                android:layout_height="110dp"
+                android:src="@drawable/e_ui"
+                android:layout_marginLeft="20dp"
+                android:visibility="visible" />
+            <ImageView
+                android:layout_width="110dp"
+                android:layout_height="110dp"
+                android:layout_marginTop="120dp"
+                android:layout_marginLeft="-90dp"
+                android:src="@drawable/s_ui"
+                android:visibility="visible" />
+            <ImageView
+                android:layout_width="110dp"
+                android:layout_height="110dp"
+                android:src="@drawable/e_ui"
+                android:layout_marginLeft="20dp"
+                android:layout_marginTop="120dp"
+                android:visibility="visible" />
+            <ImageView
+                android:layout_width="110dp"
+                android:layout_height="110dp"
+                android:layout_marginLeft="-130dp"
+                android:layout_marginTop="-20dp"
+                android:src="@drawable/p_ui"
+                android:visibility="visible" />
+            <ImageView
+                android:layout_width="110dp"
+                android:layout_height="110dp"
+                android:src="@drawable/h_ui"
+                android:layout_marginTop="25dp"
+                android:visibility="visible" />
+        </LinearLayout>
+        <LinearLayout
+            android:id="@+id/q7"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginTop="20dp"
+            android:visibility="invisible" >
+            <ImageView
+                android:layout_width="110dp"
+                android:layout_height="110dp"
+                android:src="@drawable/c_ui"
+                android:layout_marginLeft="20dp"
+                android:visibility="visible" />
+            <ImageView
+                android:layout_width="110dp"
+                android:layout_height="110dp"
+                android:layout_marginTop="120dp"
+                android:layout_marginLeft="-100dp"
+                android:src="@drawable/i_ui"
+                android:visibility="visible" />
+            <ImageView
+                android:layout_width="110dp"
+                android:layout_height="110dp"
+                android:src="@drawable/e_ui"
+                android:layout_marginLeft="20dp"
+                android:layout_marginTop="150dp"
+                android:visibility="visible" />
+            <ImageView
+                android:layout_width="110dp"
+                android:layout_height="110dp"
+                android:layout_marginLeft="-70dp"
+                android:layout_marginTop="-20dp"
+                android:src="@drawable/p_ui"
+                android:visibility="visible" />
+            <ImageView
+                android:layout_width="110dp"
+                android:layout_height="110dp"
+                android:src="@drawable/e_ui"
+                android:layout_marginTop="25dp"
+                android:visibility="visible" />
+        </LinearLayout>
+        <LinearLayout
+            android:id="@+id/q8"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginTop="20dp"
+            android:visibility="invisible" >
+            <ImageView
+                android:layout_width="110dp"
+                android:layout_height="110dp"
+                android:src="@drawable/e_ui"
+                android:layout_marginLeft="10dp"
+                android:visibility="visible" />
+            <ImageView
+                android:layout_width="110dp"
+                android:layout_height="110dp"
+                android:layout_marginTop="100dp"
+                android:layout_marginLeft="0dp"
+                android:src="@drawable/n_ui"
+                android:visibility="visible" />
+            <ImageView
+                android:layout_width="110dp"
+                android:layout_height="110dp"
+                android:src="@drawable/h_ui"
+                android:layout_marginLeft="0dp"
+                android:layout_marginTop="120dp"
+                android:visibility="visible" />
+            <ImageView
+                android:layout_width="110dp"
+                android:layout_height="110dp"
+                android:layout_marginLeft="-250dp"
+                android:layout_marginTop="-20dp"
+                android:src="@drawable/f_ui"
+                android:visibility="visible" />
+            <ImageView
+                android:layout_width="110dp"
+                android:layout_height="110dp"
+                android:src="@drawable/r_ui"
+                android:layout_marginTop="25dp"
+                android:visibility="visible" />
+            <ImageView
+                android:layout_width="110dp"
+                android:layout_height="110dp"
+                android:src="@drawable/c_ui"
+                android:layout_marginTop="10dp"
+                android:visibility="visible" />
+        </LinearLayout>
+        <LinearLayout
+            android:id="@+id/q9"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginTop="20dp"
+            android:visibility="invisible" >
+            <ImageView
+                android:layout_width="110dp"
+                android:layout_height="110dp"
+                android:src="@drawable/i_ui"
+                android:layout_marginLeft="0dp"
+                android:visibility="visible" />
+            <ImageView
+                android:layout_width="110dp"
+                android:layout_height="110dp"
+                android:layout_marginTop="100dp"
+                android:layout_marginLeft="-50dp"
+                android:src="@drawable/e_ui"
+                android:visibility="visible" />
+            <ImageView
+                android:layout_width="110dp"
+                android:layout_height="110dp"
+                android:src="@drawable/c_ui"
+                android:layout_marginLeft="20dp"
+                android:layout_marginTop="120dp"
+                android:visibility="visible" />
+            <ImageView
+                android:layout_width="110dp"
+                android:layout_height="110dp"
+                android:layout_marginLeft="-130dp"
+                android:layout_marginTop="-20dp"
+                android:src="@drawable/v_ui"
+                android:visibility="visible" />
+            <ImageView
+                android:layout_width="110dp"
+                android:layout_height="110dp"
+                android:src="@drawable/o_ui"
+                android:layout_marginTop="25dp"
+                android:visibility="visible" />
+        </LinearLayout>
+        <LinearLayout
+            android:id="@+id/q10"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginTop="20dp"
+            android:visibility="invisible" >
+            <ImageView
+                android:layout_width="110dp"
+                android:layout_height="110dp"
+                android:src="@drawable/d_ui"
+                android:layout_marginLeft="0dp"
+                android:visibility="visible" />
+            <ImageView
+                android:layout_width="110dp"
+                android:layout_height="110dp"
+                android:layout_marginTop="100dp"
+                android:layout_marginLeft="-50dp"
+                android:src="@drawable/e_ui"
+                android:visibility="visible" />
+            <ImageView
+                android:layout_width="110dp"
+                android:layout_height="110dp"
+                android:src="@drawable/o_ui"
+                android:layout_marginLeft="20dp"
+                android:layout_marginTop="120dp"
+                android:visibility="visible" />
+            <ImageView
+                android:layout_width="110dp"
+                android:layout_height="110dp"
+                android:layout_marginLeft="-130dp"
+                android:layout_marginTop="-20dp"
+                android:src="@drawable/c_ui"
+                android:visibility="visible" />
+        </LinearLayout>
+    </RelativeLayout>
 
 </LinearLayout>

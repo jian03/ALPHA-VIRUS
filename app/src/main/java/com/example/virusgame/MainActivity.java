@@ -69,6 +69,8 @@ public class MainActivity extends AppCompatActivity {
         }
         if (System.currentTimeMillis() <= backKeyPressedTime + 2000) {
             finish();
+            moveTaskToBack(true);						// 태스크를 백그라운드로 이동
+            android.os.Process.killProcess(android.os.Process.myPid());	// 앱 프로세스 종료
         }
     }
 }
