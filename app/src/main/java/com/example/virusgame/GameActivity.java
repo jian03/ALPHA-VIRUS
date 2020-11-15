@@ -38,7 +38,7 @@ public class GameActivity extends AppCompatActivity {
     private int media_pos;
     private static MediaPlayer mp;
     ImageButton btnpause, btnsoundon, btnclose, btngo, btnrefresh, btnhome;
-    LinearLayout q1, q2, q3, q4, q5, q6, q7, q8, q9, q10, q11, q12, q13, q14, q15, q16, q17, q18, q19, q20, lineargameover;
+    LinearLayout q1, q2, q3, q4, q5, q6, q7, q8, q9, q10, q11, q12, q13, q14, q15, q16, q17, q18, q19, q20;
     EditText ae1, ae2, ae3, ae4, ae5, ae6, ae7, ae8, ae9, ae10, ae11, ae12, ae13, ae14, ae15, ae16, ae17, ae18, ae19, ae20;
     Button ab1, ab2, ab3, ab4, ab5, ab6, ab7, ab8, ab9, ab10, ab11, ab12, ab13, ab14, ab15, ab16, ab17, ab18, ab19, ab20, overbtnhome, overbtnrefresh;
     ImageView v1, v2, v3, v4, v5, v6, v7, v8, v9, v10;
@@ -59,7 +59,7 @@ public class GameActivity extends AppCompatActivity {
 
         LayoutInflater inflater = (LayoutInflater)getSystemService(Context.LAYOUT_INFLATER_SERVICE);
         final LinearLayout linear = (LinearLayout)inflater.inflate(R.layout.activity_countdown, null);
-        lineargameover = (LinearLayout)inflater.inflate(R.layout.activity_gameover, null);
+        final LinearLayout lineargameover = (LinearLayout)inflater.inflate(R.layout.activity_gameover, null);
         //final LinearLayout linearnotanswer = (LinearLayout)inflater.inflate(R.layout.activity_notanswer, null);
         //final LinearLayout linearrightanswer = (LinearLayout)inflater.inflate(R.layout.activity_rightanswer, null);
         final LinearLayout.LayoutParams paramlinear = new LinearLayout.LayoutParams(
@@ -76,7 +76,6 @@ public class GameActivity extends AppCompatActivity {
         View view = (View)getLayoutInflater().inflate(R.layout.activity_pause, null);
         final FrameLayout frame = view.findViewById(R.id.frame);
         frame.setBackgroundColor(Color.parseColor("#99000000"));
-        //lineargameover.setBackgroundColor(Color.parseColor("#99000000"));
 
         count = findViewById(R.id.timer);
         btnpause = findViewById(R.id.btn_pause);
@@ -469,7 +468,7 @@ public class GameActivity extends AppCompatActivity {
                             break;
                         } else {
                             v10.setVisibility(View.VISIBLE);
-                            lineargameover.setVisibility(View.VISIBLE);
+                            //lineargameover.setVisibility(View.VISIBLE);
                         }
                     }
                 }
@@ -511,6 +510,12 @@ public class GameActivity extends AppCompatActivity {
                 q1.setVisibility(View.VISIBLE);
             }
         }, 4000); // 4초 뒤에 카운트다운 시작
+        gameovertt = new TimerTask() {
+            @Override
+            public void run() {
+                lineargameover.setVisibility(View.VISIBLE);
+            }
+        };
     }
 
     View.OnClickListener btnListener = new View.OnClickListener() {
@@ -540,7 +545,9 @@ public class GameActivity extends AppCompatActivity {
                 count.setText("Time : "+String.valueOf(msg.arg1));
             }else if (msg.what == 2){
                 // 게임 오버
-                lineargameover.setVisibility(View.VISIBLE);
+                //lineargameover.setVisibility(View.VISIBLE);
+                timer = new Timer();
+                timer.schedule(gameovertt, 0, 3000);
             }
         }
     };
