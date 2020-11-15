@@ -14,6 +14,12 @@ import android.widget.ImageButton;
 import android.widget.Toast;
 
 public class HowActivity extends AppCompatActivity {
+
+    // 마지막으로 뒤로 가기 버튼을 눌렀던 시간 저장
+    private long backKeyPressedTime = 0;
+    // 첫 번째 뒤로 가기 버튼을 누를 때 표시
+    private Toast toast;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -29,8 +35,6 @@ public class HowActivity extends AppCompatActivity {
             public void onClick(View v) {
                 //동작 설정
                 switch (v.getId()) {
-                    case R.id.button1:
-                        break;
                     case R.id.playbtn:
                         Intent intent = new Intent(getApplicationContext(), GameActivity.class);
                         startActivity(intent);

@@ -38,14 +38,14 @@ public class GameActivity extends AppCompatActivity {
     private int media_pos;
     private static MediaPlayer mp;
     ImageButton btnpause, btnsoundon, btnclose, btngo, btnrefresh, btnhome;
-    LinearLayout a1, a2, a3, a4, a5, a6, a7, a8, a9, a10, q1, q2, q3, q4, q5, q6, q7, q8, q9, q10;
-    EditText ae1, ae2, ae3, ae4, ae5, ae6, ae7, ae8, ae9, ae10;
-    Button ab1, ab2, ab3, ab4, ab5, ab6, ab7, ab8, ab9, ab10;
+    LinearLayout q1, q2, q3, q4, q5, q6, q7, q8, q9, q10, q11, q12, q13, q14, q15, q16, q17, q18, q19, q20, lineargameover;
+    EditText ae1, ae2, ae3, ae4, ae5, ae6, ae7, ae8, ae9, ae10, ae11, ae12, ae13, ae14, ae15, ae16, ae17, ae18, ae19, ae20;
+    Button ab1, ab2, ab3, ab4, ab5, ab6, ab7, ab8, ab9, ab10, ab11, ab12, ab13, ab14, ab15, ab16, ab17, ab18, ab19, ab20, overbtnhome, overbtnrefresh;
     ImageView v1, v2, v3, v4, v5, v6, v7, v8, v9, v10;
     TimerThread thread;
     MyThread thread2;
     Timer timer;
-    TimerTask gameovertt, notanswertt, rightanswertt;
+    TimerTask gameovertt;
 
     boolean loopFlag = true;
     boolean isFirst = true;
@@ -59,9 +59,9 @@ public class GameActivity extends AppCompatActivity {
 
         LayoutInflater inflater = (LayoutInflater)getSystemService(Context.LAYOUT_INFLATER_SERVICE);
         final LinearLayout linear = (LinearLayout)inflater.inflate(R.layout.activity_countdown, null);
-        final LinearLayout lineargameover = (LinearLayout)inflater.inflate(R.layout.activity_gameover, null);
-        final LinearLayout linearnotanswer = (LinearLayout)inflater.inflate(R.layout.activity_notanswer, null);
-        final LinearLayout linearrightanswer = (LinearLayout)inflater.inflate(R.layout.activity_rightanswer, null);
+        lineargameover = (LinearLayout)inflater.inflate(R.layout.activity_gameover, null);
+        //final LinearLayout linearnotanswer = (LinearLayout)inflater.inflate(R.layout.activity_notanswer, null);
+        //final LinearLayout linearrightanswer = (LinearLayout)inflater.inflate(R.layout.activity_rightanswer, null);
         final LinearLayout.LayoutParams paramlinear = new LinearLayout.LayoutParams(
                 LinearLayout.LayoutParams.MATCH_PARENT,
                 LinearLayout.LayoutParams.MATCH_PARENT
@@ -71,11 +71,12 @@ public class GameActivity extends AppCompatActivity {
                 FrameLayout.LayoutParams.MATCH_PARENT
         );
         linear.setBackgroundColor(Color.parseColor("#99000000")); // 배경 불투명도 설정
+        lineargameover.setBackgroundColor(Color.parseColor("#99000000"));
         addContentView(linear, paramlinear);
         View view = (View)getLayoutInflater().inflate(R.layout.activity_pause, null);
         final FrameLayout frame = view.findViewById(R.id.frame);
         frame.setBackgroundColor(Color.parseColor("#99000000"));
-        lineargameover.setBackgroundColor(Color.parseColor("#99000000"));
+        //lineargameover.setBackgroundColor(Color.parseColor("#99000000"));
 
         count = findViewById(R.id.timer);
         btnpause = findViewById(R.id.btn_pause);
@@ -85,65 +86,24 @@ public class GameActivity extends AppCompatActivity {
         btnrefresh = view.findViewById(R.id.btn_refresh);
         btnsoundon = findViewById(R.id.btn_soundon);
         startcountdown = findViewById(R.id.count3);
-        v1 = findViewById(R.id.v1); // virus imageView
-        v2 = findViewById(R.id.v2);
-        v3 = findViewById(R.id.v3);
-        v4 = findViewById(R.id.v4);
-        v5 = findViewById(R.id.v5);
-        v6 = findViewById(R.id.v6);
-        v7 = findViewById(R.id.v7);
-        v8 = findViewById(R.id.v8);
-        v9 = findViewById(R.id.v9);
-        v10 = findViewById(R.id.v10);
-        a1 = findViewById(R.id.a1); // answer layout
-        a2 = findViewById(R.id.a2);
-        a3 = findViewById(R.id.a3);
-        a4 = findViewById(R.id.a4);
-        a5 = findViewById(R.id.a5);
-        a6 = findViewById(R.id.a6);
-        a7 = findViewById(R.id.a7);
-        a8 = findViewById(R.id.a8);
-        a9 = findViewById(R.id.a9);
-        a10 = findViewById(R.id.a10);
+
         ae1 = findViewById(R.id.ae1); // answer editText
-        ae2 = findViewById(R.id.ae2);
-        ae3 = findViewById(R.id.ae3);
-        ae4 = findViewById(R.id.ae4);
-        ae5 = findViewById(R.id.ae5);
-        ae6 = findViewById(R.id.ae6);
-        ae7 = findViewById(R.id.ae7);
-        ae8 = findViewById(R.id.ae8);
-        ae9 = findViewById(R.id.ae9);
-        ae10 = findViewById(R.id.ae10);
+        ae2 = findViewById(R.id.ae2);ae3 = findViewById(R.id.ae3);ae4 = findViewById(R.id.ae4);ae5 = findViewById(R.id.ae5);ae6 = findViewById(R.id.ae6);ae7 = findViewById(R.id.ae7);ae8 = findViewById(R.id.ae8);ae9 = findViewById(R.id.ae9);ae10 = findViewById(R.id.ae10);ae11 = findViewById(R.id.ae11);ae12 = findViewById(R.id.ae12);ae13 = findViewById(R.id.ae13);ae14 = findViewById(R.id.ae14);ae15 = findViewById(R.id.ae15);ae16 = findViewById(R.id.ae16);ae17 = findViewById(R.id.ae17);ae18 = findViewById(R.id.ae18);ae19 = findViewById(R.id.ae19);ae20 = findViewById(R.id.ae20);
         ab1 = findViewById(R.id.ab1); // answer button
-        ab2 = findViewById(R.id.ab2);
-        ab3 = findViewById(R.id.ab3);
-        ab4 = findViewById(R.id.ab4);
-        ab5 = findViewById(R.id.ab5);
-        ab6 = findViewById(R.id.ab6);
-        ab7 = findViewById(R.id.ab7);
-        ab8 = findViewById(R.id.ab8);
-        ab9 = findViewById(R.id.ab9);
-        ab10 = findViewById(R.id.ab10);
+        ab2 = findViewById(R.id.ab2);ab3 = findViewById(R.id.ab3);ab4 = findViewById(R.id.ab4);ab5 = findViewById(R.id.ab5);ab6 = findViewById(R.id.ab6);ab7 = findViewById(R.id.ab7);ab8 = findViewById(R.id.ab8);ab9 = findViewById(R.id.ab9);ab10 = findViewById(R.id.ab10);ab11 = findViewById(R.id.ab11);ab12 = findViewById(R.id.ab12);ab13 = findViewById(R.id.ab13);ab14 = findViewById(R.id.ab14);ab15 = findViewById(R.id.ab15);ab16 = findViewById(R.id.ab16);ab17 = findViewById(R.id.ab17);ab18 = findViewById(R.id.ab18);ab19 = findViewById(R.id.ab19);ab20 = findViewById(R.id.ab20);
         q1 = findViewById(R.id.q1); // question layout
-        q2 = findViewById(R.id.q2);
-        q3 = findViewById(R.id.q3);
-        q4 = findViewById(R.id.q4);
-        q5 = findViewById(R.id.q5);
-        q6 = findViewById(R.id.q6);
-        q7 = findViewById(R.id.q7);
-        q8 = findViewById(R.id.q8);
-        q9 = findViewById(R.id.q9);
-        q10 = findViewById(R.id.q10);
+        q2 = findViewById(R.id.q2);q3 = findViewById(R.id.q3);q4 = findViewById(R.id.q4);q5 = findViewById(R.id.q5);q6 = findViewById(R.id.q6);q7 = findViewById(R.id.q7);q8 = findViewById(R.id.q8);q9 = findViewById(R.id.q9);q10 = findViewById(R.id.q10);q11 = findViewById(R.id.q11);q12 = findViewById(R.id.q12);q13 = findViewById(R.id.q13);q14 = findViewById(R.id.q14);q15 = findViewById(R.id.q15);q16 = findViewById(R.id.q16);q17 = findViewById(R.id.q17);q18 = findViewById(R.id.q18);q19 = findViewById(R.id.q19);q20 = findViewById(R.id.q20);
+        v1 = findViewById(R.id.v1); // virus imageView
+        v2 = findViewById(R.id.v2);v3 = findViewById(R.id.v3);v4 = findViewById(R.id.v4);v5 = findViewById(R.id.v5);v6 = findViewById(R.id.v6);v7 = findViewById(R.id.v7);v8 = findViewById(R.id.v8);v9 = findViewById(R.id.v9);v10 = findViewById(R.id.v10);
 
         addContentView(frame, paramframe);
         frame.setVisibility(View.INVISIBLE);
         addContentView(lineargameover, paramlinear);
         lineargameover.setVisibility(View.INVISIBLE);
-        addContentView(linearnotanswer, paramlinear);
+        /*addContentView(linearnotanswer, paramlinear);
         linearnotanswer.setVisibility(View.INVISIBLE);
         addContentView(linearrightanswer, paramlinear);
-        linearrightanswer.setVisibility(View.INVISIBLE);
+        linearrightanswer.setVisibility(View.INVISIBLE);*/
 
         btnpause.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -187,6 +147,24 @@ public class GameActivity extends AppCompatActivity {
                 mp.stop();
             }
         });
+        overbtnhome.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                mp.pause();
+                Intent intent = new Intent(getApplicationContext(), MainActivity.class);
+                startActivity(intent);
+            }
+        });
+
+        overbtnrefresh.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                mp.pause();
+                Intent intent = new Intent(getApplicationContext(), GameActivity.class);
+                startActivity(intent);
+                finish(); //현재 Acticity 종료
+            }
+        });
         ab1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -199,8 +177,6 @@ public class GameActivity extends AppCompatActivity {
                 }
                 q1.setVisibility(View.INVISIBLE);
                 q2.setVisibility(View.VISIBLE);
-                a1.setVisibility(View.INVISIBLE);
-                a2.setVisibility(View.VISIBLE);
             }
         });
         ab2.setOnClickListener(new View.OnClickListener() {
@@ -222,8 +198,6 @@ public class GameActivity extends AppCompatActivity {
                 }
                 q2.setVisibility(View.INVISIBLE);
                 q3.setVisibility(View.VISIBLE);
-                a2.setVisibility(View.INVISIBLE);
-                a3.setVisibility(View.VISIBLE);
             }
         });
         ab3.setOnClickListener(new View.OnClickListener() {
@@ -248,8 +222,6 @@ public class GameActivity extends AppCompatActivity {
                 }
                 q3.setVisibility(View.INVISIBLE);
                 q4.setVisibility(View.VISIBLE);
-                a3.setVisibility(View.INVISIBLE);
-                a4.setVisibility(View.VISIBLE);
             }
         });
         ab4.setOnClickListener(new View.OnClickListener() {
@@ -277,8 +249,6 @@ public class GameActivity extends AppCompatActivity {
                 }
                 q4.setVisibility(View.INVISIBLE);
                 q5.setVisibility(View.VISIBLE);
-                a4.setVisibility(View.INVISIBLE);
-                a5.setVisibility(View.VISIBLE);
             }
         });
         ab5.setOnClickListener(new View.OnClickListener() {
@@ -309,8 +279,6 @@ public class GameActivity extends AppCompatActivity {
                 }
                 q5.setVisibility(View.INVISIBLE);
                 q6.setVisibility(View.VISIBLE);
-                a5.setVisibility(View.INVISIBLE);
-                a6.setVisibility(View.VISIBLE);
             }
         });
         ab6.setOnClickListener(new View.OnClickListener() {
@@ -344,8 +312,6 @@ public class GameActivity extends AppCompatActivity {
                 }
                 q6.setVisibility(View.INVISIBLE);
                 q7.setVisibility(View.VISIBLE);
-                a6.setVisibility(View.INVISIBLE);
-                a7.setVisibility(View.VISIBLE);
             }
         });
         ab7.setOnClickListener(new View.OnClickListener() {
@@ -382,8 +348,6 @@ public class GameActivity extends AppCompatActivity {
                 }
                 q7.setVisibility(View.INVISIBLE);
                 q8.setVisibility(View.VISIBLE);
-                a7.setVisibility(View.INVISIBLE);
-                a8.setVisibility(View.VISIBLE);
             }
         });
         ab8.setOnClickListener(new View.OnClickListener() {
@@ -423,8 +387,6 @@ public class GameActivity extends AppCompatActivity {
                 }
                 q8.setVisibility(View.INVISIBLE);
                 q9.setVisibility(View.VISIBLE);
-                a8.setVisibility(View.INVISIBLE);
-                a9.setVisibility(View.VISIBLE);
             }
         });
         ab9.setOnClickListener(new View.OnClickListener() {
@@ -467,8 +429,6 @@ public class GameActivity extends AppCompatActivity {
                 }
                 q9.setVisibility(View.INVISIBLE);
                 q10.setVisibility(View.VISIBLE);
-                a9.setVisibility(View.INVISIBLE);
-                a10.setVisibility(View.VISIBLE);
             }
         });
         ab10.setOnClickListener(new View.OnClickListener() {
@@ -509,13 +469,12 @@ public class GameActivity extends AppCompatActivity {
                             break;
                         } else {
                             v10.setVisibility(View.VISIBLE);
+                            lineargameover.setVisibility(View.VISIBLE);
                         }
                     }
                 }
                 q10.setVisibility(View.INVISIBLE);
                 //q11.setVisibility(View.VISIBLE);
-                a10.setVisibility(View.INVISIBLE);
-                //a11.setVisibility(View.VISIBLE);
             }
         });
         btnsoundon.setOnClickListener(btnListener);
@@ -534,7 +493,7 @@ public class GameActivity extends AppCompatActivity {
         mp = MediaPlayer.create(this, R.raw.backmusic);
         mp.setLooping(true);
 
-        new Handler().post(new Runnable() {
+        new Handler().post(new Runnable() { // 321
             @Override
             public void run() {
                 thread = new TimerThread();
@@ -542,27 +501,16 @@ public class GameActivity extends AppCompatActivity {
             }
         });
 
-        new Handler().postDelayed(new Runnable() {
+        new Handler().postDelayed(new Runnable() { // 100초
             @Override
             public void run() {
                 linear.setVisibility(View.GONE);
                 thread2 = new MyThread();
                 thread2.start();
                 mp.start();
+                q1.setVisibility(View.VISIBLE);
             }
         }, 4000); // 4초 뒤에 카운트다운 시작
-        gameovertt = new TimerTask() {
-            @Override
-            public void run() {
-                lineargameover.setVisibility(View.VISIBLE);
-            }
-        };
-        notanswertt = new TimerTask() {
-            @Override
-            public void run() {
-                linearnotanswer.setVisibility(View.VISIBLE);
-            }
-        };
     }
 
     View.OnClickListener btnListener = new View.OnClickListener() {
@@ -591,8 +539,8 @@ public class GameActivity extends AppCompatActivity {
             if(msg.what == 1){
                 count.setText("Time : "+String.valueOf(msg.arg1));
             }else if (msg.what == 2){
-                timer = new Timer();
-                timer.schedule(gameovertt, 0, 3000);
+                // 게임 오버
+                lineargameover.setVisibility(View.VISIBLE);
             }
         }
     };
