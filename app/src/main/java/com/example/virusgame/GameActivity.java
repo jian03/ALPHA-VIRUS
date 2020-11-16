@@ -44,8 +44,7 @@ public class GameActivity extends AppCompatActivity {
     ImageView v1, v2, v3, v4, v5, v6, v7, v8, v9, v10;
     TimerThread thread;
     MyThread thread2;
-    Timer timer;
-    TimerTask gameovertt;
+    InputMethodManager mInputMethodManager;
 
     boolean loopFlag = true;
     boolean isFirst = true;
@@ -72,7 +71,7 @@ public class GameActivity extends AppCompatActivity {
         );
         linear.setBackgroundColor(Color.parseColor("#99000000")); // 배경 불투명도 설정
         lineargameover.setBackgroundColor(Color.parseColor("#99000000"));
-        //linearrightanswer.setBackgroundColor(Color.parseColor("#99000000"));
+        //linearrightanswer.setBackgroundColor(Color.parseColor("#00000000"));
         addContentView(linear, paramlinear);
         View view = (View)getLayoutInflater().inflate(R.layout.activity_pause, null);
         final FrameLayout frame = view.findViewById(R.id.frame);
@@ -169,7 +168,7 @@ public class GameActivity extends AppCompatActivity {
         ab1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                InputMethodManager mInputMethodManager = (InputMethodManager)getSystemService(Context.INPUT_METHOD_SERVICE);
+                mInputMethodManager = (InputMethodManager)getSystemService(Context.INPUT_METHOD_SERVICE);
                 mInputMethodManager.hideSoftInputFromWindow(ae1.getWindowToken(), 0); // 키보드 내리기
                 if(ae1.getText().toString().equals("object")) {
                     score += 10;
@@ -183,7 +182,7 @@ public class GameActivity extends AppCompatActivity {
         ab2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                InputMethodManager mInputMethodManager = (InputMethodManager)getSystemService(Context.INPUT_METHOD_SERVICE);
+                mInputMethodManager = (InputMethodManager)getSystemService(Context.INPUT_METHOD_SERVICE);
                 mInputMethodManager.hideSoftInputFromWindow(ae2.getWindowToken(), 0); // 키보드 내리기
                 if(ae2.getText().toString().equals("earth")) {
                     score += 10;
@@ -204,7 +203,7 @@ public class GameActivity extends AppCompatActivity {
         ab3.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                InputMethodManager mInputMethodManager = (InputMethodManager)getSystemService(Context.INPUT_METHOD_SERVICE);
+                mInputMethodManager = (InputMethodManager)getSystemService(Context.INPUT_METHOD_SERVICE);
                 mInputMethodManager.hideSoftInputFromWindow(ae3.getWindowToken(), 0); // 키보드 내리기
                 if(ae3.getText().toString().equals("ocean")) {
                     score += 10;
@@ -228,7 +227,7 @@ public class GameActivity extends AppCompatActivity {
         ab4.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                InputMethodManager mInputMethodManager = (InputMethodManager)getSystemService(Context.INPUT_METHOD_SERVICE);
+                mInputMethodManager = (InputMethodManager)getSystemService(Context.INPUT_METHOD_SERVICE);
                 mInputMethodManager.hideSoftInputFromWindow(ae4.getWindowToken(), 0); // 키보드 내리기
                 if(ae4.getText().toString().equals("center") || ae4.getText().toString().equals("recent")) {
                     score += 10;
@@ -255,7 +254,7 @@ public class GameActivity extends AppCompatActivity {
         ab5.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                InputMethodManager mInputMethodManager = (InputMethodManager)getSystemService(Context.INPUT_METHOD_SERVICE);
+                mInputMethodManager = (InputMethodManager)getSystemService(Context.INPUT_METHOD_SERVICE);
                 mInputMethodManager.hideSoftInputFromWindow(ae5.getWindowToken(), 0); // 키보드 내리기
                 if(ae5.getText().toString().equals("hunter")) {
                     score += 10;
@@ -285,7 +284,7 @@ public class GameActivity extends AppCompatActivity {
         ab6.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                InputMethodManager mInputMethodManager = (InputMethodManager)getSystemService(Context.INPUT_METHOD_SERVICE);
+                mInputMethodManager = (InputMethodManager)getSystemService(Context.INPUT_METHOD_SERVICE);
                 mInputMethodManager.hideSoftInputFromWindow(ae6.getWindowToken(), 0); // 키보드 내리기
                 if(ae6.getText().toString().equals("sheep")) {
                     score += 10;
@@ -318,7 +317,7 @@ public class GameActivity extends AppCompatActivity {
         ab7.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                InputMethodManager mInputMethodManager = (InputMethodManager)getSystemService(Context.INPUT_METHOD_SERVICE);
+                mInputMethodManager = (InputMethodManager)getSystemService(Context.INPUT_METHOD_SERVICE);
                 mInputMethodManager.hideSoftInputFromWindow(ae7.getWindowToken(), 0); // 키보드 내리기
                 if(ae7.getText().toString().equals("piece")) {
                     score += 10;
@@ -354,7 +353,7 @@ public class GameActivity extends AppCompatActivity {
         ab8.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                InputMethodManager mInputMethodManager = (InputMethodManager)getSystemService(Context.INPUT_METHOD_SERVICE);
+                mInputMethodManager = (InputMethodManager)getSystemService(Context.INPUT_METHOD_SERVICE);
                 mInputMethodManager.hideSoftInputFromWindow(ae8.getWindowToken(), 0); // 키보드 내리기
                 if(ae8.getText().toString().equals("french")) {
                     score += 10;
@@ -393,7 +392,7 @@ public class GameActivity extends AppCompatActivity {
         ab9.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                InputMethodManager mInputMethodManager = (InputMethodManager)getSystemService(Context.INPUT_METHOD_SERVICE);
+                mInputMethodManager = (InputMethodManager)getSystemService(Context.INPUT_METHOD_SERVICE);
                 mInputMethodManager.hideSoftInputFromWindow(ae9.getWindowToken(), 0); // 키보드 내리기
                 if(ae9.getText().toString().equals("voice")) {
                     score += 10;
@@ -435,7 +434,7 @@ public class GameActivity extends AppCompatActivity {
         ab10.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                InputMethodManager mInputMethodManager = (InputMethodManager)getSystemService(Context.INPUT_METHOD_SERVICE);
+                mInputMethodManager = (InputMethodManager)getSystemService(Context.INPUT_METHOD_SERVICE);
                 mInputMethodManager.hideSoftInputFromWindow(ae10.getWindowToken(), 0); // 키보드 내리기
                 if(ae10.getText().toString().equals("code")) {
                     score += 10;
@@ -493,7 +492,7 @@ public class GameActivity extends AppCompatActivity {
         ab11.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                InputMethodManager mInputMethodManager = (InputMethodManager)getSystemService(Context.INPUT_METHOD_SERVICE);
+                mInputMethodManager = (InputMethodManager)getSystemService(Context.INPUT_METHOD_SERVICE);
                 mInputMethodManager.hideSoftInputFromWindow(ae11.getWindowToken(), 0); // 키보드 내리기
                 if(ae11.getText().toString().equals("mars")) {
                     score += 10;
@@ -551,7 +550,7 @@ public class GameActivity extends AppCompatActivity {
         ab12.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                InputMethodManager mInputMethodManager = (InputMethodManager)getSystemService(Context.INPUT_METHOD_SERVICE);
+                mInputMethodManager = (InputMethodManager)getSystemService(Context.INPUT_METHOD_SERVICE);
                 mInputMethodManager.hideSoftInputFromWindow(ae12.getWindowToken(), 0); // 키보드 내리기
                 if(ae12.getText().toString().equals("fruit")) {
                     score += 10;
@@ -609,7 +608,7 @@ public class GameActivity extends AppCompatActivity {
         ab13.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                InputMethodManager mInputMethodManager = (InputMethodManager)getSystemService(Context.INPUT_METHOD_SERVICE);
+                mInputMethodManager = (InputMethodManager)getSystemService(Context.INPUT_METHOD_SERVICE);
                 mInputMethodManager.hideSoftInputFromWindow(ae13.getWindowToken(), 0); // 키보드 내리기
                 if(ae13.getText().toString().equals("mouse")) {
                     score += 10;
@@ -667,7 +666,7 @@ public class GameActivity extends AppCompatActivity {
         ab14.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                InputMethodManager mInputMethodManager = (InputMethodManager)getSystemService(Context.INPUT_METHOD_SERVICE);
+                mInputMethodManager = (InputMethodManager)getSystemService(Context.INPUT_METHOD_SERVICE);
                 mInputMethodManager.hideSoftInputFromWindow(ae14.getWindowToken(), 0); // 키보드 내리기
                 if(ae14.getText().toString().equals("plane")) {
                     score += 10;
@@ -725,7 +724,7 @@ public class GameActivity extends AppCompatActivity {
         ab15.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                InputMethodManager mInputMethodManager = (InputMethodManager)getSystemService(Context.INPUT_METHOD_SERVICE);
+                mInputMethodManager = (InputMethodManager)getSystemService(Context.INPUT_METHOD_SERVICE);
                 mInputMethodManager.hideSoftInputFromWindow(ae15.getWindowToken(), 0); // 키보드 내리기
                 if(ae15.getText().toString().equals("weather")) {
                     score += 10;
@@ -783,7 +782,7 @@ public class GameActivity extends AppCompatActivity {
         ab16.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                InputMethodManager mInputMethodManager = (InputMethodManager)getSystemService(Context.INPUT_METHOD_SERVICE);
+                mInputMethodManager = (InputMethodManager)getSystemService(Context.INPUT_METHOD_SERVICE);
                 mInputMethodManager.hideSoftInputFromWindow(ae16.getWindowToken(), 0); // 키보드 내리기
                 if(ae16.getText().toString().equals("phone")) {
                     score += 10;
@@ -841,7 +840,7 @@ public class GameActivity extends AppCompatActivity {
         ab17.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                InputMethodManager mInputMethodManager = (InputMethodManager)getSystemService(Context.INPUT_METHOD_SERVICE);
+                mInputMethodManager = (InputMethodManager)getSystemService(Context.INPUT_METHOD_SERVICE);
                 mInputMethodManager.hideSoftInputFromWindow(ae17.getWindowToken(), 0); // 키보드 내리기
                 if(ae17.getText().toString().equals("puzzle")) {
                     score += 10;
@@ -899,7 +898,7 @@ public class GameActivity extends AppCompatActivity {
         ab18.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                InputMethodManager mInputMethodManager = (InputMethodManager)getSystemService(Context.INPUT_METHOD_SERVICE);
+                mInputMethodManager = (InputMethodManager)getSystemService(Context.INPUT_METHOD_SERVICE);
                 mInputMethodManager.hideSoftInputFromWindow(ae18.getWindowToken(), 0); // 키보드 내리기
                 if(ae18.getText().toString().equals("camera")) {
                     score += 10;
@@ -957,7 +956,7 @@ public class GameActivity extends AppCompatActivity {
         ab19.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                InputMethodManager mInputMethodManager = (InputMethodManager)getSystemService(Context.INPUT_METHOD_SERVICE);
+                mInputMethodManager = (InputMethodManager)getSystemService(Context.INPUT_METHOD_SERVICE);
                 mInputMethodManager.hideSoftInputFromWindow(ae19.getWindowToken(), 0); // 키보드 내리기
                 if(ae19.getText().toString().equals("program")) {
                     score += 10;
@@ -1015,7 +1014,7 @@ public class GameActivity extends AppCompatActivity {
         ab20.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                InputMethodManager mInputMethodManager = (InputMethodManager)getSystemService(Context.INPUT_METHOD_SERVICE);
+                mInputMethodManager = (InputMethodManager)getSystemService(Context.INPUT_METHOD_SERVICE);
                 mInputMethodManager.hideSoftInputFromWindow(ae20.getWindowToken(), 0); // 키보드 내리기
                 if(ae20.getText().toString().equals("pencil")) {
                     score += 10;
@@ -1072,6 +1071,12 @@ public class GameActivity extends AppCompatActivity {
             @Override
             public boolean onTouch(View v, MotionEvent event) {
                 return true; // 터치 막기
+            }
+        });
+        lineargameover.setOnTouchListener(new View.OnTouchListener() {
+            @Override
+            public boolean onTouch(View v, MotionEvent event) {
+                return true;
             }
         });
 
@@ -1131,10 +1136,28 @@ public class GameActivity extends AppCompatActivity {
                 count.setText("Time : "+String.valueOf(msg.arg1));
             }else if (msg.what == 2){
                 // 게임 오버
+                mInputMethodManager = (InputMethodManager)getSystemService(Context.INPUT_METHOD_SERVICE);
+                mInputMethodManager.hideSoftInputFromWindow(ae1.getWindowToken(), 0); // 키보드 내리기
+                mInputMethodManager.hideSoftInputFromWindow(ae2.getWindowToken(), 0); // 키보드 내리기
+                mInputMethodManager.hideSoftInputFromWindow(ae3.getWindowToken(), 0); // 키보드 내리기
+                mInputMethodManager.hideSoftInputFromWindow(ae4.getWindowToken(), 0); // 키보드 내리기
+                mInputMethodManager.hideSoftInputFromWindow(ae5.getWindowToken(), 0); // 키보드 내리기
+                mInputMethodManager.hideSoftInputFromWindow(ae6.getWindowToken(), 0); // 키보드 내리기
+                mInputMethodManager.hideSoftInputFromWindow(ae7.getWindowToken(), 0); // 키보드 내리기
+                mInputMethodManager.hideSoftInputFromWindow(ae8.getWindowToken(), 0); // 키보드 내리기
+                mInputMethodManager.hideSoftInputFromWindow(ae10.getWindowToken(), 0); // 키보드 내리기
+                mInputMethodManager.hideSoftInputFromWindow(ae11.getWindowToken(), 0); // 키보드 내리기
+                mInputMethodManager.hideSoftInputFromWindow(ae12.getWindowToken(), 0); // 키보드 내리기
+                mInputMethodManager.hideSoftInputFromWindow(ae13.getWindowToken(), 0); // 키보드 내리기
+                mInputMethodManager.hideSoftInputFromWindow(ae14.getWindowToken(), 0); // 키보드 내리기
+                mInputMethodManager.hideSoftInputFromWindow(ae15.getWindowToken(), 0); // 키보드 내리기
+                mInputMethodManager.hideSoftInputFromWindow(ae16.getWindowToken(), 0); // 키보드 내리기
+                mInputMethodManager.hideSoftInputFromWindow(ae17.getWindowToken(), 0); // 키보드 내리기
+                mInputMethodManager.hideSoftInputFromWindow(ae18.getWindowToken(), 0); // 키보드 내리기
+                mInputMethodManager.hideSoftInputFromWindow(ae19.getWindowToken(), 0); // 키보드 내리기
+                mInputMethodManager.hideSoftInputFromWindow(ae20.getWindowToken(), 0); // 키보드 내리기
                 finalscore.setText("SCORE : " + String.valueOf(score));
                 lineargameover.setVisibility(View.VISIBLE);
-                /*timer = new Timer();
-                timer.schedule(gameovertt, 0, 3000);*/
             }
         }
     };
@@ -1180,7 +1203,7 @@ public class GameActivity extends AppCompatActivity {
     class MyThread extends Thread {
         public void run() {
             try{
-                int countDown=11; // 100+1초 동안
+                int countDown=101; // 100+1초 동안
                 loopFlag = true;
                 while (loopFlag){ // true
                     if (isRun) {
