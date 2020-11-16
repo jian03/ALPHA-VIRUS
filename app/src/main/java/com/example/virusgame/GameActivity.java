@@ -33,11 +33,11 @@ import java.util.TimerTask;
 
 public class GameActivity extends AppCompatActivity {
     TextView count, finalscore;
-    TextView startcountdown;
-    private int btncount2 = 0, score = 0;
+    TextView startcountdown, hinttext;
+    private int btncount2 = 0, score = 0, hintcount = 0;
     private int media_pos;
     private static MediaPlayer mp;
-    ImageButton btnpause, btnsoundon, btnclose, btngo, btnrefresh, btnhome;
+    ImageButton btnpause, btnsoundon, btnclose, btngo, btnrefresh, btnhome, btnhint;
     LinearLayout q1, q2, q3, q4, q5, q6, q7, q8, q9, q10, q11, q12, q13, q14, q15, q16, q17, q18, q19, q20, lineargameover;
     EditText ae1, ae2, ae3, ae4, ae5, ae6, ae7, ae8, ae9, ae10, ae11, ae12, ae13, ae14, ae15, ae16, ae17, ae18, ae19, ae20;
     Button ab1, ab2, ab3, ab4, ab5, ab6, ab7, ab8, ab9, ab10, ab11, ab12, ab13, ab14, ab15, ab16, ab17, ab18, ab19, ab20, overbtnhome, overbtnrefresh;
@@ -84,10 +84,12 @@ public class GameActivity extends AppCompatActivity {
         btnhome = view.findViewById(R.id.btn_home);
         btnrefresh = view.findViewById(R.id.btn_refresh);
         btnsoundon = findViewById(R.id.btn_soundon);
+        btnhint = findViewById(R.id.btn_hint);
         startcountdown = findViewById(R.id.count3);
         overbtnhome = lineargameover.findViewById(R.id.overbtnhome);
         overbtnrefresh = lineargameover.findViewById(R.id.overbtnrefresh);
         finalscore = lineargameover.findViewById(R.id.finalscore);
+        hinttext = findViewById(R.id.hint_text);
 
         ae1 = findViewById(R.id.ae1); // answer editText
         ae2 = findViewById(R.id.ae2);ae3 = findViewById(R.id.ae3);ae4 = findViewById(R.id.ae4);ae5 = findViewById(R.id.ae5);ae6 = findViewById(R.id.ae6);ae7 = findViewById(R.id.ae7);ae8 = findViewById(R.id.ae8);ae9 = findViewById(R.id.ae9);ae10 = findViewById(R.id.ae10);ae11 = findViewById(R.id.ae11);ae12 = findViewById(R.id.ae12);ae13 = findViewById(R.id.ae13);ae14 = findViewById(R.id.ae14);ae15 = findViewById(R.id.ae15);ae16 = findViewById(R.id.ae16);ae17 = findViewById(R.id.ae17);ae18 = findViewById(R.id.ae18);ae19 = findViewById(R.id.ae19);ae20 = findViewById(R.id.ae20);
@@ -165,11 +167,13 @@ public class GameActivity extends AppCompatActivity {
                 finish(); //현재 Acticity 종료
             }
         });
+
         ab1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 mInputMethodManager = (InputMethodManager)getSystemService(Context.INPUT_METHOD_SERVICE);
                 mInputMethodManager.hideSoftInputFromWindow(ae1.getWindowToken(), 0); // 키보드 내리기
+                hinttext.setVisibility(View.INVISIBLE);
                 if(ae1.getText().toString().equals("object")) {
                     score += 10;
                 } else {
@@ -184,6 +188,7 @@ public class GameActivity extends AppCompatActivity {
             public void onClick(View v) {
                 mInputMethodManager = (InputMethodManager)getSystemService(Context.INPUT_METHOD_SERVICE);
                 mInputMethodManager.hideSoftInputFromWindow(ae2.getWindowToken(), 0); // 키보드 내리기
+                hinttext.setVisibility(View.INVISIBLE);
                 if(ae2.getText().toString().equals("earth")) {
                     score += 10;
                 } else {
@@ -205,6 +210,7 @@ public class GameActivity extends AppCompatActivity {
             public void onClick(View v) {
                 mInputMethodManager = (InputMethodManager)getSystemService(Context.INPUT_METHOD_SERVICE);
                 mInputMethodManager.hideSoftInputFromWindow(ae3.getWindowToken(), 0); // 키보드 내리기
+                hinttext.setVisibility(View.INVISIBLE);
                 if(ae3.getText().toString().equals("ocean")) {
                     score += 10;
                 } else {
@@ -229,6 +235,7 @@ public class GameActivity extends AppCompatActivity {
             public void onClick(View v) {
                 mInputMethodManager = (InputMethodManager)getSystemService(Context.INPUT_METHOD_SERVICE);
                 mInputMethodManager.hideSoftInputFromWindow(ae4.getWindowToken(), 0); // 키보드 내리기
+                hinttext.setVisibility(View.INVISIBLE);
                 if(ae4.getText().toString().equals("center") || ae4.getText().toString().equals("recent")) {
                     score += 10;
                 } else {
@@ -256,6 +263,7 @@ public class GameActivity extends AppCompatActivity {
             public void onClick(View v) {
                 mInputMethodManager = (InputMethodManager)getSystemService(Context.INPUT_METHOD_SERVICE);
                 mInputMethodManager.hideSoftInputFromWindow(ae5.getWindowToken(), 0); // 키보드 내리기
+                hinttext.setVisibility(View.INVISIBLE);
                 if(ae5.getText().toString().equals("hunter")) {
                     score += 10;
                 } else {
@@ -286,6 +294,7 @@ public class GameActivity extends AppCompatActivity {
             public void onClick(View v) {
                 mInputMethodManager = (InputMethodManager)getSystemService(Context.INPUT_METHOD_SERVICE);
                 mInputMethodManager.hideSoftInputFromWindow(ae6.getWindowToken(), 0); // 키보드 내리기
+                hinttext.setVisibility(View.INVISIBLE);
                 if(ae6.getText().toString().equals("sheep")) {
                     score += 10;
                 } else {
@@ -319,6 +328,7 @@ public class GameActivity extends AppCompatActivity {
             public void onClick(View v) {
                 mInputMethodManager = (InputMethodManager)getSystemService(Context.INPUT_METHOD_SERVICE);
                 mInputMethodManager.hideSoftInputFromWindow(ae7.getWindowToken(), 0); // 키보드 내리기
+                hinttext.setVisibility(View.INVISIBLE);
                 if(ae7.getText().toString().equals("piece")) {
                     score += 10;
                 } else {
@@ -355,6 +365,7 @@ public class GameActivity extends AppCompatActivity {
             public void onClick(View v) {
                 mInputMethodManager = (InputMethodManager)getSystemService(Context.INPUT_METHOD_SERVICE);
                 mInputMethodManager.hideSoftInputFromWindow(ae8.getWindowToken(), 0); // 키보드 내리기
+                hinttext.setVisibility(View.INVISIBLE);
                 if(ae8.getText().toString().equals("french")) {
                     score += 10;
                 } else {
@@ -394,6 +405,7 @@ public class GameActivity extends AppCompatActivity {
             public void onClick(View v) {
                 mInputMethodManager = (InputMethodManager)getSystemService(Context.INPUT_METHOD_SERVICE);
                 mInputMethodManager.hideSoftInputFromWindow(ae9.getWindowToken(), 0); // 키보드 내리기
+                hinttext.setVisibility(View.INVISIBLE);
                 if(ae9.getText().toString().equals("voice")) {
                     score += 10;
                 } else {
@@ -436,6 +448,7 @@ public class GameActivity extends AppCompatActivity {
             public void onClick(View v) {
                 mInputMethodManager = (InputMethodManager)getSystemService(Context.INPUT_METHOD_SERVICE);
                 mInputMethodManager.hideSoftInputFromWindow(ae10.getWindowToken(), 0); // 키보드 내리기
+                hinttext.setVisibility(View.INVISIBLE);
                 if(ae10.getText().toString().equals("code")) {
                     score += 10;
                 } else {
@@ -494,6 +507,7 @@ public class GameActivity extends AppCompatActivity {
             public void onClick(View v) {
                 mInputMethodManager = (InputMethodManager)getSystemService(Context.INPUT_METHOD_SERVICE);
                 mInputMethodManager.hideSoftInputFromWindow(ae11.getWindowToken(), 0); // 키보드 내리기
+                hinttext.setVisibility(View.INVISIBLE);
                 if(ae11.getText().toString().equals("mars")) {
                     score += 10;
                 } else {
@@ -552,6 +566,7 @@ public class GameActivity extends AppCompatActivity {
             public void onClick(View v) {
                 mInputMethodManager = (InputMethodManager)getSystemService(Context.INPUT_METHOD_SERVICE);
                 mInputMethodManager.hideSoftInputFromWindow(ae12.getWindowToken(), 0); // 키보드 내리기
+                hinttext.setVisibility(View.INVISIBLE);
                 if(ae12.getText().toString().equals("fruit")) {
                     score += 10;
                 } else {
@@ -610,6 +625,7 @@ public class GameActivity extends AppCompatActivity {
             public void onClick(View v) {
                 mInputMethodManager = (InputMethodManager)getSystemService(Context.INPUT_METHOD_SERVICE);
                 mInputMethodManager.hideSoftInputFromWindow(ae13.getWindowToken(), 0); // 키보드 내리기
+                hinttext.setVisibility(View.INVISIBLE);
                 if(ae13.getText().toString().equals("mouse")) {
                     score += 10;
                 } else {
@@ -668,6 +684,7 @@ public class GameActivity extends AppCompatActivity {
             public void onClick(View v) {
                 mInputMethodManager = (InputMethodManager)getSystemService(Context.INPUT_METHOD_SERVICE);
                 mInputMethodManager.hideSoftInputFromWindow(ae14.getWindowToken(), 0); // 키보드 내리기
+                hinttext.setVisibility(View.INVISIBLE);
                 if(ae14.getText().toString().equals("plane")) {
                     score += 10;
                 } else {
@@ -726,6 +743,7 @@ public class GameActivity extends AppCompatActivity {
             public void onClick(View v) {
                 mInputMethodManager = (InputMethodManager)getSystemService(Context.INPUT_METHOD_SERVICE);
                 mInputMethodManager.hideSoftInputFromWindow(ae15.getWindowToken(), 0); // 키보드 내리기
+                hinttext.setVisibility(View.INVISIBLE);
                 if(ae15.getText().toString().equals("weather")) {
                     score += 10;
                 } else {
@@ -784,6 +802,7 @@ public class GameActivity extends AppCompatActivity {
             public void onClick(View v) {
                 mInputMethodManager = (InputMethodManager)getSystemService(Context.INPUT_METHOD_SERVICE);
                 mInputMethodManager.hideSoftInputFromWindow(ae16.getWindowToken(), 0); // 키보드 내리기
+                hinttext.setVisibility(View.INVISIBLE);
                 if(ae16.getText().toString().equals("phone")) {
                     score += 10;
                 } else {
@@ -842,6 +861,7 @@ public class GameActivity extends AppCompatActivity {
             public void onClick(View v) {
                 mInputMethodManager = (InputMethodManager)getSystemService(Context.INPUT_METHOD_SERVICE);
                 mInputMethodManager.hideSoftInputFromWindow(ae17.getWindowToken(), 0); // 키보드 내리기
+                hinttext.setVisibility(View.INVISIBLE);
                 if(ae17.getText().toString().equals("puzzle")) {
                     score += 10;
                 } else {
@@ -900,6 +920,7 @@ public class GameActivity extends AppCompatActivity {
             public void onClick(View v) {
                 mInputMethodManager = (InputMethodManager)getSystemService(Context.INPUT_METHOD_SERVICE);
                 mInputMethodManager.hideSoftInputFromWindow(ae18.getWindowToken(), 0); // 키보드 내리기
+                hinttext.setVisibility(View.INVISIBLE);
                 if(ae18.getText().toString().equals("camera")) {
                     score += 10;
                 } else {
@@ -958,6 +979,7 @@ public class GameActivity extends AppCompatActivity {
             public void onClick(View v) {
                 mInputMethodManager = (InputMethodManager)getSystemService(Context.INPUT_METHOD_SERVICE);
                 mInputMethodManager.hideSoftInputFromWindow(ae19.getWindowToken(), 0); // 키보드 내리기
+                hinttext.setVisibility(View.INVISIBLE);
                 if(ae19.getText().toString().equals("program")) {
                     score += 10;
                 } else {
@@ -1016,6 +1038,7 @@ public class GameActivity extends AppCompatActivity {
             public void onClick(View v) {
                 mInputMethodManager = (InputMethodManager)getSystemService(Context.INPUT_METHOD_SERVICE);
                 mInputMethodManager.hideSoftInputFromWindow(ae20.getWindowToken(), 0); // 키보드 내리기
+                hinttext.setVisibility(View.INVISIBLE);
                 if(ae20.getText().toString().equals("pencil")) {
                     score += 10;
                 } else {
@@ -1124,6 +1147,72 @@ public class GameActivity extends AppCompatActivity {
                         mp.start();
                     }
                     btncount2++;
+                    break;
+                case R.id.btn_hint:
+                    if(hintcount >= 2) {
+                        btnhint.setEnabled(false);
+                    } else if(q1.getVisibility() == View.VISIBLE) {
+                        hinttext.setText("사물");
+                        hinttext.setVisibility(View.VISIBLE);
+                    } else if(q2.getVisibility() == View.VISIBLE) {
+                        hinttext.setText("지구");
+                        hinttext.setVisibility(View.VISIBLE);
+                    } else if(q3.getVisibility() == View.VISIBLE) {
+                        hinttext.setText("대양");
+                        hinttext.setVisibility(View.VISIBLE);
+                    } else if(q4.getVisibility() == View.VISIBLE) {
+                        hinttext.setText("중심");
+                        hinttext.setVisibility(View.VISIBLE);
+                    } else if(q5.getVisibility() == View.VISIBLE) {
+                        hinttext.setText("사냥꾼");
+                        hinttext.setVisibility(View.VISIBLE);
+                    } else if(q6.getVisibility() == View.VISIBLE) {
+                        hinttext.setText("양");
+                        hinttext.setVisibility(View.VISIBLE);
+                    } else if(q7.getVisibility() == View.VISIBLE) {
+                        hinttext.setText("조각");
+                        hinttext.setVisibility(View.VISIBLE);
+                    } else if(q8.getVisibility() == View.VISIBLE) {
+                        hinttext.setText("프랑스어");
+                        hinttext.setVisibility(View.VISIBLE);
+                    } else if(q9.getVisibility() == View.VISIBLE) {
+                        hinttext.setText("목소리");
+                        hinttext.setVisibility(View.VISIBLE);
+                    } else if(q10.getVisibility() == View.VISIBLE) {
+                        hinttext.setText("코드");
+                        hinttext.setVisibility(View.VISIBLE);
+                    } else if(q11.getVisibility() == View.VISIBLE) {
+                        hinttext.setText("화성");
+                        hinttext.setVisibility(View.VISIBLE);
+                    } else if(q12.getVisibility() == View.VISIBLE) {
+                        hinttext.setText("과일");
+                        hinttext.setVisibility(View.VISIBLE);
+                    } else if(q13.getVisibility() == View.VISIBLE) {
+                        hinttext.setText("쥐");
+                        hinttext.setVisibility(View.VISIBLE);
+                    } else if(q14.getVisibility() == View.VISIBLE) {
+                        hinttext.setText("비행기");
+                        hinttext.setVisibility(View.VISIBLE);
+                    } else if(q15.getVisibility() == View.VISIBLE) {
+                        hinttext.setText("날씨");
+                        hinttext.setVisibility(View.VISIBLE);
+                    } else if(q16.getVisibility() == View.VISIBLE) {
+                        hinttext.setText("휴대전화");
+                        hinttext.setVisibility(View.VISIBLE);
+                    } else if(q17.getVisibility() == View.VISIBLE) {
+                        hinttext.setText("퍼즐");
+                        hinttext.setVisibility(View.VISIBLE);
+                    } else if(q18.getVisibility() == View.VISIBLE) {
+                        hinttext.setText("카메라");
+                        hinttext.setVisibility(View.VISIBLE);
+                    } else if(q19.getVisibility() == View.VISIBLE) {
+                        hinttext.setText("프로그램");
+                        hinttext.setVisibility(View.VISIBLE);
+                    } else if(q20.getVisibility() == View.VISIBLE) {
+                        hinttext.setText("연필");
+                        hinttext.setVisibility(View.VISIBLE);
+                    }
+                    hintcount++;
                     break;
             }
         }
