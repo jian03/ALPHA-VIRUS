@@ -37,10 +37,10 @@ public class GameActivity extends AppCompatActivity {
     private int btncount2 = 0, score = 0, hintcount = 0;
     private int media_pos;
     private static MediaPlayer mp;
-    ImageButton btnpause, btnsoundon, btnclose, btngo, btnrefresh, btnhome, btnhint;
+    ImageButton btnpause, btnsoundon, btnclose, btngo, btnrefresh, btnhome;
     LinearLayout q1, q2, q3, q4, q5, q6, q7, q8, q9, q10, q11, q12, q13, q14, q15, q16, q17, q18, q19, q20, lineargameover;
     EditText ae1, ae2, ae3, ae4, ae5, ae6, ae7, ae8, ae9, ae10, ae11, ae12, ae13, ae14, ae15, ae16, ae17, ae18, ae19, ae20;
-    Button ab1, ab2, ab3, ab4, ab5, ab6, ab7, ab8, ab9, ab10, ab11, ab12, ab13, ab14, ab15, ab16, ab17, ab18, ab19, ab20, overbtnhome, overbtnrefresh;
+    Button ab1, ab2, ab3, ab4, ab5, ab6, ab7, ab8, ab9, ab10, ab11, ab12, ab13, ab14, ab15, ab16, ab17, ab18, ab19, ab20, overbtnhome, overbtnrefresh, btnhint;
     ImageView v1, v2, v3, v4, v5, v6, v7, v8, v9, v10;
     TimerThread thread;
     MyThread thread2;
@@ -165,6 +165,75 @@ public class GameActivity extends AppCompatActivity {
                 Intent intent = new Intent(getApplicationContext(), GameActivity.class);
                 startActivity(intent);
                 finish(); //현재 Acticity 종료
+            }
+        });
+        btnhint.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                hintcount++;
+                if(hintcount > 2) {
+                    btnhint.setEnabled(false);
+                } else if(q1.getVisibility() == View.VISIBLE) {
+                    hinttext.setText("사물");
+                    hinttext.setVisibility(View.VISIBLE);
+                } else if(q2.getVisibility() == View.VISIBLE) {
+                    hinttext.setText("지구");
+                    hinttext.setVisibility(View.VISIBLE);
+                } else if(q3.getVisibility() == View.VISIBLE) {
+                    hinttext.setText("대양");
+                    hinttext.setVisibility(View.VISIBLE);
+                } else if(q4.getVisibility() == View.VISIBLE) {
+                    hinttext.setText("중심");
+                    hinttext.setVisibility(View.VISIBLE);
+                } else if(q5.getVisibility() == View.VISIBLE) {
+                    hinttext.setText("사냥꾼");
+                    hinttext.setVisibility(View.VISIBLE);
+                } else if(q6.getVisibility() == View.VISIBLE) {
+                    hinttext.setText("양");
+                    hinttext.setVisibility(View.VISIBLE);
+                } else if(q7.getVisibility() == View.VISIBLE) {
+                    hinttext.setText("조각");
+                    hinttext.setVisibility(View.VISIBLE);
+                } else if(q8.getVisibility() == View.VISIBLE) {
+                    hinttext.setText("과일");
+                    hinttext.setVisibility(View.VISIBLE);
+                } else if(q9.getVisibility() == View.VISIBLE) {
+                    hinttext.setText("목소리");
+                    hinttext.setVisibility(View.VISIBLE);
+                } else if(q10.getVisibility() == View.VISIBLE) {
+                    hinttext.setText("코드");
+                    hinttext.setVisibility(View.VISIBLE);
+                } else if(q11.getVisibility() == View.VISIBLE) {
+                    hinttext.setText("화성");
+                    hinttext.setVisibility(View.VISIBLE);
+                } else if(q12.getVisibility() == View.VISIBLE) {
+                    hinttext.setText("프랑스어");
+                    hinttext.setVisibility(View.VISIBLE);
+                } else if(q13.getVisibility() == View.VISIBLE) {
+                    hinttext.setText("쥐");
+                    hinttext.setVisibility(View.VISIBLE);
+                } else if(q14.getVisibility() == View.VISIBLE) {
+                    hinttext.setText("비행기");
+                    hinttext.setVisibility(View.VISIBLE);
+                } else if(q15.getVisibility() == View.VISIBLE) {
+                    hinttext.setText("날씨");
+                    hinttext.setVisibility(View.VISIBLE);
+                } else if(q16.getVisibility() == View.VISIBLE) {
+                    hinttext.setText("휴대전화");
+                    hinttext.setVisibility(View.VISIBLE);
+                } else if(q17.getVisibility() == View.VISIBLE) {
+                    hinttext.setText("퍼즐");
+                    hinttext.setVisibility(View.VISIBLE);
+                } else if(q18.getVisibility() == View.VISIBLE) {
+                    hinttext.setText("카메라");
+                    hinttext.setVisibility(View.VISIBLE);
+                } else if(q19.getVisibility() == View.VISIBLE) {
+                    hinttext.setText("프로그램");
+                    hinttext.setVisibility(View.VISIBLE);
+                } else if(q20.getVisibility() == View.VISIBLE) {
+                    hinttext.setText("연필");
+                    hinttext.setVisibility(View.VISIBLE);
+                }
             }
         });
 
@@ -366,7 +435,7 @@ public class GameActivity extends AppCompatActivity {
                 mInputMethodManager = (InputMethodManager)getSystemService(Context.INPUT_METHOD_SERVICE);
                 mInputMethodManager.hideSoftInputFromWindow(ae8.getWindowToken(), 0); // 키보드 내리기
                 hinttext.setVisibility(View.INVISIBLE);
-                if(ae8.getText().toString().equals("french")) {
+                if(ae8.getText().toString().equals("fruit")) {
                     score += 10;
                 } else {
                     for(int i=0; i<=1; i++) {
@@ -567,7 +636,7 @@ public class GameActivity extends AppCompatActivity {
                 mInputMethodManager = (InputMethodManager)getSystemService(Context.INPUT_METHOD_SERVICE);
                 mInputMethodManager.hideSoftInputFromWindow(ae12.getWindowToken(), 0); // 키보드 내리기
                 hinttext.setVisibility(View.INVISIBLE);
-                if(ae12.getText().toString().equals("fruit")) {
+                if(ae12.getText().toString().equals("french")) {
                     score += 10;
                 } else {
                     for(int i=0; i<=1; i++) {
@@ -1147,72 +1216,6 @@ public class GameActivity extends AppCompatActivity {
                         mp.start();
                     }
                     btncount2++;
-                    break;
-                case R.id.btn_hint:
-                    if(hintcount >= 2) {
-                        btnhint.setEnabled(false);
-                    } else if(q1.getVisibility() == View.VISIBLE) {
-                        hinttext.setText("사물");
-                        hinttext.setVisibility(View.VISIBLE);
-                    } else if(q2.getVisibility() == View.VISIBLE) {
-                        hinttext.setText("지구");
-                        hinttext.setVisibility(View.VISIBLE);
-                    } else if(q3.getVisibility() == View.VISIBLE) {
-                        hinttext.setText("대양");
-                        hinttext.setVisibility(View.VISIBLE);
-                    } else if(q4.getVisibility() == View.VISIBLE) {
-                        hinttext.setText("중심");
-                        hinttext.setVisibility(View.VISIBLE);
-                    } else if(q5.getVisibility() == View.VISIBLE) {
-                        hinttext.setText("사냥꾼");
-                        hinttext.setVisibility(View.VISIBLE);
-                    } else if(q6.getVisibility() == View.VISIBLE) {
-                        hinttext.setText("양");
-                        hinttext.setVisibility(View.VISIBLE);
-                    } else if(q7.getVisibility() == View.VISIBLE) {
-                        hinttext.setText("조각");
-                        hinttext.setVisibility(View.VISIBLE);
-                    } else if(q8.getVisibility() == View.VISIBLE) {
-                        hinttext.setText("프랑스어");
-                        hinttext.setVisibility(View.VISIBLE);
-                    } else if(q9.getVisibility() == View.VISIBLE) {
-                        hinttext.setText("목소리");
-                        hinttext.setVisibility(View.VISIBLE);
-                    } else if(q10.getVisibility() == View.VISIBLE) {
-                        hinttext.setText("코드");
-                        hinttext.setVisibility(View.VISIBLE);
-                    } else if(q11.getVisibility() == View.VISIBLE) {
-                        hinttext.setText("화성");
-                        hinttext.setVisibility(View.VISIBLE);
-                    } else if(q12.getVisibility() == View.VISIBLE) {
-                        hinttext.setText("과일");
-                        hinttext.setVisibility(View.VISIBLE);
-                    } else if(q13.getVisibility() == View.VISIBLE) {
-                        hinttext.setText("쥐");
-                        hinttext.setVisibility(View.VISIBLE);
-                    } else if(q14.getVisibility() == View.VISIBLE) {
-                        hinttext.setText("비행기");
-                        hinttext.setVisibility(View.VISIBLE);
-                    } else if(q15.getVisibility() == View.VISIBLE) {
-                        hinttext.setText("날씨");
-                        hinttext.setVisibility(View.VISIBLE);
-                    } else if(q16.getVisibility() == View.VISIBLE) {
-                        hinttext.setText("휴대전화");
-                        hinttext.setVisibility(View.VISIBLE);
-                    } else if(q17.getVisibility() == View.VISIBLE) {
-                        hinttext.setText("퍼즐");
-                        hinttext.setVisibility(View.VISIBLE);
-                    } else if(q18.getVisibility() == View.VISIBLE) {
-                        hinttext.setText("카메라");
-                        hinttext.setVisibility(View.VISIBLE);
-                    } else if(q19.getVisibility() == View.VISIBLE) {
-                        hinttext.setText("프로그램");
-                        hinttext.setVisibility(View.VISIBLE);
-                    } else if(q20.getVisibility() == View.VISIBLE) {
-                        hinttext.setText("연필");
-                        hinttext.setVisibility(View.VISIBLE);
-                    }
-                    hintcount++;
                     break;
             }
         }
