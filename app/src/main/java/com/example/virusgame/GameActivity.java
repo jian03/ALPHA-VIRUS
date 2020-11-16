@@ -131,7 +131,7 @@ public class GameActivity extends AppCompatActivity {
                 frame.setVisibility(View.GONE);
                 isRun = true;
                 isFirst = true;
-                mp.stop();
+                mp.start();
             }
         });
         btngo.setOnClickListener(new View.OnClickListener() {
