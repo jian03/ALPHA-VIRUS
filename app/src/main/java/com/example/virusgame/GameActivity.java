@@ -260,6 +260,9 @@ public class GameActivity extends AppCompatActivity {
                 hinttext.setVisibility(View.INVISIBLE);
                 if(ae2.getText().toString().equals("earth")) {
                     score += 10;
+                    if(v1.getVisibility() == View.VISIBLE) {
+                        v1.setVisibility(View.INVISIBLE);
+                    }
                 } else {
                     for(int i=0; i<=1; i++) {
                         if (v1.getVisibility() == View.INVISIBLE) {
@@ -282,6 +285,11 @@ public class GameActivity extends AppCompatActivity {
                 hinttext.setVisibility(View.INVISIBLE);
                 if(ae3.getText().toString().equals("ocean")) {
                     score += 10;
+                    if(v2.getVisibility() == View.VISIBLE) {
+                        v2.setVisibility(View.INVISIBLE);
+                    } else if(v1.getVisibility() == View.VISIBLE) {
+                        v1.setVisibility(View.INVISIBLE);
+                    }
                 } else {
                     for(int i=0; i<=1; i++) {
                         if (v1.getVisibility() == View.INVISIBLE) {
@@ -307,6 +315,13 @@ public class GameActivity extends AppCompatActivity {
                 hinttext.setVisibility(View.INVISIBLE);
                 if(ae4.getText().toString().equals("center") || ae4.getText().toString().equals("recent")) {
                     score += 10;
+                    if(v3.getVisibility() == View.VISIBLE) {
+                        v3.setVisibility(View.INVISIBLE);
+                    } else if(v2.getVisibility() == View.VISIBLE) {
+                        v2.setVisibility(View.INVISIBLE);
+                    } else if(v1.getVisibility() == View.VISIBLE) {
+                        v1.setVisibility(View.INVISIBLE);
+                    }
                 } else {
                     for(int i=0; i<=1; i++) {
                         if (v1.getVisibility() == View.INVISIBLE) {
@@ -335,6 +350,15 @@ public class GameActivity extends AppCompatActivity {
                 hinttext.setVisibility(View.INVISIBLE);
                 if(ae5.getText().toString().equals("hunter")) {
                     score += 10;
+                    if(v4.getVisibility() == View.VISIBLE) {
+                        v4.setVisibility(View.INVISIBLE);
+                    } else if(v3.getVisibility() == View.VISIBLE) {
+                        v3.setVisibility(View.INVISIBLE);
+                    } else if(v2.getVisibility() == View.VISIBLE) {
+                        v2.setVisibility(View.INVISIBLE);
+                    } else if(v1.getVisibility() == View.VISIBLE) {
+                        v1.setVisibility(View.INVISIBLE);
+                    }
                 } else {
                     for(int i=0; i<=1; i++) {
                         if (v1.getVisibility() == View.INVISIBLE) {
@@ -366,6 +390,17 @@ public class GameActivity extends AppCompatActivity {
                 hinttext.setVisibility(View.INVISIBLE);
                 if(ae6.getText().toString().equals("sheep")) {
                     score += 10;
+                    if(v5.getVisibility() == View.VISIBLE) {
+                        v5.setVisibility(View.INVISIBLE);
+                    } else if(v4.getVisibility() == View.VISIBLE) {
+                        v4.setVisibility(View.INVISIBLE);
+                    } else if(v3.getVisibility() == View.VISIBLE) {
+                        v3.setVisibility(View.INVISIBLE);
+                    } else if(v2.getVisibility() == View.VISIBLE) {
+                        v2.setVisibility(View.INVISIBLE);
+                    } else if(v1.getVisibility() == View.VISIBLE) {
+                        v1.setVisibility(View.INVISIBLE);
+                    }
                 } else {
                     for(int i=0; i<=1; i++) {
                         if (v1.getVisibility() == View.INVISIBLE) {
@@ -400,6 +435,19 @@ public class GameActivity extends AppCompatActivity {
                 hinttext.setVisibility(View.INVISIBLE);
                 if(ae7.getText().toString().equals("piece")) {
                     score += 10;
+                    if(v6.getVisibility() == View.VISIBLE) {
+                        v6.setVisibility(View.INVISIBLE);
+                    } else if(v5.getVisibility() == View.VISIBLE) {
+                        v5.setVisibility(View.INVISIBLE);
+                    } else if(v4.getVisibility() == View.VISIBLE) {
+                        v4.setVisibility(View.INVISIBLE);
+                    } else if(v3.getVisibility() == View.VISIBLE) {
+                        v3.setVisibility(View.INVISIBLE);
+                    } else if(v2.getVisibility() == View.VISIBLE) {
+                        v2.setVisibility(View.INVISIBLE);
+                    } else if(v1.getVisibility() == View.VISIBLE) {
+                        v1.setVisibility(View.INVISIBLE);
+                    }
                 } else {
                     for(int i=0; i<=1; i++) {
                         if (v1.getVisibility() == View.INVISIBLE) {
@@ -437,6 +485,21 @@ public class GameActivity extends AppCompatActivity {
                 hinttext.setVisibility(View.INVISIBLE);
                 if(ae8.getText().toString().equals("fruit")) {
                     score += 10;
+                    if(v7.getVisibility() == View.VISIBLE) {
+                        v7.setVisibility(View.INVISIBLE);
+                    } else if(v6.getVisibility() == View.VISIBLE) {
+                        v6.setVisibility(View.INVISIBLE);
+                    } else if(v5.getVisibility() == View.VISIBLE) {
+                        v5.setVisibility(View.INVISIBLE);
+                    } else if(v4.getVisibility() == View.VISIBLE) {
+                        v4.setVisibility(View.INVISIBLE);
+                    } else if(v3.getVisibility() == View.VISIBLE) {
+                        v3.setVisibility(View.INVISIBLE);
+                    } else if(v2.getVisibility() == View.VISIBLE) {
+                        v2.setVisibility(View.INVISIBLE);
+                    } else if(v1.getVisibility() == View.VISIBLE) {
+                        v1.setVisibility(View.INVISIBLE);
+                    }
                 } else {
                     for(int i=0; i<=1; i++) {
                         if (v1.getVisibility() == View.INVISIBLE) {
@@ -477,6 +540,23 @@ public class GameActivity extends AppCompatActivity {
                 hinttext.setVisibility(View.INVISIBLE);
                 if(ae9.getText().toString().equals("voice")) {
                     score += 10;
+                    if(v8.getVisibility() == View.VISIBLE) {
+                        v8.setVisibility(View.INVISIBLE);
+                    } else if(v7.getVisibility() == View.VISIBLE) {
+                        v7.setVisibility(View.INVISIBLE);
+                    } else if(v6.getVisibility() == View.VISIBLE) {
+                        v6.setVisibility(View.INVISIBLE);
+                    } else if(v5.getVisibility() == View.VISIBLE) {
+                        v5.setVisibility(View.INVISIBLE);
+                    } else if(v4.getVisibility() == View.VISIBLE) {
+                        v4.setVisibility(View.INVISIBLE);
+                    } else if(v3.getVisibility() == View.VISIBLE) {
+                        v3.setVisibility(View.INVISIBLE);
+                    } else if(v2.getVisibility() == View.VISIBLE) {
+                        v2.setVisibility(View.INVISIBLE);
+                    } else if(v1.getVisibility() == View.VISIBLE) {
+                        v1.setVisibility(View.INVISIBLE);
+                    }
                 } else {
                     for(int i=0; i<=1; i++) {
                         if (v1.getVisibility() == View.INVISIBLE) {
@@ -520,6 +600,25 @@ public class GameActivity extends AppCompatActivity {
                 hinttext.setVisibility(View.INVISIBLE);
                 if(ae10.getText().toString().equals("code")) {
                     score += 10;
+                    if(v9.getVisibility() == View.VISIBLE) {
+                        v9.setVisibility(View.INVISIBLE);
+                    } else if(v8.getVisibility() == View.VISIBLE) {
+                        v8.setVisibility(View.INVISIBLE);
+                    } else if(v7.getVisibility() == View.VISIBLE) {
+                        v7.setVisibility(View.INVISIBLE);
+                    } else if(v6.getVisibility() == View.VISIBLE) {
+                        v6.setVisibility(View.INVISIBLE);
+                    } else if(v5.getVisibility() == View.VISIBLE) {
+                        v5.setVisibility(View.INVISIBLE);
+                    } else if(v4.getVisibility() == View.VISIBLE) {
+                        v4.setVisibility(View.INVISIBLE);
+                    } else if(v3.getVisibility() == View.VISIBLE) {
+                        v3.setVisibility(View.INVISIBLE);
+                    } else if(v2.getVisibility() == View.VISIBLE) {
+                        v2.setVisibility(View.INVISIBLE);
+                    } else if(v1.getVisibility() == View.VISIBLE) {
+                        v1.setVisibility(View.INVISIBLE);
+                    }
                 } else {
                     for(int i=0; i<=1; i++) {
                         if (v1.getVisibility() == View.INVISIBLE) {
@@ -579,6 +678,25 @@ public class GameActivity extends AppCompatActivity {
                 hinttext.setVisibility(View.INVISIBLE);
                 if(ae11.getText().toString().equals("mars")) {
                     score += 10;
+                    if(v9.getVisibility() == View.VISIBLE) {
+                        v9.setVisibility(View.INVISIBLE);
+                    } else if(v8.getVisibility() == View.VISIBLE) {
+                        v8.setVisibility(View.INVISIBLE);
+                    } else if(v7.getVisibility() == View.VISIBLE) {
+                        v7.setVisibility(View.INVISIBLE);
+                    } else if(v6.getVisibility() == View.VISIBLE) {
+                        v6.setVisibility(View.INVISIBLE);
+                    } else if(v5.getVisibility() == View.VISIBLE) {
+                        v5.setVisibility(View.INVISIBLE);
+                    } else if(v4.getVisibility() == View.VISIBLE) {
+                        v4.setVisibility(View.INVISIBLE);
+                    } else if(v3.getVisibility() == View.VISIBLE) {
+                        v3.setVisibility(View.INVISIBLE);
+                    } else if(v2.getVisibility() == View.VISIBLE) {
+                        v2.setVisibility(View.INVISIBLE);
+                    } else if(v1.getVisibility() == View.VISIBLE) {
+                        v1.setVisibility(View.INVISIBLE);
+                    }
                 } else {
                     for(int i=0; i<=1; i++) {
                         if (v1.getVisibility() == View.INVISIBLE) {
@@ -638,6 +756,25 @@ public class GameActivity extends AppCompatActivity {
                 hinttext.setVisibility(View.INVISIBLE);
                 if(ae12.getText().toString().equals("french")) {
                     score += 10;
+                    if(v9.getVisibility() == View.VISIBLE) {
+                        v9.setVisibility(View.INVISIBLE);
+                    } else if(v8.getVisibility() == View.VISIBLE) {
+                        v8.setVisibility(View.INVISIBLE);
+                    } else if(v7.getVisibility() == View.VISIBLE) {
+                        v7.setVisibility(View.INVISIBLE);
+                    } else if(v6.getVisibility() == View.VISIBLE) {
+                        v6.setVisibility(View.INVISIBLE);
+                    } else if(v5.getVisibility() == View.VISIBLE) {
+                        v5.setVisibility(View.INVISIBLE);
+                    } else if(v4.getVisibility() == View.VISIBLE) {
+                        v4.setVisibility(View.INVISIBLE);
+                    } else if(v3.getVisibility() == View.VISIBLE) {
+                        v3.setVisibility(View.INVISIBLE);
+                    } else if(v2.getVisibility() == View.VISIBLE) {
+                        v2.setVisibility(View.INVISIBLE);
+                    } else if(v1.getVisibility() == View.VISIBLE) {
+                        v1.setVisibility(View.INVISIBLE);
+                    }
                 } else {
                     for(int i=0; i<=1; i++) {
                         if (v1.getVisibility() == View.INVISIBLE) {
@@ -697,6 +834,25 @@ public class GameActivity extends AppCompatActivity {
                 hinttext.setVisibility(View.INVISIBLE);
                 if(ae13.getText().toString().equals("mouse")) {
                     score += 10;
+                    if(v9.getVisibility() == View.VISIBLE) {
+                        v9.setVisibility(View.INVISIBLE);
+                    } else if(v8.getVisibility() == View.VISIBLE) {
+                        v8.setVisibility(View.INVISIBLE);
+                    } else if(v7.getVisibility() == View.VISIBLE) {
+                        v7.setVisibility(View.INVISIBLE);
+                    } else if(v6.getVisibility() == View.VISIBLE) {
+                        v6.setVisibility(View.INVISIBLE);
+                    } else if(v5.getVisibility() == View.VISIBLE) {
+                        v5.setVisibility(View.INVISIBLE);
+                    } else if(v4.getVisibility() == View.VISIBLE) {
+                        v4.setVisibility(View.INVISIBLE);
+                    } else if(v3.getVisibility() == View.VISIBLE) {
+                        v3.setVisibility(View.INVISIBLE);
+                    } else if(v2.getVisibility() == View.VISIBLE) {
+                        v2.setVisibility(View.INVISIBLE);
+                    } else if(v1.getVisibility() == View.VISIBLE) {
+                        v1.setVisibility(View.INVISIBLE);
+                    }
                 } else {
                     for(int i=0; i<=1; i++) {
                         if (v1.getVisibility() == View.INVISIBLE) {
@@ -756,6 +912,25 @@ public class GameActivity extends AppCompatActivity {
                 hinttext.setVisibility(View.INVISIBLE);
                 if(ae14.getText().toString().equals("plane")) {
                     score += 10;
+                    if(v9.getVisibility() == View.VISIBLE) {
+                        v9.setVisibility(View.INVISIBLE);
+                    } else if(v8.getVisibility() == View.VISIBLE) {
+                        v8.setVisibility(View.INVISIBLE);
+                    } else if(v7.getVisibility() == View.VISIBLE) {
+                        v7.setVisibility(View.INVISIBLE);
+                    } else if(v6.getVisibility() == View.VISIBLE) {
+                        v6.setVisibility(View.INVISIBLE);
+                    } else if(v5.getVisibility() == View.VISIBLE) {
+                        v5.setVisibility(View.INVISIBLE);
+                    } else if(v4.getVisibility() == View.VISIBLE) {
+                        v4.setVisibility(View.INVISIBLE);
+                    } else if(v3.getVisibility() == View.VISIBLE) {
+                        v3.setVisibility(View.INVISIBLE);
+                    } else if(v2.getVisibility() == View.VISIBLE) {
+                        v2.setVisibility(View.INVISIBLE);
+                    } else if(v1.getVisibility() == View.VISIBLE) {
+                        v1.setVisibility(View.INVISIBLE);
+                    }
                 } else {
                     for(int i=0; i<=1; i++) {
                         if (v1.getVisibility() == View.INVISIBLE) {
@@ -815,6 +990,25 @@ public class GameActivity extends AppCompatActivity {
                 hinttext.setVisibility(View.INVISIBLE);
                 if(ae15.getText().toString().equals("weather")) {
                     score += 10;
+                    if(v9.getVisibility() == View.VISIBLE) {
+                        v9.setVisibility(View.INVISIBLE);
+                    } else if(v8.getVisibility() == View.VISIBLE) {
+                        v8.setVisibility(View.INVISIBLE);
+                    } else if(v7.getVisibility() == View.VISIBLE) {
+                        v7.setVisibility(View.INVISIBLE);
+                    } else if(v6.getVisibility() == View.VISIBLE) {
+                        v6.setVisibility(View.INVISIBLE);
+                    } else if(v5.getVisibility() == View.VISIBLE) {
+                        v5.setVisibility(View.INVISIBLE);
+                    } else if(v4.getVisibility() == View.VISIBLE) {
+                        v4.setVisibility(View.INVISIBLE);
+                    } else if(v3.getVisibility() == View.VISIBLE) {
+                        v3.setVisibility(View.INVISIBLE);
+                    } else if(v2.getVisibility() == View.VISIBLE) {
+                        v2.setVisibility(View.INVISIBLE);
+                    } else if(v1.getVisibility() == View.VISIBLE) {
+                        v1.setVisibility(View.INVISIBLE);
+                    }
                 } else {
                     for(int i=0; i<=1; i++) {
                         if (v1.getVisibility() == View.INVISIBLE) {
@@ -874,6 +1068,25 @@ public class GameActivity extends AppCompatActivity {
                 hinttext.setVisibility(View.INVISIBLE);
                 if(ae16.getText().toString().equals("phone")) {
                     score += 10;
+                    if(v9.getVisibility() == View.VISIBLE) {
+                        v9.setVisibility(View.INVISIBLE);
+                    } else if(v8.getVisibility() == View.VISIBLE) {
+                        v8.setVisibility(View.INVISIBLE);
+                    } else if(v7.getVisibility() == View.VISIBLE) {
+                        v7.setVisibility(View.INVISIBLE);
+                    } else if(v6.getVisibility() == View.VISIBLE) {
+                        v6.setVisibility(View.INVISIBLE);
+                    } else if(v5.getVisibility() == View.VISIBLE) {
+                        v5.setVisibility(View.INVISIBLE);
+                    } else if(v4.getVisibility() == View.VISIBLE) {
+                        v4.setVisibility(View.INVISIBLE);
+                    } else if(v3.getVisibility() == View.VISIBLE) {
+                        v3.setVisibility(View.INVISIBLE);
+                    } else if(v2.getVisibility() == View.VISIBLE) {
+                        v2.setVisibility(View.INVISIBLE);
+                    } else if(v1.getVisibility() == View.VISIBLE) {
+                        v1.setVisibility(View.INVISIBLE);
+                    }
                 } else {
                     for(int i=0; i<=1; i++) {
                         if (v1.getVisibility() == View.INVISIBLE) {
@@ -933,6 +1146,25 @@ public class GameActivity extends AppCompatActivity {
                 hinttext.setVisibility(View.INVISIBLE);
                 if(ae17.getText().toString().equals("puzzle")) {
                     score += 10;
+                    if(v9.getVisibility() == View.VISIBLE) {
+                        v9.setVisibility(View.INVISIBLE);
+                    } else if(v8.getVisibility() == View.VISIBLE) {
+                        v8.setVisibility(View.INVISIBLE);
+                    } else if(v7.getVisibility() == View.VISIBLE) {
+                        v7.setVisibility(View.INVISIBLE);
+                    } else if(v6.getVisibility() == View.VISIBLE) {
+                        v6.setVisibility(View.INVISIBLE);
+                    } else if(v5.getVisibility() == View.VISIBLE) {
+                        v5.setVisibility(View.INVISIBLE);
+                    } else if(v4.getVisibility() == View.VISIBLE) {
+                        v4.setVisibility(View.INVISIBLE);
+                    } else if(v3.getVisibility() == View.VISIBLE) {
+                        v3.setVisibility(View.INVISIBLE);
+                    } else if(v2.getVisibility() == View.VISIBLE) {
+                        v2.setVisibility(View.INVISIBLE);
+                    } else if(v1.getVisibility() == View.VISIBLE) {
+                        v1.setVisibility(View.INVISIBLE);
+                    }
                 } else {
                     for(int i=0; i<=1; i++) {
                         if (v1.getVisibility() == View.INVISIBLE) {
@@ -992,6 +1224,25 @@ public class GameActivity extends AppCompatActivity {
                 hinttext.setVisibility(View.INVISIBLE);
                 if(ae18.getText().toString().equals("camera")) {
                     score += 10;
+                    if(v9.getVisibility() == View.VISIBLE) {
+                        v9.setVisibility(View.INVISIBLE);
+                    } else if(v8.getVisibility() == View.VISIBLE) {
+                        v8.setVisibility(View.INVISIBLE);
+                    } else if(v7.getVisibility() == View.VISIBLE) {
+                        v7.setVisibility(View.INVISIBLE);
+                    } else if(v6.getVisibility() == View.VISIBLE) {
+                        v6.setVisibility(View.INVISIBLE);
+                    } else if(v5.getVisibility() == View.VISIBLE) {
+                        v5.setVisibility(View.INVISIBLE);
+                    } else if(v4.getVisibility() == View.VISIBLE) {
+                        v4.setVisibility(View.INVISIBLE);
+                    } else if(v3.getVisibility() == View.VISIBLE) {
+                        v3.setVisibility(View.INVISIBLE);
+                    } else if(v2.getVisibility() == View.VISIBLE) {
+                        v2.setVisibility(View.INVISIBLE);
+                    } else if(v1.getVisibility() == View.VISIBLE) {
+                        v1.setVisibility(View.INVISIBLE);
+                    }
                 } else {
                     for(int i=0; i<=1; i++) {
                         if (v1.getVisibility() == View.INVISIBLE) {
@@ -1051,6 +1302,25 @@ public class GameActivity extends AppCompatActivity {
                 hinttext.setVisibility(View.INVISIBLE);
                 if(ae19.getText().toString().equals("program")) {
                     score += 10;
+                    if(v9.getVisibility() == View.VISIBLE) {
+                        v9.setVisibility(View.INVISIBLE);
+                    } else if(v8.getVisibility() == View.VISIBLE) {
+                        v8.setVisibility(View.INVISIBLE);
+                    } else if(v7.getVisibility() == View.VISIBLE) {
+                        v7.setVisibility(View.INVISIBLE);
+                    } else if(v6.getVisibility() == View.VISIBLE) {
+                        v6.setVisibility(View.INVISIBLE);
+                    } else if(v5.getVisibility() == View.VISIBLE) {
+                        v5.setVisibility(View.INVISIBLE);
+                    } else if(v4.getVisibility() == View.VISIBLE) {
+                        v4.setVisibility(View.INVISIBLE);
+                    } else if(v3.getVisibility() == View.VISIBLE) {
+                        v3.setVisibility(View.INVISIBLE);
+                    } else if(v2.getVisibility() == View.VISIBLE) {
+                        v2.setVisibility(View.INVISIBLE);
+                    } else if(v1.getVisibility() == View.VISIBLE) {
+                        v1.setVisibility(View.INVISIBLE);
+                    }
                 } else {
                     for(int i=0; i<=1; i++) {
                         if (v1.getVisibility() == View.INVISIBLE) {
@@ -1110,6 +1380,25 @@ public class GameActivity extends AppCompatActivity {
                 hinttext.setVisibility(View.INVISIBLE);
                 if(ae20.getText().toString().equals("pencil")) {
                     score += 10;
+                    if(v9.getVisibility() == View.VISIBLE) {
+                        v9.setVisibility(View.INVISIBLE);
+                    } else if(v8.getVisibility() == View.VISIBLE) {
+                        v8.setVisibility(View.INVISIBLE);
+                    } else if(v7.getVisibility() == View.VISIBLE) {
+                        v7.setVisibility(View.INVISIBLE);
+                    } else if(v6.getVisibility() == View.VISIBLE) {
+                        v6.setVisibility(View.INVISIBLE);
+                    } else if(v5.getVisibility() == View.VISIBLE) {
+                        v5.setVisibility(View.INVISIBLE);
+                    } else if(v4.getVisibility() == View.VISIBLE) {
+                        v4.setVisibility(View.INVISIBLE);
+                    } else if(v3.getVisibility() == View.VISIBLE) {
+                        v3.setVisibility(View.INVISIBLE);
+                    } else if(v2.getVisibility() == View.VISIBLE) {
+                        v2.setVisibility(View.INVISIBLE);
+                    } else if(v1.getVisibility() == View.VISIBLE) {
+                        v1.setVisibility(View.INVISIBLE);
+                    }
                 } else {
                     for(int i=0; i<=1; i++) {
                         if (v1.getVisibility() == View.INVISIBLE) {
