@@ -32,15 +32,15 @@ import java.util.Timer;
 import java.util.TimerTask;
 
 public class GameActivity extends AppCompatActivity {
-    TextView count, finalscore;
+    TextView count, finalscore, finalscore2;
     TextView startcountdown, hinttext;
     private int btncount2 = 0, score = 0, hintcount = 0;
     private int media_pos;
     private static MediaPlayer mp;
     ImageButton btnpause, btnsoundon, btnclose, btngo, btnrefresh, btnhome;
-    LinearLayout q1, q2, q3, q4, q5, q6, q7, q8, q9, q10, q11, q12, q13, q14, q15, q16, q17, q18, q19, q20, lineargameover;
+    LinearLayout q1, q2, q3, q4, q5, q6, q7, q8, q9, q10, q11, q12, q13, q14, q15, q16, q17, q18, q19, q20, lineargameover, lineargameclear;
     EditText ae1, ae2, ae3, ae4, ae5, ae6, ae7, ae8, ae9, ae10, ae11, ae12, ae13, ae14, ae15, ae16, ae17, ae18, ae19, ae20;
-    Button ab1, ab2, ab3, ab4, ab5, ab6, ab7, ab8, ab9, ab10, ab11, ab12, ab13, ab14, ab15, ab16, ab17, ab18, ab19, ab20, overbtnhome, overbtnrefresh, btnhint;
+    Button ab1, ab2, ab3, ab4, ab5, ab6, ab7, ab8, ab9, ab10, ab11, ab12, ab13, ab14, ab15, ab16, ab17, ab18, ab19, ab20, overbtnhome, overbtnrefresh, btnhint, clearbtnhome, clearbtnrefresh;
     ImageView v1, v2, v3, v4, v5, v6, v7, v8, v9, v10;
     TimerThread thread;
     MyThread thread2;
@@ -59,6 +59,7 @@ public class GameActivity extends AppCompatActivity {
         LayoutInflater inflater = (LayoutInflater)getSystemService(Context.LAYOUT_INFLATER_SERVICE);
         final LinearLayout linear = (LinearLayout)inflater.inflate(R.layout.activity_countdown, null);
         lineargameover = (LinearLayout)inflater.inflate(R.layout.activity_gameover, null);
+        lineargameclear = (LinearLayout)inflater.inflate(R.layout.activity_gameclear, null);
         /*final LinearLayout linearnotanswer = (LinearLayout)inflater.inflate(R.layout.activity_notanswer, null);
         final LinearLayout linearrightanswer = (LinearLayout)inflater.inflate(R.layout.activity_rightanswer, null);*/
         final LinearLayout.LayoutParams paramlinear = new LinearLayout.LayoutParams(
@@ -71,6 +72,7 @@ public class GameActivity extends AppCompatActivity {
         );
         linear.setBackgroundColor(Color.parseColor("#99000000")); // 배경 불투명도 설정
         lineargameover.setBackgroundColor(Color.parseColor("#99000000"));
+        lineargameclear.setBackgroundColor(Color.parseColor("#99000000"));
         //linearrightanswer.setBackgroundColor(Color.parseColor("#00000000"));
         addContentView(linear, paramlinear);
         View view = (View)getLayoutInflater().inflate(R.layout.activity_pause, null);
@@ -88,7 +90,10 @@ public class GameActivity extends AppCompatActivity {
         startcountdown = findViewById(R.id.count3);
         overbtnhome = lineargameover.findViewById(R.id.overbtnhome);
         overbtnrefresh = lineargameover.findViewById(R.id.overbtnrefresh);
+        clearbtnhome = lineargameclear.findViewById(R.id.clearbtnhome);
+        clearbtnrefresh = lineargameclear.findViewById(R.id.clearbtnrefresh);
         finalscore = lineargameover.findViewById(R.id.finalscore);
+        finalscore2 = lineargameclear.findViewById(R.id.finalscore2);
         hinttext = findViewById(R.id.hint_text);
 
         ae1 = findViewById(R.id.ae1); // answer editText
@@ -104,6 +109,8 @@ public class GameActivity extends AppCompatActivity {
         frame.setVisibility(View.INVISIBLE);
         addContentView(lineargameover, paramlinear);
         lineargameover.setVisibility(View.INVISIBLE);
+        addContentView(lineargameclear, paramlinear);
+        lineargameclear.setVisibility(View.INVISIBLE);
         /*addContentView(linearnotanswer, paramlinear);
         linearnotanswer.setVisibility(View.INVISIBLE);
         addContentView(linearrightanswer, paramlinear);
@@ -115,6 +122,7 @@ public class GameActivity extends AppCompatActivity {
                 frame.setVisibility(View.VISIBLE);
                 isRun = false;
                 isFirst = false;
+                mp.pause();
             }
         });
         btnclose.setOnClickListener(new View.OnClickListener() {
@@ -132,6 +140,7 @@ public class GameActivity extends AppCompatActivity {
                 frame.setVisibility(View.GONE);
                 isRun = true;
                 isFirst = true;
+                mp.start();
             }
         });
         btnhome.setOnClickListener(new View.OnClickListener() {
@@ -160,6 +169,22 @@ public class GameActivity extends AppCompatActivity {
             }
         });
         overbtnrefresh.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getApplicationContext(), GameActivity.class);
+                startActivity(intent);
+                finish(); //현재 Acticity 종료
+            }
+        });
+        clearbtnhome.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                mp.release();
+                Intent intent = new Intent(getApplicationContext(), MainActivity.class);
+                startActivity(intent);
+            }
+        });
+        clearbtnrefresh.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(getApplicationContext(), GameActivity.class);
@@ -1009,6 +1034,13 @@ public class GameActivity extends AppCompatActivity {
                     } else if(v1.getVisibility() == View.VISIBLE) {
                         v1.setVisibility(View.INVISIBLE);
                     }
+                    if(score == 150) {
+                        isFirst = false;
+                        isRun = false;
+                        mp.stop();
+                        finalscore2.setText("SCORE : " + String.valueOf(score));
+                        lineargameclear.setVisibility(View.VISIBLE);
+                    }
                 } else {
                     for(int i=0; i<=1; i++) {
                         if (v1.getVisibility() == View.INVISIBLE) {
@@ -1086,6 +1118,13 @@ public class GameActivity extends AppCompatActivity {
                         v2.setVisibility(View.INVISIBLE);
                     } else if(v1.getVisibility() == View.VISIBLE) {
                         v1.setVisibility(View.INVISIBLE);
+                    }
+                    if(score == 150) {
+                        isFirst = false;
+                        isRun = false;
+                        mp.stop();
+                        finalscore2.setText("SCORE : " + String.valueOf(score));
+                        lineargameclear.setVisibility(View.VISIBLE);
                     }
                 } else {
                     for(int i=0; i<=1; i++) {
@@ -1165,6 +1204,13 @@ public class GameActivity extends AppCompatActivity {
                     } else if(v1.getVisibility() == View.VISIBLE) {
                         v1.setVisibility(View.INVISIBLE);
                     }
+                    if(score == 150) {
+                        isFirst = false;
+                        isRun = false;
+                        mp.stop();
+                        finalscore2.setText("SCORE : " + String.valueOf(score));
+                        lineargameclear.setVisibility(View.VISIBLE);
+                    }
                 } else {
                     for(int i=0; i<=1; i++) {
                         if (v1.getVisibility() == View.INVISIBLE) {
@@ -1242,6 +1288,13 @@ public class GameActivity extends AppCompatActivity {
                         v2.setVisibility(View.INVISIBLE);
                     } else if(v1.getVisibility() == View.VISIBLE) {
                         v1.setVisibility(View.INVISIBLE);
+                    }
+                    if(score == 150) {
+                        isFirst = false;
+                        isRun = false;
+                        mp.stop();
+                        finalscore.setText("SCORE : " + String.valueOf(score));
+                        lineargameclear.setVisibility(View.VISIBLE);
                     }
                 } else {
                     for(int i=0; i<=1; i++) {
@@ -1321,6 +1374,13 @@ public class GameActivity extends AppCompatActivity {
                     } else if(v1.getVisibility() == View.VISIBLE) {
                         v1.setVisibility(View.INVISIBLE);
                     }
+                    if(score == 150) {
+                        isFirst = false;
+                        isRun = false;
+                        mp.stop();
+                        finalscore2.setText("SCORE : " + String.valueOf(score));
+                        lineargameclear.setVisibility(View.VISIBLE);
+                    }
                 } else {
                     for(int i=0; i<=1; i++) {
                         if (v1.getVisibility() == View.INVISIBLE) {
@@ -1398,6 +1458,13 @@ public class GameActivity extends AppCompatActivity {
                         v2.setVisibility(View.INVISIBLE);
                     } else if(v1.getVisibility() == View.VISIBLE) {
                         v1.setVisibility(View.INVISIBLE);
+                    }
+                    if(score == 150) {
+                        isFirst = false;
+                        isRun = false;
+                        mp.stop();
+                        finalscore2.setText("SCORE : " + String.valueOf(score));
+                        lineargameclear.setVisibility(View.VISIBLE);
                     }
                 } else {
                     for(int i=0; i<=1; i++) {
@@ -1486,6 +1553,9 @@ public class GameActivity extends AppCompatActivity {
                 thread2.start();
                 mp.start();
                 q1.setVisibility(View.VISIBLE);
+                btnhint.setVisibility(View.VISIBLE);
+                btnsoundon.setVisibility(View.VISIBLE);
+                btnpause.setVisibility(View.VISIBLE);
             }
         }, 4000); // 4초 뒤에 카운트다운 시작
     }

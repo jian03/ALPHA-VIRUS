@@ -18,7 +18,9 @@
                 android:id="@+id/btn_hint"
                 android:layout_width="50dp"
                 android:layout_height="50dp"
+                android:visibility="invisible"
                 android:background="@drawable/hint"
+                android:layout_marginTop="3dp"
                 android:paddingTop="5dp"/>
 
             <TextView
@@ -28,9 +30,9 @@
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="-10dp"
                 android:background="@drawable/hintfield"
-                android:gravity="center_vertical"
-                android:paddingTop="5dp"
-                android:textSize="15sp"
+                android:gravity="center"
+                android:textColor="#000000"
+                android:textSize="16sp"
                 android:visibility="invisible" />
         </LinearLayout>
         <LinearLayout
@@ -53,6 +55,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:paddingTop="5dp"
+                android:visibility="invisible"
                 android:src="@drawable/pausebtn"
                 android:background="#00FFFFFF"/>
             <ImageButton
@@ -61,6 +64,7 @@
                 android:layout_height="wrap_content"
                 android:paddingRight="5dp"
                 android:paddingTop="5dp"
+                android:visibility="invisible"
                 android:src="@drawable/soundon"
                 android:background="#00FFFFFF"/>
         </LinearLayout>
