@@ -135,6 +135,7 @@
                 android:src="@drawable/q1" />
             <EditText
                 android:id="@+id/ae1"
+                android:singleLine="true"
                 android:layout_width="230dp"
                 android:layout_height="50dp"
                 android:layout_gravity="center_horizontal|bottom"
@@ -166,6 +167,7 @@
                 android:src="@drawable/q2" />
             <EditText
                 android:id="@+id/ae2"
+                android:singleLine="true"
                 android:layout_width="230dp"
                 android:layout_height="50dp"
                 android:layout_gravity="center_horizontal|bottom"
@@ -196,6 +198,7 @@
                 android:src="@drawable/q3" />
             <EditText
                 android:id="@+id/ae3"
+                android:singleLine="true"
                 android:layout_width="230dp"
                 android:layout_height="50dp"
                 android:layout_gravity="center_horizontal|bottom"
@@ -226,6 +229,7 @@
                 android:src="@drawable/q4" />
             <EditText
                 android:id="@+id/ae4"
+                android:singleLine="true"
                 android:layout_width="230dp"
                 android:layout_height="50dp"
                 android:layout_gravity="center_horizontal|bottom"
@@ -256,6 +260,7 @@
                 android:src="@drawable/q5" />
             <EditText
                 android:id="@+id/ae5"
+                android:singleLine="true"
                 android:layout_width="230dp"
                 android:layout_height="50dp"
                 android:layout_gravity="center_horizontal|bottom"
@@ -286,6 +291,7 @@
                 android:src="@drawable/q6" />
             <EditText
                 android:id="@+id/ae6"
+                android:singleLine="true"
                 android:layout_width="230dp"
                 android:layout_height="50dp"
                 android:layout_gravity="center_horizontal|bottom"
@@ -316,6 +322,7 @@
                 android:src="@drawable/q7" />
             <EditText
                 android:id="@+id/ae7"
+                android:singleLine="true"
                 android:layout_width="230dp"
                 android:layout_height="50dp"
                 android:layout_gravity="center_horizontal|bottom"
@@ -346,6 +353,7 @@
                 android:src="@drawable/q8" />
             <EditText
                 android:id="@+id/ae8"
+                android:singleLine="true"
                 android:layout_width="230dp"
                 android:layout_height="50dp"
                 android:layout_gravity="center_horizontal|bottom"
@@ -376,6 +384,7 @@
                 android:src="@drawable/q9" />
             <EditText
                 android:id="@+id/ae9"
+                android:singleLine="true"
                 android:layout_width="230dp"
                 android:layout_height="50dp"
                 android:layout_gravity="center_horizontal|bottom"
@@ -406,6 +415,7 @@
                 android:src="@drawable/q10" />
             <EditText
                 android:id="@+id/ae10"
+                android:singleLine="true"
                 android:layout_width="230dp"
                 android:layout_height="50dp"
                 android:layout_gravity="center_horizontal|bottom"
@@ -436,6 +446,7 @@
                 android:src="@drawable/q11" />
             <EditText
                 android:id="@+id/ae11"
+                android:singleLine="true"
                 android:layout_width="230dp"
                 android:layout_height="50dp"
                 android:layout_gravity="center_horizontal|bottom"
@@ -466,6 +477,7 @@
                 android:src="@drawable/q12" />
             <EditText
                 android:id="@+id/ae12"
+                android:singleLine="true"
                 android:layout_width="230dp"
                 android:layout_height="50dp"
                 android:layout_gravity="center_horizontal|bottom"
@@ -496,6 +508,7 @@
                 android:src="@drawable/q13" />
             <EditText
                 android:id="@+id/ae13"
+                android:singleLine="true"
                 android:layout_width="230dp"
                 android:layout_height="50dp"
                 android:layout_gravity="center_horizontal|bottom"
@@ -526,6 +539,7 @@
                 android:src="@drawable/q14" />
             <EditText
                 android:id="@+id/ae14"
+                android:singleLine="true"
                 android:layout_width="230dp"
                 android:layout_height="50dp"
                 android:layout_gravity="center_horizontal|bottom"
@@ -556,6 +570,7 @@
                 android:src="@drawable/q15" />
             <EditText
                 android:id="@+id/ae15"
+                android:singleLine="true"
                 android:layout_width="230dp"
                 android:layout_height="50dp"
                 android:layout_gravity="center_horizontal|bottom"
@@ -586,6 +601,7 @@
                 android:src="@drawable/q16" />
             <EditText
                 android:id="@+id/ae16"
+                android:singleLine="true"
                 android:layout_width="230dp"
                 android:layout_height="50dp"
                 android:layout_gravity="center_horizontal|bottom"
@@ -616,6 +632,7 @@
                 android:src="@drawable/q17" />
             <EditText
                 android:id="@+id/ae17"
+                android:singleLine="true"
                 android:layout_width="230dp"
                 android:layout_height="50dp"
                 android:layout_gravity="center_horizontal|bottom"
@@ -646,6 +663,7 @@
                 android:src="@drawable/q18" />
             <EditText
                 android:id="@+id/ae18"
+                android:singleLine="true"
                 android:layout_width="230dp"
                 android:layout_height="50dp"
                 android:layout_gravity="center_horizontal|bottom"
@@ -676,6 +694,7 @@
                 android:src="@drawable/q19" />
             <EditText
                 android:id="@+id/ae19"
+                android:singleLine="true"
                 android:layout_width="230dp"
                 android:layout_height="50dp"
                 android:layout_gravity="center_horizontal|bottom"
@@ -706,6 +725,7 @@
                 android:src="@drawable/q20" />
             <EditText
                 android:id="@+id/ae20"
+                android:singleLine="true"
                 android:layout_width="230dp"
                 android:layout_height="50dp"
                 android:layout_gravity="center_horizontal|bottom"

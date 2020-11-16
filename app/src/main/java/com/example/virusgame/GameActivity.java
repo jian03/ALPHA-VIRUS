@@ -32,9 +32,9 @@ import java.util.Timer;
 import java.util.TimerTask;
 
 public class GameActivity extends AppCompatActivity {
-    TextView count;
+    TextView count, finalscore;
     TextView startcountdown;
-    private int btncount = 0, btncount2 = 0;
+    private int btncount2 = 0, score = 0;
     private int media_pos;
     private static MediaPlayer mp;
     ImageButton btnpause, btnsoundon, btnclose, btngo, btnrefresh, btnhome;
@@ -60,8 +60,8 @@ public class GameActivity extends AppCompatActivity {
         LayoutInflater inflater = (LayoutInflater)getSystemService(Context.LAYOUT_INFLATER_SERVICE);
         final LinearLayout linear = (LinearLayout)inflater.inflate(R.layout.activity_countdown, null);
         final LinearLayout lineargameover = (LinearLayout)inflater.inflate(R.layout.activity_gameover, null);
-        //final LinearLayout linearnotanswer = (LinearLayout)inflater.inflate(R.layout.activity_notanswer, null);
-        //final LinearLayout linearrightanswer = (LinearLayout)inflater.inflate(R.layout.activity_rightanswer, null);
+        /*final LinearLayout linearnotanswer = (LinearLayout)inflater.inflate(R.layout.activity_notanswer, null);
+        final LinearLayout linearrightanswer = (LinearLayout)inflater.inflate(R.layout.activity_rightanswer, null);*/
         final LinearLayout.LayoutParams paramlinear = new LinearLayout.LayoutParams(
                 LinearLayout.LayoutParams.MATCH_PARENT,
                 LinearLayout.LayoutParams.MATCH_PARENT
@@ -72,6 +72,7 @@ public class GameActivity extends AppCompatActivity {
         );
         linear.setBackgroundColor(Color.parseColor("#99000000")); // 배경 불투명도 설정
         lineargameover.setBackgroundColor(Color.parseColor("#99000000"));
+        //linearrightanswer.setBackgroundColor(Color.parseColor("#99000000"));
         addContentView(linear, paramlinear);
         View view = (View)getLayoutInflater().inflate(R.layout.activity_pause, null);
         final FrameLayout frame = view.findViewById(R.id.frame);
@@ -85,6 +86,9 @@ public class GameActivity extends AppCompatActivity {
         btnrefresh = view.findViewById(R.id.btn_refresh);
         btnsoundon = findViewById(R.id.btn_soundon);
         startcountdown = findViewById(R.id.count3);
+        overbtnhome = lineargameover.findViewById(R.id.overbtnhome);
+        overbtnrefresh = lineargameover.findViewById(R.id.overbtnrefresh);
+        finalscore = lineargameover.findViewById(R.id.finalscore);
 
         ae1 = findViewById(R.id.ae1); // answer editText
         ae2 = findViewById(R.id.ae2);ae3 = findViewById(R.id.ae3);ae4 = findViewById(R.id.ae4);ae5 = findViewById(R.id.ae5);ae6 = findViewById(R.id.ae6);ae7 = findViewById(R.id.ae7);ae8 = findViewById(R.id.ae8);ae9 = findViewById(R.id.ae9);ae10 = findViewById(R.id.ae10);ae11 = findViewById(R.id.ae11);ae12 = findViewById(R.id.ae12);ae13 = findViewById(R.id.ae13);ae14 = findViewById(R.id.ae14);ae15 = findViewById(R.id.ae15);ae16 = findViewById(R.id.ae16);ae17 = findViewById(R.id.ae17);ae18 = findViewById(R.id.ae18);ae19 = findViewById(R.id.ae19);ae20 = findViewById(R.id.ae20);
@@ -149,16 +153,14 @@ public class GameActivity extends AppCompatActivity {
         overbtnhome.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                mp.pause();
+                mp.release();
                 Intent intent = new Intent(getApplicationContext(), MainActivity.class);
                 startActivity(intent);
             }
         });
-
         overbtnrefresh.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                mp.pause();
                 Intent intent = new Intent(getApplicationContext(), GameActivity.class);
                 startActivity(intent);
                 finish(); //현재 Acticity 종료
@@ -170,7 +172,7 @@ public class GameActivity extends AppCompatActivity {
                 InputMethodManager mInputMethodManager = (InputMethodManager)getSystemService(Context.INPUT_METHOD_SERVICE);
                 mInputMethodManager.hideSoftInputFromWindow(ae1.getWindowToken(), 0); // 키보드 내리기
                 if(ae1.getText().toString().equals("object")) {
-
+                    score += 10;
                 } else {
                     v1.setVisibility(View.VISIBLE);
                 }
@@ -184,7 +186,7 @@ public class GameActivity extends AppCompatActivity {
                 InputMethodManager mInputMethodManager = (InputMethodManager)getSystemService(Context.INPUT_METHOD_SERVICE);
                 mInputMethodManager.hideSoftInputFromWindow(ae2.getWindowToken(), 0); // 키보드 내리기
                 if(ae2.getText().toString().equals("earth")) {
-
+                    score += 10;
                 } else {
                     for(int i=0; i<=1; i++) {
                         if (v1.getVisibility() == View.INVISIBLE) {
@@ -205,7 +207,7 @@ public class GameActivity extends AppCompatActivity {
                 InputMethodManager mInputMethodManager = (InputMethodManager)getSystemService(Context.INPUT_METHOD_SERVICE);
                 mInputMethodManager.hideSoftInputFromWindow(ae3.getWindowToken(), 0); // 키보드 내리기
                 if(ae3.getText().toString().equals("ocean")) {
-
+                    score += 10;
                 } else {
                     for(int i=0; i<=1; i++) {
                         if (v1.getVisibility() == View.INVISIBLE) {
@@ -229,7 +231,7 @@ public class GameActivity extends AppCompatActivity {
                 InputMethodManager mInputMethodManager = (InputMethodManager)getSystemService(Context.INPUT_METHOD_SERVICE);
                 mInputMethodManager.hideSoftInputFromWindow(ae4.getWindowToken(), 0); // 키보드 내리기
                 if(ae4.getText().toString().equals("center") || ae4.getText().toString().equals("recent")) {
-
+                    score += 10;
                 } else {
                     for(int i=0; i<=1; i++) {
                         if (v1.getVisibility() == View.INVISIBLE) {
@@ -256,7 +258,7 @@ public class GameActivity extends AppCompatActivity {
                 InputMethodManager mInputMethodManager = (InputMethodManager)getSystemService(Context.INPUT_METHOD_SERVICE);
                 mInputMethodManager.hideSoftInputFromWindow(ae5.getWindowToken(), 0); // 키보드 내리기
                 if(ae5.getText().toString().equals("hunter")) {
-
+                    score += 10;
                 } else {
                     for(int i=0; i<=1; i++) {
                         if (v1.getVisibility() == View.INVISIBLE) {
@@ -286,7 +288,7 @@ public class GameActivity extends AppCompatActivity {
                 InputMethodManager mInputMethodManager = (InputMethodManager)getSystemService(Context.INPUT_METHOD_SERVICE);
                 mInputMethodManager.hideSoftInputFromWindow(ae6.getWindowToken(), 0); // 키보드 내리기
                 if(ae6.getText().toString().equals("sheep")) {
-
+                    score += 10;
                 } else {
                     for(int i=0; i<=1; i++) {
                         if (v1.getVisibility() == View.INVISIBLE) {
@@ -319,7 +321,7 @@ public class GameActivity extends AppCompatActivity {
                 InputMethodManager mInputMethodManager = (InputMethodManager)getSystemService(Context.INPUT_METHOD_SERVICE);
                 mInputMethodManager.hideSoftInputFromWindow(ae7.getWindowToken(), 0); // 키보드 내리기
                 if(ae7.getText().toString().equals("piece")) {
-
+                    score += 10;
                 } else {
                     for(int i=0; i<=1; i++) {
                         if (v1.getVisibility() == View.INVISIBLE) {
@@ -355,7 +357,7 @@ public class GameActivity extends AppCompatActivity {
                 InputMethodManager mInputMethodManager = (InputMethodManager)getSystemService(Context.INPUT_METHOD_SERVICE);
                 mInputMethodManager.hideSoftInputFromWindow(ae8.getWindowToken(), 0); // 키보드 내리기
                 if(ae8.getText().toString().equals("french")) {
-
+                    score += 10;
                 } else {
                     for(int i=0; i<=1; i++) {
                         if (v1.getVisibility() == View.INVISIBLE) {
@@ -394,7 +396,7 @@ public class GameActivity extends AppCompatActivity {
                 InputMethodManager mInputMethodManager = (InputMethodManager)getSystemService(Context.INPUT_METHOD_SERVICE);
                 mInputMethodManager.hideSoftInputFromWindow(ae9.getWindowToken(), 0); // 키보드 내리기
                 if(ae9.getText().toString().equals("voice")) {
-
+                    score += 10;
                 } else {
                     for(int i=0; i<=1; i++) {
                         if (v1.getVisibility() == View.INVISIBLE) {
@@ -436,7 +438,7 @@ public class GameActivity extends AppCompatActivity {
                 InputMethodManager mInputMethodManager = (InputMethodManager)getSystemService(Context.INPUT_METHOD_SERVICE);
                 mInputMethodManager.hideSoftInputFromWindow(ae10.getWindowToken(), 0); // 키보드 내리기
                 if(ae10.getText().toString().equals("code")) {
-
+                    score += 10;
                 } else {
                     for(int i=0; i<=1; i++) {
                         if (v1.getVisibility() == View.INVISIBLE) {
@@ -468,12 +470,601 @@ public class GameActivity extends AppCompatActivity {
                             break;
                         } else {
                             v10.setVisibility(View.VISIBLE);
-                            //lineargameover.setVisibility(View.VISIBLE);
+                            isRun = false;
+                            isFirst = false;
+                            mp.stop();
+                            finalscore.setText("SCORE : " + String.valueOf(score));
+                            lineargameover.setVisibility(View.VISIBLE);
                         }
                     }
                 }
                 q10.setVisibility(View.INVISIBLE);
-                //q11.setVisibility(View.VISIBLE);
+                if(v10.getVisibility() == View.VISIBLE) {
+                    isRun = false;
+                    isFirst = false;
+                    mp.stop();
+                    finalscore.setText("SCORE : " + String.valueOf(score));
+                    lineargameover.setVisibility(View.VISIBLE);
+                } else {
+                    q11.setVisibility(View.VISIBLE);
+                }
+            }
+        });
+        ab11.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                InputMethodManager mInputMethodManager = (InputMethodManager)getSystemService(Context.INPUT_METHOD_SERVICE);
+                mInputMethodManager.hideSoftInputFromWindow(ae11.getWindowToken(), 0); // 키보드 내리기
+                if(ae11.getText().toString().equals("mars")) {
+                    score += 10;
+                } else {
+                    for(int i=0; i<=1; i++) {
+                        if (v1.getVisibility() == View.INVISIBLE) {
+                            v1.setVisibility(View.VISIBLE);
+                            break;
+                        } else if (v2.getVisibility() == View.INVISIBLE) {
+                            v2.setVisibility(View.VISIBLE);
+                            break;
+                        } else if (v3.getVisibility() == View.INVISIBLE) {
+                            v3.setVisibility(View.VISIBLE);
+                            break;
+                        } else if (v4.getVisibility() == View.INVISIBLE) {
+                            v4.setVisibility(View.VISIBLE);
+                            break;
+                        } else if (v5.getVisibility() == View.INVISIBLE) {
+                            v5.setVisibility(View.VISIBLE);
+                            break;
+                        } else if (v6.getVisibility() == View.INVISIBLE) {
+                            v6.setVisibility(View.VISIBLE);
+                            break;
+                        } else if (v7.getVisibility() == View.INVISIBLE) {
+                            v7.setVisibility(View.VISIBLE);
+                            break;
+                        } else if (v8.getVisibility() == View.INVISIBLE) {
+                            v8.setVisibility(View.VISIBLE);
+                            break;
+                        } else if (v9.getVisibility() == View.INVISIBLE) {
+                            v9.setVisibility(View.VISIBLE);
+                            break;
+                        } else {
+                            v10.setVisibility(View.VISIBLE);
+                            isRun = false;
+                            isFirst = false;
+                            mp.stop();
+                            finalscore.setText("SCORE : " + String.valueOf(score));
+                            lineargameover.setVisibility(View.VISIBLE);
+                        }
+                    }
+                }
+                q11.setVisibility(View.INVISIBLE);
+                if(v10.getVisibility() == View.VISIBLE) {
+                    isRun = false;
+                    isFirst = false;
+                    mp.stop();
+                    finalscore.setText("SCORE : " + String.valueOf(score));
+                    lineargameover.setVisibility(View.VISIBLE);
+                } else {
+                    q12.setVisibility(View.VISIBLE);
+                }
+            }
+        });
+        ab12.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                InputMethodManager mInputMethodManager = (InputMethodManager)getSystemService(Context.INPUT_METHOD_SERVICE);
+                mInputMethodManager.hideSoftInputFromWindow(ae12.getWindowToken(), 0); // 키보드 내리기
+                if(ae12.getText().toString().equals("fruit")) {
+                    score += 10;
+                } else {
+                    for(int i=0; i<=1; i++) {
+                        if (v1.getVisibility() == View.INVISIBLE) {
+                            v1.setVisibility(View.VISIBLE);
+                            break;
+                        } else if (v2.getVisibility() == View.INVISIBLE) {
+                            v2.setVisibility(View.VISIBLE);
+                            break;
+                        } else if (v3.getVisibility() == View.INVISIBLE) {
+                            v3.setVisibility(View.VISIBLE);
+                            break;
+                        } else if (v4.getVisibility() == View.INVISIBLE) {
+                            v4.setVisibility(View.VISIBLE);
+                            break;
+                        } else if (v5.getVisibility() == View.INVISIBLE) {
+                            v5.setVisibility(View.VISIBLE);
+                            break;
+                        } else if (v6.getVisibility() == View.INVISIBLE) {
+                            v6.setVisibility(View.VISIBLE);
+                            break;
+                        } else if (v7.getVisibility() == View.INVISIBLE) {
+                            v7.setVisibility(View.VISIBLE);
+                            break;
+                        } else if (v8.getVisibility() == View.INVISIBLE) {
+                            v8.setVisibility(View.VISIBLE);
+                            break;
+                        } else if (v9.getVisibility() == View.INVISIBLE) {
+                            v9.setVisibility(View.VISIBLE);
+                            break;
+                        } else {
+                            v10.setVisibility(View.VISIBLE);
+                            isRun = false;
+                            isFirst = false;
+                            mp.stop();
+                            finalscore.setText("SCORE : " + String.valueOf(score));
+                            lineargameover.setVisibility(View.VISIBLE);
+                        }
+                    }
+                }
+                q12.setVisibility(View.INVISIBLE);
+                if(v10.getVisibility() == View.VISIBLE) {
+                    isRun = false;
+                    isFirst = false;
+                    mp.stop();
+                    finalscore.setText("SCORE : " + String.valueOf(score));
+                    lineargameover.setVisibility(View.VISIBLE);
+                } else {
+                    q13.setVisibility(View.VISIBLE);
+                }
+            }
+        });
+        ab13.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                InputMethodManager mInputMethodManager = (InputMethodManager)getSystemService(Context.INPUT_METHOD_SERVICE);
+                mInputMethodManager.hideSoftInputFromWindow(ae13.getWindowToken(), 0); // 키보드 내리기
+                if(ae13.getText().toString().equals("mouse")) {
+                    score += 10;
+                } else {
+                    for(int i=0; i<=1; i++) {
+                        if (v1.getVisibility() == View.INVISIBLE) {
+                            v1.setVisibility(View.VISIBLE);
+                            break;
+                        } else if (v2.getVisibility() == View.INVISIBLE) {
+                            v2.setVisibility(View.VISIBLE);
+                            break;
+                        } else if (v3.getVisibility() == View.INVISIBLE) {
+                            v3.setVisibility(View.VISIBLE);
+                            break;
+                        } else if (v4.getVisibility() == View.INVISIBLE) {
+                            v4.setVisibility(View.VISIBLE);
+                            break;
+                        } else if (v5.getVisibility() == View.INVISIBLE) {
+                            v5.setVisibility(View.VISIBLE);
+                            break;
+                        } else if (v6.getVisibility() == View.INVISIBLE) {
+                            v6.setVisibility(View.VISIBLE);
+                            break;
+                        } else if (v7.getVisibility() == View.INVISIBLE) {
+                            v7.setVisibility(View.VISIBLE);
+                            break;
+                        } else if (v8.getVisibility() == View.INVISIBLE) {
+                            v8.setVisibility(View.VISIBLE);
+                            break;
+                        } else if (v9.getVisibility() == View.INVISIBLE) {
+                            v9.setVisibility(View.VISIBLE);
+                            break;
+                        } else {
+                            v10.setVisibility(View.VISIBLE);
+                            isRun = false;
+                            isFirst = false;
+                            mp.stop();
+                            finalscore.setText("SCORE : " + String.valueOf(score));
+                            lineargameover.setVisibility(View.VISIBLE);
+                        }
+                    }
+                }
+                q13.setVisibility(View.INVISIBLE);
+                if(v10.getVisibility() == View.VISIBLE) {
+                    isRun = false;
+                    isFirst = false;
+                    mp.stop();
+                    finalscore.setText("SCORE : " + String.valueOf(score));
+                    lineargameover.setVisibility(View.VISIBLE);
+                } else {
+                    q14.setVisibility(View.VISIBLE);
+                }
+            }
+        });
+        ab14.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                InputMethodManager mInputMethodManager = (InputMethodManager)getSystemService(Context.INPUT_METHOD_SERVICE);
+                mInputMethodManager.hideSoftInputFromWindow(ae14.getWindowToken(), 0); // 키보드 내리기
+                if(ae14.getText().toString().equals("plane")) {
+                    score += 10;
+                } else {
+                    for(int i=0; i<=1; i++) {
+                        if (v1.getVisibility() == View.INVISIBLE) {
+                            v1.setVisibility(View.VISIBLE);
+                            break;
+                        } else if (v2.getVisibility() == View.INVISIBLE) {
+                            v2.setVisibility(View.VISIBLE);
+                            break;
+                        } else if (v3.getVisibility() == View.INVISIBLE) {
+                            v3.setVisibility(View.VISIBLE);
+                            break;
+                        } else if (v4.getVisibility() == View.INVISIBLE) {
+                            v4.setVisibility(View.VISIBLE);
+                            break;
+                        } else if (v5.getVisibility() == View.INVISIBLE) {
+                            v5.setVisibility(View.VISIBLE);
+                            break;
+                        } else if (v6.getVisibility() == View.INVISIBLE) {
+                            v6.setVisibility(View.VISIBLE);
+                            break;
+                        } else if (v7.getVisibility() == View.INVISIBLE) {
+                            v7.setVisibility(View.VISIBLE);
+                            break;
+                        } else if (v8.getVisibility() == View.INVISIBLE) {
+                            v8.setVisibility(View.VISIBLE);
+                            break;
+                        } else if (v9.getVisibility() == View.INVISIBLE) {
+                            v9.setVisibility(View.VISIBLE);
+                            break;
+                        } else {
+                            v10.setVisibility(View.VISIBLE);
+                            isRun = false;
+                            isFirst = false;
+                            mp.stop();
+                            finalscore.setText("SCORE : " + String.valueOf(score));
+                            lineargameover.setVisibility(View.VISIBLE);
+                        }
+                    }
+                }
+                q14.setVisibility(View.INVISIBLE);
+                if(v10.getVisibility() == View.VISIBLE) {
+                    isRun = false;
+                    isFirst = false;
+                    mp.stop();
+                    finalscore.setText("SCORE : " + String.valueOf(score));
+                    lineargameover.setVisibility(View.VISIBLE);
+                } else {
+                    q15.setVisibility(View.VISIBLE);
+                }
+            }
+        });
+        ab15.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                InputMethodManager mInputMethodManager = (InputMethodManager)getSystemService(Context.INPUT_METHOD_SERVICE);
+                mInputMethodManager.hideSoftInputFromWindow(ae15.getWindowToken(), 0); // 키보드 내리기
+                if(ae15.getText().toString().equals("weather")) {
+                    score += 10;
+                } else {
+                    for(int i=0; i<=1; i++) {
+                        if (v1.getVisibility() == View.INVISIBLE) {
+                            v1.setVisibility(View.VISIBLE);
+                            break;
+                        } else if (v2.getVisibility() == View.INVISIBLE) {
+                            v2.setVisibility(View.VISIBLE);
+                            break;
+                        } else if (v3.getVisibility() == View.INVISIBLE) {
+                            v3.setVisibility(View.VISIBLE);
+                            break;
+                        } else if (v4.getVisibility() == View.INVISIBLE) {
+                            v4.setVisibility(View.VISIBLE);
+                            break;
+                        } else if (v5.getVisibility() == View.INVISIBLE) {
+                            v5.setVisibility(View.VISIBLE);
+                            break;
+                        } else if (v6.getVisibility() == View.INVISIBLE) {
+                            v6.setVisibility(View.VISIBLE);
+                            break;
+                        } else if (v7.getVisibility() == View.INVISIBLE) {
+                            v7.setVisibility(View.VISIBLE);
+                            break;
+                        } else if (v8.getVisibility() == View.INVISIBLE) {
+                            v8.setVisibility(View.VISIBLE);
+                            break;
+                        } else if (v9.getVisibility() == View.INVISIBLE) {
+                            v9.setVisibility(View.VISIBLE);
+                            break;
+                        } else {
+                            v10.setVisibility(View.VISIBLE);
+                            isRun = false;
+                            isFirst = false;
+                            mp.stop();
+                            finalscore.setText("SCORE : " + String.valueOf(score));
+                            lineargameover.setVisibility(View.VISIBLE);
+                        }
+                    }
+                }
+                q15.setVisibility(View.INVISIBLE);
+                if(v10.getVisibility() == View.VISIBLE) {
+                    isRun = false;
+                    isFirst = false;
+                    mp.stop();
+                    finalscore.setText("SCORE : " + String.valueOf(score));
+                    lineargameover.setVisibility(View.VISIBLE);
+                } else {
+                    q16.setVisibility(View.VISIBLE);
+                }
+            }
+        });
+        ab16.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                InputMethodManager mInputMethodManager = (InputMethodManager)getSystemService(Context.INPUT_METHOD_SERVICE);
+                mInputMethodManager.hideSoftInputFromWindow(ae16.getWindowToken(), 0); // 키보드 내리기
+                if(ae16.getText().toString().equals("phone")) {
+                    score += 10;
+                } else {
+                    for(int i=0; i<=1; i++) {
+                        if (v1.getVisibility() == View.INVISIBLE) {
+                            v1.setVisibility(View.VISIBLE);
+                            break;
+                        } else if (v2.getVisibility() == View.INVISIBLE) {
+                            v2.setVisibility(View.VISIBLE);
+                            break;
+                        } else if (v3.getVisibility() == View.INVISIBLE) {
+                            v3.setVisibility(View.VISIBLE);
+                            break;
+                        } else if (v4.getVisibility() == View.INVISIBLE) {
+                            v4.setVisibility(View.VISIBLE);
+                            break;
+                        } else if (v5.getVisibility() == View.INVISIBLE) {
+                            v5.setVisibility(View.VISIBLE);
+                            break;
+                        } else if (v6.getVisibility() == View.INVISIBLE) {
+                            v6.setVisibility(View.VISIBLE);
+                            break;
+                        } else if (v7.getVisibility() == View.INVISIBLE) {
+                            v7.setVisibility(View.VISIBLE);
+                            break;
+                        } else if (v8.getVisibility() == View.INVISIBLE) {
+                            v8.setVisibility(View.VISIBLE);
+                            break;
+                        } else if (v9.getVisibility() == View.INVISIBLE) {
+                            v9.setVisibility(View.VISIBLE);
+                            break;
+                        } else {
+                            v10.setVisibility(View.VISIBLE);
+                            isRun = false;
+                            isFirst = false;
+                            mp.stop();
+                            finalscore.setText("SCORE : " + String.valueOf(score));
+                            lineargameover.setVisibility(View.VISIBLE);
+                        }
+                    }
+                }
+                q16.setVisibility(View.INVISIBLE);
+                if(v10.getVisibility() == View.VISIBLE) {
+                    isRun = false;
+                    isFirst = false;
+                    mp.stop();
+                    finalscore.setText("SCORE : " + String.valueOf(score));
+                    lineargameover.setVisibility(View.VISIBLE);
+                } else {
+                    q17.setVisibility(View.VISIBLE);
+                }
+            }
+        });
+        ab17.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                InputMethodManager mInputMethodManager = (InputMethodManager)getSystemService(Context.INPUT_METHOD_SERVICE);
+                mInputMethodManager.hideSoftInputFromWindow(ae17.getWindowToken(), 0); // 키보드 내리기
+                if(ae17.getText().toString().equals("puzzle")) {
+                    score += 10;
+                } else {
+                    for(int i=0; i<=1; i++) {
+                        if (v1.getVisibility() == View.INVISIBLE) {
+                            v1.setVisibility(View.VISIBLE);
+                            break;
+                        } else if (v2.getVisibility() == View.INVISIBLE) {
+                            v2.setVisibility(View.VISIBLE);
+                            break;
+                        } else if (v3.getVisibility() == View.INVISIBLE) {
+                            v3.setVisibility(View.VISIBLE);
+                            break;
+                        } else if (v4.getVisibility() == View.INVISIBLE) {
+                            v4.setVisibility(View.VISIBLE);
+                            break;
+                        } else if (v5.getVisibility() == View.INVISIBLE) {
+                            v5.setVisibility(View.VISIBLE);
+                            break;
+                        } else if (v6.getVisibility() == View.INVISIBLE) {
+                            v6.setVisibility(View.VISIBLE);
+                            break;
+                        } else if (v7.getVisibility() == View.INVISIBLE) {
+                            v7.setVisibility(View.VISIBLE);
+                            break;
+                        } else if (v8.getVisibility() == View.INVISIBLE) {
+                            v8.setVisibility(View.VISIBLE);
+                            break;
+                        } else if (v9.getVisibility() == View.INVISIBLE) {
+                            v9.setVisibility(View.VISIBLE);
+                            break;
+                        } else {
+                            v10.setVisibility(View.VISIBLE);
+                            isRun = false;
+                            isFirst = false;
+                            mp.stop();
+                            finalscore.setText("SCORE : " + String.valueOf(score));
+                            lineargameover.setVisibility(View.VISIBLE);
+                        }
+                    }
+                }
+                q17.setVisibility(View.INVISIBLE);
+                if(v10.getVisibility() == View.VISIBLE) {
+                    isRun = false;
+                    isFirst = false;
+                    mp.stop();
+                    finalscore.setText("SCORE : " + String.valueOf(score));
+                    lineargameover.setVisibility(View.VISIBLE);
+                } else {
+                    q18.setVisibility(View.VISIBLE);
+                }
+            }
+        });
+        ab18.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                InputMethodManager mInputMethodManager = (InputMethodManager)getSystemService(Context.INPUT_METHOD_SERVICE);
+                mInputMethodManager.hideSoftInputFromWindow(ae18.getWindowToken(), 0); // 키보드 내리기
+                if(ae18.getText().toString().equals("camera")) {
+                    score += 10;
+                } else {
+                    for(int i=0; i<=1; i++) {
+                        if (v1.getVisibility() == View.INVISIBLE) {
+                            v1.setVisibility(View.VISIBLE);
+                            break;
+                        } else if (v2.getVisibility() == View.INVISIBLE) {
+                            v2.setVisibility(View.VISIBLE);
+                            break;
+                        } else if (v3.getVisibility() == View.INVISIBLE) {
+                            v3.setVisibility(View.VISIBLE);
+                            break;
+                        } else if (v4.getVisibility() == View.INVISIBLE) {
+                            v4.setVisibility(View.VISIBLE);
+                            break;
+                        } else if (v5.getVisibility() == View.INVISIBLE) {
+                            v5.setVisibility(View.VISIBLE);
+                            break;
+                        } else if (v6.getVisibility() == View.INVISIBLE) {
+                            v6.setVisibility(View.VISIBLE);
+                            break;
+                        } else if (v7.getVisibility() == View.INVISIBLE) {
+                            v7.setVisibility(View.VISIBLE);
+                            break;
+                        } else if (v8.getVisibility() == View.INVISIBLE) {
+                            v8.setVisibility(View.VISIBLE);
+                            break;
+                        } else if (v9.getVisibility() == View.INVISIBLE) {
+                            v9.setVisibility(View.VISIBLE);
+                            break;
+                        } else {
+                            v10.setVisibility(View.VISIBLE);
+                            isRun = false;
+                            isFirst = false;
+                            mp.stop();
+                            finalscore.setText("SCORE : " + String.valueOf(score));
+                            lineargameover.setVisibility(View.VISIBLE);
+                        }
+                    }
+                }
+                q18.setVisibility(View.INVISIBLE);
+                if(v10.getVisibility() == View.VISIBLE) {
+                    isRun = false;
+                    isFirst = false;
+                    mp.stop();
+                    finalscore.setText("SCORE : " + String.valueOf(score));
+                    lineargameover.setVisibility(View.VISIBLE);
+                } else {
+                    q19.setVisibility(View.VISIBLE);
+                }
+            }
+        });
+        ab19.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                InputMethodManager mInputMethodManager = (InputMethodManager)getSystemService(Context.INPUT_METHOD_SERVICE);
+                mInputMethodManager.hideSoftInputFromWindow(ae19.getWindowToken(), 0); // 키보드 내리기
+                if(ae19.getText().toString().equals("program")) {
+                    score += 10;
+                } else {
+                    for(int i=0; i<=1; i++) {
+                        if (v1.getVisibility() == View.INVISIBLE) {
+                            v1.setVisibility(View.VISIBLE);
+                            break;
+                        } else if (v2.getVisibility() == View.INVISIBLE) {
+                            v2.setVisibility(View.VISIBLE);
+                            break;
+                        } else if (v3.getVisibility() == View.INVISIBLE) {
+                            v3.setVisibility(View.VISIBLE);
+                            break;
+                        } else if (v4.getVisibility() == View.INVISIBLE) {
+                            v4.setVisibility(View.VISIBLE);
+                            break;
+                        } else if (v5.getVisibility() == View.INVISIBLE) {
+                            v5.setVisibility(View.VISIBLE);
+                            break;
+                        } else if (v6.getVisibility() == View.INVISIBLE) {
+                            v6.setVisibility(View.VISIBLE);
+                            break;
+                        } else if (v7.getVisibility() == View.INVISIBLE) {
+                            v7.setVisibility(View.VISIBLE);
+                            break;
+                        } else if (v8.getVisibility() == View.INVISIBLE) {
+                            v8.setVisibility(View.VISIBLE);
+                            break;
+                        } else if (v9.getVisibility() == View.INVISIBLE) {
+                            v9.setVisibility(View.VISIBLE);
+                            break;
+                        } else {
+                            v10.setVisibility(View.VISIBLE);
+                            isRun = false;
+                            isFirst = false;
+                            mp.stop();
+                            finalscore.setText("SCORE : " + String.valueOf(score));
+                            lineargameover.setVisibility(View.VISIBLE);
+                        }
+                    }
+                }
+                q19.setVisibility(View.INVISIBLE);
+                if(v10.getVisibility() == View.VISIBLE) {
+                    isRun = false;
+                    isFirst = false;
+                    mp.stop();
+                    finalscore.setText("SCORE : " + String.valueOf(score));
+                    lineargameover.setVisibility(View.VISIBLE);
+                } else {
+                    q20.setVisibility(View.VISIBLE);
+                }
+            }
+        });
+        ab20.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                InputMethodManager mInputMethodManager = (InputMethodManager)getSystemService(Context.INPUT_METHOD_SERVICE);
+                mInputMethodManager.hideSoftInputFromWindow(ae20.getWindowToken(), 0); // 키보드 내리기
+                if(ae20.getText().toString().equals("pencil")) {
+                    score += 10;
+                } else {
+                    for(int i=0; i<=1; i++) {
+                        if (v1.getVisibility() == View.INVISIBLE) {
+                            v1.setVisibility(View.VISIBLE);
+                            break;
+                        } else if (v2.getVisibility() == View.INVISIBLE) {
+                            v2.setVisibility(View.VISIBLE);
+                            break;
+                        } else if (v3.getVisibility() == View.INVISIBLE) {
+                            v3.setVisibility(View.VISIBLE);
+                            break;
+                        } else if (v4.getVisibility() == View.INVISIBLE) {
+                            v4.setVisibility(View.VISIBLE);
+                            break;
+                        } else if (v5.getVisibility() == View.INVISIBLE) {
+                            v5.setVisibility(View.VISIBLE);
+                            break;
+                        } else if (v6.getVisibility() == View.INVISIBLE) {
+                            v6.setVisibility(View.VISIBLE);
+                            break;
+                        } else if (v7.getVisibility() == View.INVISIBLE) {
+                            v7.setVisibility(View.VISIBLE);
+                            break;
+                        } else if (v8.getVisibility() == View.INVISIBLE) {
+                            v8.setVisibility(View.VISIBLE);
+                            break;
+                        } else if (v9.getVisibility() == View.INVISIBLE) {
+                            v9.setVisibility(View.VISIBLE);
+                            break;
+                        } else {
+                            v10.setVisibility(View.VISIBLE);
+                            isRun = false;
+                            isFirst = false;
+                            mp.stop();
+                            finalscore.setText("SCORE : " + String.valueOf(score));
+                            lineargameover.setVisibility(View.VISIBLE);
+                        }
+                    }
+                }
+                q20.setVisibility(View.INVISIBLE);
+                isRun = false;
+                isFirst = false;
+                mp.stop();
+
+                finalscore.setText("SCORE : " + String.valueOf(score));
+                lineargameover.setVisibility(View.VISIBLE);
             }
         });
         btnsoundon.setOnClickListener(btnListener);
@@ -491,6 +1082,7 @@ public class GameActivity extends AppCompatActivity {
 
         mp = MediaPlayer.create(this, R.raw.backmusic);
         mp.setLooping(true);
+
 
         new Handler().post(new Runnable() { // 321
             @Override
@@ -513,6 +1105,7 @@ public class GameActivity extends AppCompatActivity {
         gameovertt = new TimerTask() {
             @Override
             public void run() {
+                finalscore.setText("SCORE : " + String.valueOf(score));
                 lineargameover.setVisibility(View.VISIBLE);
             }
         };
@@ -546,8 +1139,8 @@ public class GameActivity extends AppCompatActivity {
             }else if (msg.what == 2){
                 // 게임 오버
                 //lineargameover.setVisibility(View.VISIBLE);
-                timer = new Timer();
-                timer.schedule(gameovertt, 0, 3000);
+                /*timer = new Timer();
+                timer.schedule(gameovertt, 0, 3000);*/
             }
         }
     };
