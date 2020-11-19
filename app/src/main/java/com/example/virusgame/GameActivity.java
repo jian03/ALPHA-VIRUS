@@ -69,7 +69,11 @@ public class GameActivity extends AppCompatActivity {
             "voice", "code", "mars", "fruit", "mouse", "plane", "weather", "phone", "puzzle",
             "camera", "program", "pencil"
     };
-    String a;
+    String[] hint = {
+            "사물", "지구", "대양", "중심", "사냥꾼", "양", "조각", "프랑스어",
+            "목소리", "코드", "화성", "과일", "쥐", "비행기", "날씨", "휴대전화", "퍼즐",
+            "카메라", "프로그램", "연필"
+    };
     boolean loopFlag = true;
     boolean isFirst = true;
     boolean isRun = true;
@@ -134,6 +138,13 @@ public class GameActivity extends AppCompatActivity {
         addContentView(lineargameclear, paramlinear);
         lineargameclear.setVisibility(View.INVISIBLE);
 
+        final ArrayList<Integer> layoutList = new ArrayList<>();
+        layoutList.add(R.drawable.q1);layoutList.add(R.drawable.q2);layoutList.add(R.drawable.q3);layoutList.add(R.drawable.q4);layoutList.add(R.drawable.q5);
+        layoutList.add(R.drawable.q6);layoutList.add(R.drawable.q7);layoutList.add(R.drawable.q8);layoutList.add(R.drawable.q9);layoutList.add(R.drawable.q10);
+        layoutList.add(R.drawable.q11);layoutList.add(R.drawable.q12);layoutList.add(R.drawable.q13);layoutList.add(R.drawable.q14);layoutList.add(R.drawable.q15);
+        layoutList.add(R.drawable.q16);layoutList.add(R.drawable.q17);layoutList.add(R.drawable.q18);layoutList.add(R.drawable.q19);layoutList.add(R.drawable.q20);
+        Collections.shuffle(layoutList); // 리스트 섞기
+
         btnpause.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -176,6 +187,7 @@ public class GameActivity extends AppCompatActivity {
                 startActivity(intent);
                 finish(); //현재 Acticity 종료
                 mp.stop();
+                Collections.shuffle(layoutList);
             }
         });
         overbtnhome.setOnClickListener(new View.OnClickListener() {
@@ -192,6 +204,7 @@ public class GameActivity extends AppCompatActivity {
                 Intent intent = new Intent(getApplicationContext(), GameActivity.class);
                 startActivity(intent);
                 finish(); //현재 Acticity 종료
+                Collections.shuffle(layoutList);
             }
         });
         clearbtnhome.setOnClickListener(new View.OnClickListener() {
@@ -208,6 +221,7 @@ public class GameActivity extends AppCompatActivity {
                 Intent intent = new Intent(getApplicationContext(), GameActivity.class);
                 startActivity(intent);
                 finish(); //현재 Acticity 종료
+                Collections.shuffle(layoutList);
             }
         });
         btnhint.setOnClickListener(new View.OnClickListener() {
@@ -217,95 +231,33 @@ public class GameActivity extends AppCompatActivity {
                 btnhint.setEnabled(false);
                 if(hintcount > 2) {
                     btnhint.setEnabled(false);
-                } else if(q1.getVisibility() == View.VISIBLE) {
-                    hinttext.setText("사물");
-                    hinttext.setVisibility(View.VISIBLE);
-                } else if(q2.getVisibility() == View.VISIBLE) {
-                    hinttext.setText("지구");
-                    hinttext.setVisibility(View.VISIBLE);
-                } else if(q3.getVisibility() == View.VISIBLE) {
-                    hinttext.setText("대양");
-                    hinttext.setVisibility(View.VISIBLE);
-                } else if(q4.getVisibility() == View.VISIBLE) {
-                    hinttext.setText("중심");
-                    hinttext.setVisibility(View.VISIBLE);
-                } else if(q5.getVisibility() == View.VISIBLE) {
-                    hinttext.setText("사냥꾼");
-                    hinttext.setVisibility(View.VISIBLE);
-                } else if(q6.getVisibility() == View.VISIBLE) {
-                    hinttext.setText("양");
-                    hinttext.setVisibility(View.VISIBLE);
-                } else if(q7.getVisibility() == View.VISIBLE) {
-                    hinttext.setText("조각");
-                    hinttext.setVisibility(View.VISIBLE);
-                } else if(q8.getVisibility() == View.VISIBLE) {
-                    hinttext.setText("과일");
-                    hinttext.setVisibility(View.VISIBLE);
-                } else if(q9.getVisibility() == View.VISIBLE) {
-                    hinttext.setText("목소리");
-                    hinttext.setVisibility(View.VISIBLE);
-                } else if(q10.getVisibility() == View.VISIBLE) {
-                    hinttext.setText("코드");
-                    hinttext.setVisibility(View.VISIBLE);
-                } else if(q11.getVisibility() == View.VISIBLE) {
-                    hinttext.setText("화성");
-                    hinttext.setVisibility(View.VISIBLE);
-                } else if(q12.getVisibility() == View.VISIBLE) {
-                    hinttext.setText("프랑스어");
-                    hinttext.setVisibility(View.VISIBLE);
-                } else if(q13.getVisibility() == View.VISIBLE) {
-                    hinttext.setText("쥐");
-                    hinttext.setVisibility(View.VISIBLE);
-                } else if(q14.getVisibility() == View.VISIBLE) {
-                    hinttext.setText("비행기");
-                    hinttext.setVisibility(View.VISIBLE);
-                } else if(q15.getVisibility() == View.VISIBLE) {
-                    hinttext.setText("날씨");
-                    hinttext.setVisibility(View.VISIBLE);
-                } else if(q16.getVisibility() == View.VISIBLE) {
-                    hinttext.setText("휴대전화");
-                    hinttext.setVisibility(View.VISIBLE);
-                } else if(q17.getVisibility() == View.VISIBLE) {
-                    hinttext.setText("퍼즐");
-                    hinttext.setVisibility(View.VISIBLE);
-                } else if(q18.getVisibility() == View.VISIBLE) {
-                    hinttext.setText("카메라");
-                    hinttext.setVisibility(View.VISIBLE);
-                } else if(q19.getVisibility() == View.VISIBLE) {
-                    hinttext.setText("프로그램");
-                    hinttext.setVisibility(View.VISIBLE);
-                } else if(q20.getVisibility() == View.VISIBLE) {
-                    hinttext.setText("연필");
-                    hinttext.setVisibility(View.VISIBLE);
+                }
+                for(int i=1; i<=layoutList.size(); i++) {
+                    if(layoutList.get(i-1).equals(getResources().getIdentifier("q"+i, "drawable", getPackageName()))) {
+                        hinttext.setText(hint[i-1]);
+                        hinttext.setVisibility(View.VISIBLE);
+                    }
                 }
             }
         });
 
-        final ArrayList<Integer> layoutList = new ArrayList<>();
-        layoutList.add(R.drawable.q1);layoutList.add(R.drawable.q2);layoutList.add(R.drawable.q3);layoutList.add(R.drawable.q4);layoutList.add(R.drawable.q5);
-        layoutList.add(R.drawable.q6);layoutList.add(R.drawable.q7);layoutList.add(R.drawable.q8);layoutList.add(R.drawable.q9);layoutList.add(R.drawable.q10);
-        layoutList.add(R.drawable.q11);layoutList.add(R.drawable.q12);layoutList.add(R.drawable.q13);layoutList.add(R.drawable.q14);layoutList.add(R.drawable.q15);
-        layoutList.add(R.drawable.q16);layoutList.add(R.drawable.q17);layoutList.add(R.drawable.q18);layoutList.add(R.drawable.q19);layoutList.add(R.drawable.q20);
-        Collections.shuffle(layoutList); // 리스트 섞기
-
 
 
         imgq1.setImageResource(layoutList.get(0)); // 섞은 리스트 중 첫번째 사진으로 설정
-        for(int i=1; i<=layoutList.size(); i++) {
-            if(layoutList.get(i-1).equals(getResources().getIdentifier("q"+i, "drawable", getPackageName()))) {
-                ab[i] = (Button) findViewById(Rid_button[i]);
+        for(int i=1; i<=layoutList.size(); i++) { // 문제 수만큼 반복
+            if(layoutList.get(i-1).equals(getResources().getIdentifier("q"+i, "drawable", getPackageName()))) { // layoutList[0].equals(R.drawable.q1)와 같은 뜻
+                ab[i] = (Button) findViewById(Rid_button[i-1]);
                 ab[i].setVisibility(View.VISIBLE);
-                ae[i] = (EditText) findViewById(Rid_edittext[i]);
+                ae[i] = (EditText) findViewById(Rid_edittext[i-1]);
                 ae[i].setVisibility(View.VISIBLE);
-                answer[i] = (String)answer[i];
-                ae[i].setOnClickListener(new View.OnClickListener() {
+                ab[i].setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
                         for (int i=1; i<=layoutList.size(); i++) {
                             mInputMethodManager = (InputMethodManager)getSystemService(Context.INPUT_METHOD_SERVICE);
                             mInputMethodManager.hideSoftInputFromWindow(ae[i].getWindowToken(), 0); // 키보드 내리기
                             hinttext.setVisibility(View.INVISIBLE);
-                            if(ae[i].getText().toString().equals(answer[i])) {
+                            if(ae[i].getText().toString().equals(answer[i-1])) {
                                 score += 10;
                                 if(v9.getVisibility() == View.VISIBLE) {
                                     v9.setVisibility(View.INVISIBLE);
@@ -365,7 +317,9 @@ public class GameActivity extends AppCompatActivity {
                                     }
                                 }
                             }
-                            imgq1.setImageResource(layoutList.get(i));
+                            imgq1.setImageResource(layoutList.get(i+1));
+                            ae[i+1].setVisibility(View.VISIBLE);
+                            ab[i+1].setVisibility(View.VISIBLE);
                             if(hintcount <= 2) {
                                 btnhint.setEnabled(true);
                             }
