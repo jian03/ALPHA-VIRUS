@@ -64,16 +64,8 @@ public class GameActivity extends AppCompatActivity {
             R.id.ae11, R.id.ae12, R.id.ae13, R.id.ae14, R.id.ae15,
             R.id.ae16, R.id.ae17, R.id.ae18, R.id.ae19, R.id.ae20
     };
-    String[] answer = {
-            "object", "earth", "ocean", "center", "hunter", "sheep", "piece", "french",
-            "voice", "code", "mars", "fruit", "mouse", "plane", "weather", "phone", "puzzle",
-            "camera", "program", "pencil"
-    };
-    String[] hint = {
-            "사물", "지구", "대양", "중심", "사냥꾼", "양", "조각", "프랑스어",
-            "목소리", "코드", "화성", "과일", "쥐", "비행기", "날씨", "휴대전화", "퍼즐",
-            "카메라", "프로그램", "연필"
-    };
+    String[] answer = {"object", "earth", "ocean", "center", "hunter", "sheep", "piece", "french", "voice", "code", "mars", "fruit", "mouse", "plane", "weather", "phone", "puzzle", "camera", "program", "pencil"};
+    String[] hint = {"사물", "지구", "대양", "중심", "사냥꾼", "양", "조각", "프랑스어", "목소리", "코드", "화성", "과일", "쥐", "비행기", "날씨", "휴대전화", "퍼즐", "카메라", "프로그램", "연필"};
     boolean loopFlag = true;
     boolean isFirst = true;
     boolean isRun = true;
@@ -232,107 +224,111 @@ public class GameActivity extends AppCompatActivity {
                 if(hintcount > 2) {
                     btnhint.setEnabled(false);
                 }
-                for(int i=1; i<=layoutList.size(); i++) {
-                    if(layoutList.get(i-1).equals(getResources().getIdentifier("q"+i, "drawable", getPackageName()))) {
-                        hinttext.setText(hint[i-1]);
-                        hinttext.setVisibility(View.VISIBLE);
+                for(int i=0; i<layoutList.size(); i++) {
+                    for(int j=0; j<layoutList.size(); j++) {
+                        if(layoutList.get(i).equals(getResources().getIdentifier("q"+(j+1), "drawable", getPackageName()))) {
+                            hinttext.setText(hint[j]);
+                            hinttext.setVisibility(View.VISIBLE);
+                        }
                     }
                 }
             }
         });
 
 
-
-        imgq1.setImageResource(layoutList.get(0)); // 섞은 리스트 중 첫번째 사진으로 설정
-        for(int i=1; i<=layoutList.size(); i++) { // 문제 수만큼 반복
-            if(layoutList.get(i-1).equals(getResources().getIdentifier("q"+i, "drawable", getPackageName()))) { // layoutList[0].equals(R.drawable.q1)와 같은 뜻
-                ab[i] = (Button) findViewById(Rid_button[i-1]);
-                ab[i].setVisibility(View.VISIBLE);
-                ae[i] = (EditText) findViewById(Rid_edittext[i-1]);
-                ae[i].setVisibility(View.VISIBLE);
-                ab[i].setOnClickListener(new View.OnClickListener() {
-                    @Override
-                    public void onClick(View v) {
-                        for (int i=1; i<=layoutList.size(); i++) {
-                            mInputMethodManager = (InputMethodManager)getSystemService(Context.INPUT_METHOD_SERVICE);
-                            mInputMethodManager.hideSoftInputFromWindow(ae[i].getWindowToken(), 0); // 키보드 내리기
-                            hinttext.setVisibility(View.INVISIBLE);
-                            if(ae[i].getText().toString().equals(answer[i-1])) {
-                                score += 10;
-                                if(v9.getVisibility() == View.VISIBLE) {
-                                    v9.setVisibility(View.INVISIBLE);
-                                } else if(v8.getVisibility() == View.VISIBLE) {
-                                    v8.setVisibility(View.INVISIBLE);
-                                } else if(v7.getVisibility() == View.VISIBLE) {
-                                    v7.setVisibility(View.INVISIBLE);
-                                } else if(v6.getVisibility() == View.VISIBLE) {
-                                    v6.setVisibility(View.INVISIBLE);
-                                } else if(v5.getVisibility() == View.VISIBLE) {
-                                    v5.setVisibility(View.INVISIBLE);
-                                } else if(v4.getVisibility() == View.VISIBLE) {
-                                    v4.setVisibility(View.INVISIBLE);
-                                } else if(v3.getVisibility() == View.VISIBLE) {
-                                    v3.setVisibility(View.INVISIBLE);
-                                } else if(v2.getVisibility() == View.VISIBLE) {
-                                    v2.setVisibility(View.INVISIBLE);
-                                } else if(v1.getVisibility() == View.VISIBLE) {
-                                    v1.setVisibility(View.INVISIBLE);
-                                }
-                            } else {
-                                for(int j=0; j<=1; j++) {
-                                    if (v1.getVisibility() == View.INVISIBLE) {
-                                        v1.setVisibility(View.VISIBLE);
-                                        break;
-                                    } else if (v2.getVisibility() == View.INVISIBLE) {
-                                        v2.setVisibility(View.VISIBLE);
-                                        break;
-                                    } else if (v3.getVisibility() == View.INVISIBLE) {
-                                        v3.setVisibility(View.VISIBLE);
-                                        break;
-                                    } else if (v4.getVisibility() == View.INVISIBLE) {
-                                        v4.setVisibility(View.VISIBLE);
-                                        break;
-                                    } else if (v5.getVisibility() == View.INVISIBLE) {
-                                        v5.setVisibility(View.VISIBLE);
-                                        break;
-                                    } else if (v6.getVisibility() == View.INVISIBLE) {
-                                        v6.setVisibility(View.VISIBLE);
-                                        break;
-                                    } else if (v7.getVisibility() == View.INVISIBLE) {
-                                        v7.setVisibility(View.VISIBLE);
-                                        break;
-                                    } else if (v8.getVisibility() == View.INVISIBLE) {
-                                        v8.setVisibility(View.VISIBLE);
-                                        break;
-                                    } else if (v9.getVisibility() == View.INVISIBLE) {
-                                        v9.setVisibility(View.VISIBLE);
-                                        break;
+        for(int i=0; i<layoutList.size(); i++) { // 문제 수만큼 반복
+            for(int j=0; j<layoutList.size(); j++) {
+                if(layoutList.get(i).equals(getResources().getIdentifier("q"+(j+1), "drawable", getPackageName()))) { // layoutList[0].equals(R.drawable.q1)와 같은 뜻
+                    ab[i] = (Button) findViewById(Rid_button[j]);
+                    ab[i].setVisibility(View.VISIBLE);
+                    ae[i] = (EditText) findViewById(Rid_edittext[j]);
+                    ae[i].setVisibility(View.VISIBLE);
+                    ab[i].setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View v) {
+                            for (int i=0; i<layoutList.size(); i++) {
+                                for(int j=0; j<layoutList.size(); j++) {
+                                    mInputMethodManager = (InputMethodManager)getSystemService(Context.INPUT_METHOD_SERVICE);
+                                    mInputMethodManager.hideSoftInputFromWindow(ae[j].getWindowToken(), 0); // 키보드 내리기
+                                    imgq1.setImageResource(layoutList.get(j++));
+                                    ae[j++].setVisibility(View.VISIBLE);
+                                    ab[j++].setVisibility(View.VISIBLE);
+                                    hinttext.setVisibility(View.INVISIBLE);
+                                    if(ae[j].getText().toString().equals(answer[j])) {
+                                        score += 10;
+                                        if(v9.getVisibility() == View.VISIBLE) {
+                                            v9.setVisibility(View.INVISIBLE);
+                                        } else if(v8.getVisibility() == View.VISIBLE) {
+                                            v8.setVisibility(View.INVISIBLE);
+                                        } else if(v7.getVisibility() == View.VISIBLE) {
+                                            v7.setVisibility(View.INVISIBLE);
+                                        } else if(v6.getVisibility() == View.VISIBLE) {
+                                            v6.setVisibility(View.INVISIBLE);
+                                        } else if(v5.getVisibility() == View.VISIBLE) {
+                                            v5.setVisibility(View.INVISIBLE);
+                                        } else if(v4.getVisibility() == View.VISIBLE) {
+                                            v4.setVisibility(View.INVISIBLE);
+                                        } else if(v3.getVisibility() == View.VISIBLE) {
+                                            v3.setVisibility(View.INVISIBLE);
+                                        } else if(v2.getVisibility() == View.VISIBLE) {
+                                            v2.setVisibility(View.INVISIBLE);
+                                        } else if(v1.getVisibility() == View.VISIBLE) {
+                                            v1.setVisibility(View.INVISIBLE);
+                                        }
                                     } else {
-                                        v10.setVisibility(View.VISIBLE);
-                                        isRun = false;
-                                        isFirst = false;
-                                        mp.stop();
-                                        finalscore.setText("SCORE : " + String.valueOf(score));
-                                        lineargameover.setVisibility(View.VISIBLE);
+                                        for(int k=0; k<=1; k++) {
+                                            if (v1.getVisibility() == View.INVISIBLE) {
+                                                v1.setVisibility(View.VISIBLE);
+                                                break;
+                                            } else if (v2.getVisibility() == View.INVISIBLE) {
+                                                v2.setVisibility(View.VISIBLE);
+                                                break;
+                                            } else if (v3.getVisibility() == View.INVISIBLE) {
+                                                v3.setVisibility(View.VISIBLE);
+                                                break;
+                                            } else if (v4.getVisibility() == View.INVISIBLE) {
+                                                v4.setVisibility(View.VISIBLE);
+                                                break;
+                                            } else if (v5.getVisibility() == View.INVISIBLE) {
+                                                v5.setVisibility(View.VISIBLE);
+                                                break;
+                                            } else if (v6.getVisibility() == View.INVISIBLE) {
+                                                v6.setVisibility(View.VISIBLE);
+                                                break;
+                                            } else if (v7.getVisibility() == View.INVISIBLE) {
+                                                v7.setVisibility(View.VISIBLE);
+                                                break;
+                                            } else if (v8.getVisibility() == View.INVISIBLE) {
+                                                v8.setVisibility(View.VISIBLE);
+                                                break;
+                                            } else if (v9.getVisibility() == View.INVISIBLE) {
+                                                v9.setVisibility(View.VISIBLE);
+                                                break;
+                                            } else {
+                                                v10.setVisibility(View.VISIBLE);
+                                                isRun = false;
+                                                isFirst = false;
+                                                mp.stop();
+                                                finalscore.setText("SCORE : " + String.valueOf(score));
+                                                lineargameover.setVisibility(View.VISIBLE);
+                                            }
+                                        }
                                     }
                                 }
-                            }
-                            imgq1.setImageResource(layoutList.get(i+1));
-                            ae[i+1].setVisibility(View.VISIBLE);
-                            ab[i+1].setVisibility(View.VISIBLE);
-                            if(hintcount <= 2) {
-                                btnhint.setEnabled(true);
-                            }
-                            if(v10.getVisibility() == View.VISIBLE) {
-                                isRun = false;
-                                isFirst = false;
-                                mp.stop();
-                                finalscore.setText("SCORE : " + String.valueOf(score));
-                                lineargameover.setVisibility(View.VISIBLE);
+                                if(hintcount <= 2) {
+                                    btnhint.setEnabled(true);
+                                }
+                                if(v10.getVisibility() == View.VISIBLE) {
+                                    isRun = false;
+                                    isFirst = false;
+                                    mp.stop();
+                                    finalscore.setText("SCORE : " + String.valueOf(score));
+                                    lineargameover.setVisibility(View.VISIBLE);
+                                }
                             }
                         }
-                    }
-                });
+                    });
+                }
             }
         }
 
@@ -376,6 +372,7 @@ public class GameActivity extends AppCompatActivity {
                 thread2.start();
                 mp.start();
 
+                imgq1.setImageResource(layoutList.get(0));
                 q1.setVisibility(View.VISIBLE);
                 btnhint.setVisibility(View.VISIBLE);
                 btnsoundon.setVisibility(View.VISIBLE);
