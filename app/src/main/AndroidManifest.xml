@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.example.virusgame">
+    package="com.alphavirus.vg21132119">
 
     <application
         android:usesCleartextTraffic="true"
@@ -11,9 +11,9 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".HowActivity" />
+        <activity android:name="com.alphavirus.vg21132119.HowActivity" />
         <activity
-            android:name=".SplashActivity"
+            android:name="com.alphavirus.vg21132119.SplashActivity"
             android:screenOrientation="portrait"
             android:theme="@android:style/Theme.NoTitleBar.Fullscreen">
             <intent-filter>
@@ -23,8 +23,8 @@
             </intent-filter>
         </activity>
 
-        <activity android:name=".MainActivity" />
-        <activity android:name=".GameActivity"
+        <activity android:name="com.alphavirus.vg21132119.MainActivity" />
+        <activity android:name="com.alphavirus.vg21132119.GameActivity"
             android:windowSoftInputMode="adjustResize">
 
         </activity>

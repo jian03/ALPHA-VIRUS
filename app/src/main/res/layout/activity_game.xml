@@ -218,7 +218,7 @@
             <ImageView
                 android:layout_width="350dp"
                 android:layout_height="250dp"
-                
+
                 android:layout_marginLeft="30dp"
                 android:src="@drawable/q3" />
             <EditText
@@ -249,7 +249,7 @@
             <ImageView
                 android:layout_width="350dp"
                 android:layout_height="250dp"
-                
+
                 android:layout_marginLeft="30dp"
                 android:src="@drawable/q4" />
             <EditText
@@ -280,7 +280,7 @@
             <ImageView
                 android:layout_width="350dp"
                 android:layout_height="250dp"
-                
+
                 android:layout_marginLeft="30dp"
                 android:src="@drawable/q5" />
             <EditText
@@ -311,7 +311,7 @@
             <ImageView
                 android:layout_width="350dp"
                 android:layout_height="250dp"
-                
+
                 android:layout_marginLeft="30dp"
                 android:src="@drawable/q6" />
             <EditText
@@ -342,7 +342,7 @@
             <ImageView
                 android:layout_width="350dp"
                 android:layout_height="250dp"
-                
+
                 android:layout_marginLeft="30dp"
                 android:src="@drawable/q7" />
             <EditText
@@ -373,7 +373,7 @@
             <ImageView
                 android:layout_width="350dp"
                 android:layout_height="250dp"
-                
+
                 android:layout_marginLeft="30dp"
                 android:src="@drawable/q8" />
             <EditText
@@ -404,7 +404,7 @@
             <ImageView
                 android:layout_width="350dp"
                 android:layout_height="250dp"
-                
+
                 android:layout_marginLeft="30dp"
                 android:src="@drawable/q9" />
             <EditText
@@ -495,7 +495,7 @@
             <ImageView
                 android:layout_width="350dp"
                 android:layout_height="250dp"
-                
+
                 android:layout_marginLeft="30dp"
                 android:src="@drawable/q12" />
             <EditText
@@ -526,7 +526,7 @@
             <ImageView
                 android:layout_width="350dp"
                 android:layout_height="250dp"
-                
+
                 android:layout_marginLeft="30dp"
                 android:src="@drawable/q13" />
             <EditText
@@ -557,7 +557,7 @@
             <ImageView
                 android:layout_width="350dp"
                 android:layout_height="250dp"
-                
+
                 android:layout_marginLeft="30dp"
                 android:src="@drawable/q14" />
             <EditText
@@ -588,7 +588,7 @@
             <ImageView
                 android:layout_width="350dp"
                 android:layout_height="250dp"
-                
+
                 android:layout_marginLeft="30dp"
                 android:src="@drawable/q15" />
             <EditText
@@ -619,7 +619,7 @@
             <ImageView
                 android:layout_width="350dp"
                 android:layout_height="250dp"
-                
+
                 android:layout_marginLeft="30dp"
                 android:src="@drawable/q16" />
             <EditText
@@ -650,7 +650,7 @@
             <ImageView
                 android:layout_width="350dp"
                 android:layout_height="250dp"
-                
+
                 android:layout_marginLeft="30dp"
                 android:src="@drawable/q17" />
             <EditText
@@ -681,7 +681,7 @@
             <ImageView
                 android:layout_width="350dp"
                 android:layout_height="250dp"
-                
+
                 android:layout_marginLeft="30dp"
                 android:src="@drawable/q18" />
             <EditText
@@ -712,7 +712,7 @@
             <ImageView
                 android:layout_width="350dp"
                 android:layout_height="250dp"
-                
+
                 android:layout_marginLeft="30dp"
                 android:src="@drawable/q19" />
             <EditText
@@ -757,6 +757,315 @@
                 android:paddingLeft="130px" />
             <Button
                 android:id="@+id/ab20"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:layout_gravity="center"
+                android:layout_marginBottom="21.5dp"
+                android:background="@drawable/answer_btn"
+                android:layout_marginLeft="-20dp" />
+        </LinearLayout>
+        <LinearLayout
+            android:id="@+id/q21"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginTop="10dp"
+            android:visibility="invisible">
+            <ImageView
+                android:layout_width="350dp"
+                android:layout_height="250dp"
+                android:layout_marginLeft="30dp"
+                android:src="@drawable/q21" />
+            <EditText
+                android:id="@+id/ae21"
+                android:singleLine="true"
+                android:layout_width="230dp"
+                android:layout_height="50dp"
+                android:layout_gravity="center"
+                android:layout_marginLeft="-312dp"
+                android:layout_marginBottom="20dp"
+                android:background="@drawable/answer_input"
+                android:paddingLeft="130px" />
+            <Button
+                android:id="@+id/ab21"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:layout_gravity="center"
+                android:layout_marginBottom="21.5dp"
+                android:background="@drawable/answer_btn"
+                android:layout_marginLeft="-20dp" />
+        </LinearLayout>
+        <LinearLayout
+            android:id="@+id/q22"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginTop="10dp"
+            android:visibility="invisible">
+            <ImageView
+                android:id="@+id/imgq22"
+                android:layout_width="350dp"
+                android:layout_height="250dp"
+                android:layout_marginLeft="30dp"
+                android:src="@drawable/q22" />
+            <EditText
+                android:id="@+id/ae22"
+                android:singleLine="true"
+                android:layout_width="230dp"
+                android:layout_height="50dp"
+                android:layout_gravity="center"
+                android:layout_marginBottom="20dp"
+                android:layout_marginLeft="-312dp"
+                android:background="@drawable/answer_input"
+                android:paddingLeft="130px" />
+            <Button
+                android:id="@+id/ab22"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:layout_gravity="center"
+                android:layout_marginBottom="21.5dp"
+                android:background="@drawable/answer_btn"
+                android:layout_marginLeft="-20dp" />
+        </LinearLayout>
+        <LinearLayout
+            android:id="@+id/q23"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginTop="10dp"
+            android:visibility="invisible">
+            <ImageView
+                android:id="@+id/imgq23"
+                android:layout_width="350dp"
+                android:layout_height="250dp"
+                android:layout_marginLeft="30dp"
+                android:src="@drawable/q23" />
+            <EditText
+                android:id="@+id/ae23"
+                android:singleLine="true"
+                android:layout_width="230dp"
+                android:layout_height="50dp"
+                android:layout_gravity="center"
+                android:layout_marginBottom="20dp"
+                android:layout_marginLeft="-312dp"
+                android:background="@drawable/answer_input"
+                android:paddingLeft="130px" />
+            <Button
+                android:id="@+id/ab23"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:layout_gravity="center"
+                android:layout_marginBottom="21.5dp"
+                android:background="@drawable/answer_btn"
+                android:layout_marginLeft="-20dp" />
+        </LinearLayout>
+        <LinearLayout
+            android:id="@+id/q24"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginTop="10dp"
+            android:visibility="invisible">
+            <ImageView
+                android:id="@+id/imgq24"
+                android:layout_width="350dp"
+                android:layout_height="250dp"
+                android:layout_marginLeft="30dp"
+                android:src="@drawable/q24" />
+            <EditText
+                android:id="@+id/ae24"
+                android:singleLine="true"
+                android:layout_width="230dp"
+                android:layout_height="50dp"
+                android:layout_gravity="center"
+                android:layout_marginBottom="20dp"
+                android:layout_marginLeft="-312dp"
+                android:background="@drawable/answer_input"
+                android:paddingLeft="130px" />
+            <Button
+                android:id="@+id/ab24"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:layout_gravity="center"
+                android:layout_marginBottom="21.5dp"
+                android:background="@drawable/answer_btn"
+                android:layout_marginLeft="-20dp" />
+        </LinearLayout>
+        <LinearLayout
+            android:id="@+id/q25"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginTop="10dp"
+            android:visibility="invisible">
+            <ImageView
+                android:id="@+id/imgq25"
+                android:layout_width="350dp"
+                android:layout_height="250dp"
+                android:layout_marginLeft="30dp"
+                android:src="@drawable/q25" />
+            <EditText
+                android:id="@+id/ae25"
+                android:singleLine="true"
+                android:layout_width="230dp"
+                android:layout_height="50dp"
+                android:layout_gravity="center"
+                android:layout_marginBottom="20dp"
+                android:layout_marginLeft="-312dp"
+                android:background="@drawable/answer_input"
+                android:paddingLeft="130px" />
+            <Button
+                android:id="@+id/ab25"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:layout_gravity="center"
+                android:layout_marginBottom="21.5dp"
+                android:background="@drawable/answer_btn"
+                android:layout_marginLeft="-20dp" />
+        </LinearLayout>
+        <LinearLayout
+            android:id="@+id/q26"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginTop="10dp"
+            android:visibility="invisible">
+            <ImageView
+                android:id="@+id/imgq26"
+                android:layout_width="350dp"
+                android:layout_height="250dp"
+                android:layout_marginLeft="30dp"
+                android:src="@drawable/q26" />
+            <EditText
+                android:id="@+id/ae26"
+                android:singleLine="true"
+                android:layout_width="230dp"
+                android:layout_height="50dp"
+                android:layout_gravity="center"
+                android:layout_marginBottom="20dp"
+                android:layout_marginLeft="-312dp"
+                android:background="@drawable/answer_input"
+                android:paddingLeft="130px" />
+            <Button
+                android:id="@+id/ab26"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:layout_gravity="center"
+                android:layout_marginBottom="21.5dp"
+                android:background="@drawable/answer_btn"
+                android:layout_marginLeft="-20dp" />
+        </LinearLayout>
+        <LinearLayout
+            android:id="@+id/q27"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginTop="10dp"
+            android:visibility="invisible">
+            <ImageView
+                android:id="@+id/imgq27"
+                android:layout_width="350dp"
+                android:layout_height="250dp"
+                android:layout_marginLeft="30dp"
+                android:src="@drawable/q27" />
+            <EditText
+                android:id="@+id/ae27"
+                android:singleLine="true"
+                android:layout_width="230dp"
+                android:layout_height="50dp"
+                android:layout_gravity="center"
+                android:layout_marginBottom="20dp"
+                android:layout_marginLeft="-312dp"
+                android:background="@drawable/answer_input"
+                android:paddingLeft="130px" />
+            <Button
+                android:id="@+id/ab27"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:layout_gravity="center"
+                android:layout_marginBottom="21.5dp"
+                android:background="@drawable/answer_btn"
+                android:layout_marginLeft="-20dp" />
+        </LinearLayout>
+        <LinearLayout
+            android:id="@+id/q28"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginTop="10dp"
+            android:visibility="invisible">
+            <ImageView
+                android:id="@+id/imgq28"
+                android:layout_width="350dp"
+                android:layout_height="250dp"
+                android:layout_marginLeft="30dp"
+                android:src="@drawable/q28" />
+            <EditText
+                android:id="@+id/ae28"
+                android:singleLine="true"
+                android:layout_width="230dp"
+                android:layout_height="50dp"
+                android:layout_gravity="center"
+                android:layout_marginBottom="20dp"
+                android:layout_marginLeft="-312dp"
+                android:background="@drawable/answer_input"
+                android:paddingLeft="130px" />
+            <Button
+                android:id="@+id/ab28"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:layout_gravity="center"
+                android:layout_marginBottom="21.5dp"
+                android:background="@drawable/answer_btn"
+                android:layout_marginLeft="-20dp" />
+        </LinearLayout>
+        <LinearLayout
+            android:id="@+id/q29"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginTop="10dp"
+            android:visibility="invisible">
+            <ImageView
+                android:id="@+id/imgq29"
+                android:layout_width="350dp"
+                android:layout_height="250dp"
+                android:layout_marginLeft="30dp"
+                android:src="@drawable/q29" />
+            <EditText
+                android:id="@+id/ae29"
+                android:singleLine="true"
+                android:layout_width="230dp"
+                android:layout_height="50dp"
+                android:layout_gravity="center"
+                android:layout_marginBottom="20dp"
+                android:layout_marginLeft="-312dp"
+                android:background="@drawable/answer_input"
+                android:paddingLeft="130px" />
+            <Button
+                android:id="@+id/ab29"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:layout_gravity="center"
+                android:layout_marginBottom="21.5dp"
+                android:background="@drawable/answer_btn"
+                android:layout_marginLeft="-20dp" />
+        </LinearLayout>
+        <LinearLayout
+            android:id="@+id/q30"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginTop="10dp"
+            android:visibility="invisible">
+            <ImageView
+                android:id="@+id/imgq30"
+                android:layout_width="350dp"
+                android:layout_height="250dp"
+                android:layout_marginLeft="30dp"
+                android:src="@drawable/q30" />
+            <EditText
+                android:id="@+id/ae30"
+                android:singleLine="true"
+                android:layout_width="230dp"
+                android:layout_height="50dp"
+                android:layout_gravity="center"
+                android:layout_marginBottom="20dp"
+                android:layout_marginLeft="-312dp"
+                android:background="@drawable/answer_input"
+                android:paddingLeft="130px" />
+            <Button
+                android:id="@+id/ab30"
                 android:layout_width="50dp"
                 android:layout_height="50dp"
                 android:layout_gravity="center"

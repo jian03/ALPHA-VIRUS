@@ -5,7 +5,7 @@ android {
     buildToolsVersion "30.0.2"
 
     defaultConfig {
-        applicationId "com.example.virusgame"
+        applicationId "com.alphavirus.vg21132119"
         minSdkVersion 16
         targetSdkVersion 30
         versionCode 1
